@@ -10,5 +10,6 @@
     <orderEntry type="library" name="hibernate" level="project" />
     <orderEntry type="library" name="lombok" level="project" />
     <orderEntry type="library" name="mysql_connector" level="project" />
+    <orderEntry type="library" name="jfoniex" level="project" />
   </component>
 </module>

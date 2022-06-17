@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/2785.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/476.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_password_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_person_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_visibility_off_white_24dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_visibility_white_24dp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hostel_Management_System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hostel_Management_System.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/util/FactoryConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/util/FactoryConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/resources/hibernate.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +52,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../finalproject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -55,19 +65,28 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System\src\com\hibernate\hostel_management_system\view\asserts\images" />
+      <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System" />
       <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System\libraries\lombok" />
       <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System\libraries\mysql_connector" />
       <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System\libraries\hibernate" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System\libraries\jfoniex" />
+      <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System\src\com\hibernate\hostel_management_system\view\asserts\images" />
+      <recent name="G:\Idea Project\Course Work\ITS 1155 - ORM Concepts Coursework\Hostel_Management_System\src\com\hibernate\hostel_management_system\resources" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -84,7 +103,8 @@
       <workItem from="1655376056112" duration="3497000" />
       <workItem from="1655394191136" duration="967000" />
       <workItem from="1655398492302" duration="1344000" />
-      <workItem from="1655442194161" duration="13288000" />
+      <workItem from="1655442194161" duration="16711000" />
+      <workItem from="1655479738769" duration="1163000" />
     </task>
     <servers />
   </component>

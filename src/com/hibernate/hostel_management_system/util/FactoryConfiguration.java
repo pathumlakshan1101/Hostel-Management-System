@@ -22,7 +22,7 @@ public class FactoryConfiguration {
     private FactoryConfiguration() throws IOException {
         Configuration configuration = new Configuration();
         Properties properties = new Properties();
-        properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+        properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("com/hibernate/hostel_management_system/resources/hibernate.properties"));
         configuration.setProperties(properties);
         //configuration.addAnnotatedClass();
         sessionFactory=configuration.buildSessionFactory();
