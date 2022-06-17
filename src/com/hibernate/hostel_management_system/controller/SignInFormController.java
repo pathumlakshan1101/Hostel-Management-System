@@ -19,15 +19,30 @@ public class SignInFormController {
     public ImageView imgVisibilityOn;
     public ImageView imgVisibilityOff;
 
+    public void initialize() {
+
+        imgVisibilityOff.setVisible(false);
+        txtPassword.setVisible(false);
+    }
+
     public void SignInOnAction(ActionEvent actionEvent) {
     }
 
     public void signUpOnAction(ActionEvent actionEvent) {
     }
 
-    public void visibilityOnMaouseEntered(MouseEvent mouseEvent) {
+    public void visibilityOnMouseEntered(MouseEvent mouseEvent) {
+
+        imgVisibilityOff.setVisible(true);
+        pswdfldPassword.setVisible(false);
+        txtPassword.setVisible(true);
+        txtPassword.setText(pswdfldPassword.getText());
     }
 
-    public void visibilityOnMaouseExited(MouseEvent mouseEvent) {
+    public void visibilityOnMouseExited(MouseEvent mouseEvent) {
+
+        imgVisibilityOff.setVisible(false);
+        pswdfldPassword.setVisible(true);
+        txtPassword.setVisible(false);
     }
 }
