@@ -7,4 +7,5 @@ package com.hibernate.hostel_management_system.bo;
  * Time        : 11:02 PM
  */
 public class BOFactory {
+        private static BOFactory boFactory;
 }
