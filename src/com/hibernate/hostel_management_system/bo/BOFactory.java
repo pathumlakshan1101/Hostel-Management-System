@@ -12,9 +12,6 @@ public class BOFactory {
         private BOFactory(){}
 
         public static BOFactory getBoFactory(){
-                if (boFactory == null){
-                        boFactory=new BOFactory();
-                }
-                return boFactory;
+                return (boFactory == null) ? boFactory=new BOFactory() : boFactory;
         }
 }
