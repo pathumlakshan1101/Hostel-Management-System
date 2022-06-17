@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXPasswordField?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="490.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hibernate.hostel_management_system.controller.SignFormController">
    <children>
@@ -21,54 +17,6 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000aa" height="490.0" stroke="BLACK" strokeType="INSIDE" width="853.0" />
-      <AnchorPane layoutX="2.0" layoutY="4.0" prefHeight="480.0" prefWidth="533.0">
-         <children>
-            <JFXTextField focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="113.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="User Name" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </JFXTextField>
-            <JFXPasswordField focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="215.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Password" style="-fx-prompt-text-fill: #04A5A3; -fx-text-fill: white;" unFocusColor="#038eab">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </JFXPasswordField>
-            <JFXButton layoutX="324.0" layoutY="303.0" prefHeight="33.0" prefWidth="156.0" text="Sign" textFill="#04a5a3">
-               <font>
-                  <Font name="System Bold" size="26.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="70.0" layoutY="316.0" text="Don't have an account?" textFill="#04a5a3">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXButton>
-            <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="113.0" opacity="0.57" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../asserts/images/outline_person_white_48dp.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="215.0" opacity="0.57" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../asserts/images/outline_password_white_48dp.png" />
-               </image>
-            </ImageView>
-            <JFXTextField focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="215.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Password" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </JFXTextField>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="454.0" layoutY="231.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../asserts/images/outline_visibility_white_24dp.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="454.0" layoutY="231.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../asserts/images/outline_visibility_off_white_24dp.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="signPagesContex" layoutX="2.0" layoutY="4.0" prefHeight="480.0" prefWidth="533.0" />
    </children>
 </AnchorPane>
