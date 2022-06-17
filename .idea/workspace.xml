@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/2785.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/476.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_password_white_48dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_person_white_48dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_visibility_off_white_24dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_visibility_white_24dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hostel_Management_System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hostel_Management_System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/util/FactoryConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/util/FactoryConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/resources/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/AppInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +15,7 @@
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="JavaFXApplication" />
       </list>
     </option>
   </component>
@@ -78,6 +69,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="AppInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hibernate.hostel_management_system.AppInitializer" />
+      <module name="Hostel_Management_System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hibernate.hostel_management_system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -91,6 +95,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AppInitializer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -104,7 +113,7 @@
       <workItem from="1655394191136" duration="967000" />
       <workItem from="1655398492302" duration="1344000" />
       <workItem from="1655442194161" duration="16711000" />
-      <workItem from="1655479738769" duration="1163000" />
+      <workItem from="1655479738769" duration="1466000" />
     </task>
     <servers />
   </component>
