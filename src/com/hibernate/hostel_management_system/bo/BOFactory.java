@@ -8,4 +8,13 @@ package com.hibernate.hostel_management_system.bo;
  */
 public class BOFactory {
         private static BOFactory boFactory;
+
+        private BOFactory(){}
+
+        public static BOFactory getBoFactory(){
+                if (boFactory == null){
+                        boFactory=new BOFactory();
+                }
+                return boFactory;
+        }
 }
