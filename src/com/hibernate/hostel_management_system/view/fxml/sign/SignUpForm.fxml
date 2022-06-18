@@ -61,19 +61,19 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </JFXTextField>
-      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="137.0" opacity="0.57" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../asserts/images/outline_call_white_48dp.png" />
-         </image>
-      </ImageView>
       <JFXTextField fx:id="txtEmail" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="224.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="E-Mail" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </JFXTextField>
+      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="137.0" opacity="0.57" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../asserts/images/call.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="224.0" opacity="0.57" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../asserts/images/outline_email_white_48dp.png" />
+            <Image url="@../../asserts/images/email.png" />
          </image>
       </ImageView>
     </children>

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/SignUpFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/SignUpFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_call_white_48dp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/outline_email_white_48dp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignUpForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignUpForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +116,7 @@
       <workItem from="1655442194161" duration="16711000" />
       <workItem from="1655479738769" duration="3675000" />
       <workItem from="1655488745133" duration="7000" />
-      <workItem from="1655519335737" duration="7880000" />
+      <workItem from="1655519335737" duration="9742000" />
     </task>
     <servers />
   </component>
