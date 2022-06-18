@@ -17,6 +17,6 @@ public class SignFormController {
     public AnchorPane signPagesContex;
 
     public void initialize() throws IOException {
-        NavigateUtil.navigationForm(signPagesContex,"sign/SignInForm.fxml");
+        NavigateUtil.navigationForm(signPagesContex,"SignInForm.fxml");
     }
 }
