@@ -4,6 +4,7 @@ import com.hibernate.hostel_management_system.controller.SignFormController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -18,5 +19,9 @@ public class NavigateUtil {
         anchorPane.getChildren().clear();
         Parent parent = FXMLLoader.load(SignFormController.class.getResource("../view/fxml/sign/"+url+""));
         anchorPane.getChildren().add(parent);
+    }
+    public static void closeForm(AnchorPane anchorPane){
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 }

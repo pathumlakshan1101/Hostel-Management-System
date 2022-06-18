@@ -1,8 +1,7 @@
 package com.hibernate.hostel_management_system.controller;
 
 import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -18,5 +17,9 @@ public class SignFormController {
 
     public void initialize() throws IOException {
         NavigateUtil.navigationForm(signPagesContex,"SignInForm.fxml");
+    }
+
+    public void cancelOnAction(ActionEvent actionEvent) {
+
     }
 }
