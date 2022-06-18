@@ -1,5 +1,6 @@
 package com.hibernate.hostel_management_system.controller;
 
+import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
@@ -16,8 +17,6 @@ public class SignFormController {
     public AnchorPane signPagesContex;
 
     public void initialize() throws IOException {
-        signPagesContex.getChildren().clear();
-        Parent parent = FXMLLoader.load(SignFormController.class.getResource("../view/fxml/sign/SignInForm.fxml"));
-        signPagesContex.getChildren().add(parent);
+        NavigateUtil.navigationForm(signPagesContex,"sign/SignInForm.fxml");
     }
 }
