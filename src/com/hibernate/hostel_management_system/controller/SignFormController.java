@@ -20,6 +20,6 @@ public class SignFormController {
     }
 
     public void cancelOnAction(ActionEvent actionEvent) {
-
+        NavigateUtil.closeForm(signPagesContex);
     }
 }
