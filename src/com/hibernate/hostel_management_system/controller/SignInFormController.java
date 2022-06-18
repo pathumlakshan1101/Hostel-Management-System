@@ -1,10 +1,14 @@
 package com.hibernate.hostel_management_system.controller;
 
+import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 /**
  * @author : ALE_IS_TER
@@ -18,6 +22,7 @@ public class SignInFormController {
     public JFXTextField txtPassword;
     public ImageView imgVisibilityOn;
     public ImageView imgVisibilityOff;
+    public AnchorPane signInContex;
 
     public void initialize() {
 
@@ -28,7 +33,9 @@ public class SignInFormController {
     public void SignInOnAction(ActionEvent actionEvent) {
     }
 
-    public void signUpOnAction(ActionEvent actionEvent) {
+    public void signUpOnAction(ActionEvent actionEvent) throws IOException {
+        NavigateUtil.navigationForm(signInContex,"SignUpForm.fxml");
+
     }
 
     public void visibilityOnMouseEntered(MouseEvent mouseEvent) {
