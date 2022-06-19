@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hibernate.hostel_management_system.controller.DashBoardFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../asserts/styles/DarkMode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hibernate.hostel_management_system.controller.dashboard.DashBoardFormController">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../asserts/images/476.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000ac" height="1080.0" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
+      <BorderPane prefHeight="1080.0" prefWidth="1920.0">
+         <top>
+            <AnchorPane prefHeight="61.0" prefWidth="1920.0" stylesheets="@../../asserts/styles/button.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton layoutX="99.0" layoutY="10.0" prefHeight="34.0" prefWidth="173.0" styleClass="menuItem" text="Reserve Room" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="294.0" layoutY="10.0" prefHeight="34.0" prefWidth="173.0" styleClass="menuItem" text="Reserve Room" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="42.0" fitWidth="49.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#hamburgerMenuOnMouseClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../asserts/images/icons8-menu-50.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
 </AnchorPane>

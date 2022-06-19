@@ -1,10 +1,12 @@
 package com.hibernate.hostel_management_system.controller.util;
 
-import com.hibernate.hostel_management_system.controller.SignFormController;
+import com.hibernate.hostel_management_system.controller.sign.SignFormController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -15,11 +17,22 @@ import java.io.IOException;
  * Time        : 7:44 PM
  */
 public class NavigateUtil {
-    public static void navigationForm(AnchorPane anchorPane,String url) throws IOException {
+    public static void  navigationForm(AnchorPane anchorPane, String url,String title) throws IOException {
+
         anchorPane.getChildren().clear();
-        Parent parent = FXMLLoader.load(SignFormController.class.getResource("../view/fxml/sign/"+url+""));
+        Parent parent = FXMLLoader.load(NavigateUtil.class.getResource("../../view/fxml/"+url+".fxml"));
         anchorPane.getChildren().add(parent);
     }
+
+    public static void newUi(AnchorPane anchorPane, String url,String title) throws IOException {
+        Stage stage=(Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(NavigateUtil.class.getResource("../../view/fxml/"+url+".fxml"))));
+        stage.centerOnScreen();
+        stage.setTitle(title);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
     public static void closeForm(AnchorPane anchorPane){
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();

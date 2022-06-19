@@ -1,4 +1,4 @@
-package com.hibernate.hostel_management_system.controller;
+package com.hibernate.hostel_management_system.controller.sign;
 
 import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
 import com.jfoenix.controls.JFXPasswordField;
@@ -33,12 +33,12 @@ public class SignUpFormController {
 
     public void signUpOnAction(ActionEvent actionEvent) throws IOException {
 
-        NavigateUtil.navigationForm(signUpContex,"SignInForm.fxml");
+        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm","Sign In");
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {
 
-        NavigateUtil.navigationForm(signUpContex,"SignInForm.fxml");
+        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm","Sign In");
     }
 
     public void visibilityOnMouseEntered(MouseEvent mouseEvent) {
