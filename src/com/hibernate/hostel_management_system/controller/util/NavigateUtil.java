@@ -17,18 +17,17 @@ import java.io.IOException;
  * Time        : 7:44 PM
  */
 public class NavigateUtil {
-    public static void  navigationForm(AnchorPane anchorPane, String url,String title) throws IOException {
+    public static void  navigationForm(AnchorPane anchorPane, String url) throws IOException {
 
         anchorPane.getChildren().clear();
         Parent parent = FXMLLoader.load(NavigateUtil.class.getResource("../../view/fxml/"+url+".fxml"));
         anchorPane.getChildren().add(parent);
     }
 
-    public static void newUi(AnchorPane anchorPane, String url,String title) throws IOException {
+    public static void newUi(AnchorPane anchorPane, String url) throws IOException {
         Stage stage=(Stage) anchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(NavigateUtil.class.getResource("../../view/fxml/"+url+".fxml"))));
         stage.centerOnScreen();
-        stage.setTitle(title);
         stage.centerOnScreen();
         stage.show();
     }

@@ -33,12 +33,12 @@ public class SignUpFormController {
 
     public void signUpOnAction(ActionEvent actionEvent) throws IOException {
 
-        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm","Sign In");
+        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {
 
-        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm","Sign In");
+        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
     }
 
     public void visibilityOnMouseEntered(MouseEvent mouseEvent) {

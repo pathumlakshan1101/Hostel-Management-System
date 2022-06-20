@@ -31,12 +31,12 @@ public class SignInFormController {
     }
 
     public void SignInOnAction(ActionEvent actionEvent) throws IOException {
-        NavigateUtil.newUi(signInContex,"dashboard/DashBoardForm","DashBoard");
+        NavigateUtil.newUi(signInContex,"dashboard/DashBoardForm");
 
     }
 
     public void signUpOnAction(ActionEvent actionEvent) throws IOException {
-        NavigateUtil.navigationForm(signInContex,"sign/SignUpForm","Sign Up");
+        NavigateUtil.navigationForm(signInContex,"sign/SignUpForm");
 
     }
 

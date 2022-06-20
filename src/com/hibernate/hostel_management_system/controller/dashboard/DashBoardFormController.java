@@ -20,12 +20,14 @@ public class DashBoardFormController {
     public JFXButton r2;
     public AnchorPane dashBoardContex;
     public JFXButton btnReserveRoom;
-    public AnchorPane WorkingContex;
+    public AnchorPane workingContex;
     boolean b=false;
 
-    public void initialize(){
+    public void initialize() throws IOException {
         btnReserveRoom.setVisible(false);
         r2.setVisible(false);
+        openReservePage();
+
     }
 
     public void hamburgerMenuOnMouseClick(MouseEvent mouseEvent) {
@@ -40,18 +42,25 @@ public class DashBoardFormController {
         }
     }
 
-    public void homeDashBoardOnMouseClick(MouseEvent mouseEvent) {
+    public void homeDashBoardOnMouseClick(MouseEvent mouseEvent) throws IOException {
+        openReservePage();
     }
 
     public void logOutDashBoardOnMouseClick(MouseEvent mouseEvent) throws IOException {
-        NavigateUtil.newUi(dashBoardContex,"sign/SignForm","Sign In");
+        NavigateUtil.newUi(dashBoardContex,"sign/SignForm");
     }
 
     public void closeDashBoardOnMouseClick(MouseEvent mouseEvent) {
         NavigateUtil.closeForm(dashBoardContex);
     }
 
-    public void reserveRoomOnAction(ActionEvent actionEvent) {
+    public void reserveRoomOnAction(ActionEvent actionEvent) throws IOException {
 
+        openReservePage();
     }
+
+    private void openReservePage() throws IOException {
+        NavigateUtil.navigationForm(workingContex,"dashboard/ReserveRoomForm");
+    }
+
 }

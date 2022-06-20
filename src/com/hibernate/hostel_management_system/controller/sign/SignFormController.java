@@ -16,7 +16,7 @@ public class SignFormController {
     public AnchorPane signPagesContex;
 
     public void initialize() throws IOException {
-        NavigateUtil.navigationForm(signPagesContex,"sign/SignInForm","Sign In");
+        NavigateUtil.navigationForm(signPagesContex,"sign/SignInForm");
     }
 
     public void cancelOnAction(ActionEvent actionEvent) {
