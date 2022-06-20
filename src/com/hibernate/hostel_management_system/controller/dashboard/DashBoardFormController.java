@@ -40,9 +40,12 @@ public class DashBoardFormController {
     public void homeDashBoardOnMouseClick(MouseEvent mouseEvent) {
     }
 
-    public void logOutDashBoardOnMouseClick(MouseEvent mouseEvent) {
+    public void logOutDashBoardOnMouseClick(MouseEvent mouseEvent) throws IOException {
+        NavigateUtil.newUi(dashBoardContex,"sign/SignForm","Sign In");
     }
 
     public void closeDashBoardOnMouseClick(MouseEvent mouseEvent) {
+        NavigateUtil.closeForm(dashBoardContex);
     }
+
 }
