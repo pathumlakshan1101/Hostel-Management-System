@@ -21,37 +21,37 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000098" height="490.0" stroke="BLACK" strokeType="INSIDE" width="853.0" />
       <AnchorPane fx:id="signPagesContex" layoutX="2.0" layoutY="4.0" prefHeight="480.0" prefWidth="533.0" />
-      <Label layoutX="590.0" layoutY="31.0" opacity="0.68" prefHeight="51.0" prefWidth="213.0" text="D24 Hostel" textAlignment="CENTER" textFill="#04a5a3">
+      <Label layoutX="590.0" layoutY="31.0" opacity="0.68" prefHeight="51.0" prefWidth="213.0" text="D24 Hostel" textAlignment="CENTER" textFill="#00fff6">
          <font>
             <Font name="Sitka Small Bold" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="537.0" layoutY="93.0" opacity="0.68" prefHeight="51.0" prefWidth="301.0" text="Leading hostel accommodation" textAlignment="CENTER" textFill="#04a5a3">
+      <Label layoutX="537.0" layoutY="93.0" opacity="0.68" prefHeight="51.0" prefWidth="301.0" text="Leading hostel accommodation" textAlignment="CENTER" textFill="#00fff6">
          <font>
             <Font name="Sitka Small Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="537.0" layoutY="135.0" opacity="0.68" prefHeight="51.0" prefWidth="301.0" text=" in Colombo area." textAlignment="CENTER" textFill="#04a5a3">
+      <Label layoutX="537.0" layoutY="135.0" opacity="0.68" prefHeight="51.0" prefWidth="301.0" text=" in Colombo area." textAlignment="CENTER" textFill="#00fff6">
          <font>
             <Font name="Sitka Small Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="537.0" layoutY="244.0" opacity="0.68" prefHeight="24.0" prefWidth="301.0" text="It could reserve" textAlignment="CENTER" textFill="#04a5a3">
+      <Label layoutX="537.0" layoutY="244.0" opacity="0.68" prefHeight="24.0" prefWidth="301.0" text="It could reserve" textAlignment="CENTER" textFill="#00fff6">
          <font>
             <Font name="Verdana" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="537.0" layoutY="268.0" opacity="0.68" prefHeight="24.0" prefWidth="301.0" text="rooms for all university students who" textAlignment="CENTER" textFill="#04a5a3">
+      <Label layoutX="537.0" layoutY="268.0" opacity="0.68" prefHeight="24.0" prefWidth="301.0" text="rooms for all university students who" textAlignment="CENTER" textFill="#00fff6">
          <font>
             <Font name="Verdana" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="537.0" layoutY="292.0" opacity="0.68" prefHeight="24.0" prefWidth="301.0" text="are studying on Colombo campuses. " textAlignment="CENTER" textFill="#04a5a3">
+      <Label layoutX="537.0" layoutY="292.0" opacity="0.68" prefHeight="24.0" prefWidth="301.0" text="are studying on Colombo campuses. " textAlignment="CENTER" textFill="#00fff6">
          <font>
             <Font name="Verdana" size="13.0" />
          </font>
       </Label>
-      <JFXButton layoutX="721.0" layoutY="374.0" onAction="#cancelOnAction" opacity="0.66" text="cancel" textFill="#04a5a3">
+      <JFXButton layoutX="721.0" layoutY="374.0" onAction="#cancelOnAction" opacity="0.66" text="cancel" textFill="#00fff6">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
