@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/images/icons8-menu-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/styles/DarkMode.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/asserts/styles/button.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/DashBoardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/DashBoardFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/SignFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/SignFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/SignInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/SignInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/SignUpFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/SignUpFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/DashBoardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/DashBoardFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/util/NavigateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/util/NavigateUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/DashBoardForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/DashBoardForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignInForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignInForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignUpForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/sign/SignUpForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +85,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppInitializer" />
@@ -115,7 +117,8 @@
       <workItem from="1655479738769" duration="3675000" />
       <workItem from="1655488745133" duration="7000" />
       <workItem from="1655519335737" duration="15486000" />
-      <workItem from="1655607485750" duration="2635000" />
+      <workItem from="1655607485750" duration="5064000" />
+      <workItem from="1655687487583" duration="816000" />
     </task>
     <servers />
   </component>
