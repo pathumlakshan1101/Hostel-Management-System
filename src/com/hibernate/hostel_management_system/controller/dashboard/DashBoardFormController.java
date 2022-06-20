@@ -3,6 +3,7 @@ package com.hibernate.hostel_management_system.controller.dashboard;
 import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -21,6 +22,7 @@ public class DashBoardFormController {
     public AnchorPane dashBoardContex;
     public JFXButton btnReserveRoom;
     public AnchorPane workingContex;
+    public ImageView imgHome;
     boolean b=false;
 
     public void initialize() throws IOException {
@@ -61,6 +63,7 @@ public class DashBoardFormController {
 
     private void openReservePage() throws IOException {
         NavigateUtil.navigationForm(workingContex,"dashboard/ReserveRoomForm");
+        imgHome.setVisible(false);
     }
 
 }

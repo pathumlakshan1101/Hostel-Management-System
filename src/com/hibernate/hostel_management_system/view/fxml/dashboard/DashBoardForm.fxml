@@ -35,7 +35,7 @@
                         <Image url="@../../asserts/images/icons8-menu-50.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="1664.0" layoutY="10.0" onMouseClicked="#homeDashBoardOnMouseClick" opacity="0.73" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgHome" fitHeight="42.0" fitWidth="42.0" layoutX="1664.0" layoutY="10.0" onMouseClicked="#homeDashBoardOnMouseClick" opacity="0.73" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../asserts/images/outline_home_white_48dp.png" />
                      </image>
