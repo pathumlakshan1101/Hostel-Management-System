@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../asserts/styles/DarkMode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hibernate.hostel_management_system.controller.dashboard.DashBoardFormController">
+<AnchorPane fx:id="dashBoardContex" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../asserts/styles/DarkMode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hibernate.hostel_management_system.controller.dashboard.DashBoardFormController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true">
          <image>
@@ -30,14 +30,32 @@
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="42.0" fitWidth="49.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#hamburgerMenuOnMouseClick" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#hamburgerMenuOnMouseClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../asserts/images/icons8-menu-50.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="1664.0" layoutY="10.0" onMouseClicked="#homeDashBoardOnMouseClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../asserts/images/outline_home_white_48dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="1764.0" layoutY="10.0" onMouseClicked="#logOutDashBoardOnMouseClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../asserts/images/outline_login_white_48dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="1864.0" layoutY="10.0" onMouseClicked="#closeDashBoardOnMouseClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../asserts/images/outline_close_white_48dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
          </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

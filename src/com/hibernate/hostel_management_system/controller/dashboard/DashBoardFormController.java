@@ -1,7 +1,11 @@
 package com.hibernate.hostel_management_system.controller.dashboard;
 
+import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 /**
  * @author : ALE_IS_TER
@@ -13,6 +17,7 @@ public class DashBoardFormController {
 
     public JFXButton r1;
     public JFXButton r2;
+    public AnchorPane dashBoardContex;
     boolean b=false;
 
     public void initialize(){
@@ -21,14 +26,23 @@ public class DashBoardFormController {
     }
 
     public void hamburgerMenuOnMouseClick(MouseEvent mouseEvent) {
-        if (b==false){
+        if (!b){
             r1.setVisible(true);
             r2.setVisible(true);
             b=true;
-        }else if (b==true){
+        }else if (b){
             r1.setVisible(false);
             r2.setVisible(false);
             b=false;
         }
+    }
+
+    public void homeDashBoardOnMouseClick(MouseEvent mouseEvent) {
+    }
+
+    public void logOutDashBoardOnMouseClick(MouseEvent mouseEvent) {
+    }
+
+    public void closeDashBoardOnMouseClick(MouseEvent mouseEvent) {
     }
 }
