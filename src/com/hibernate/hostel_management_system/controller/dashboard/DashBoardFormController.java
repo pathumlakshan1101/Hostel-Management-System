@@ -18,16 +18,16 @@ import java.io.IOException;
 public class DashBoardFormController {
 
 
-    public JFXButton r2;
     public AnchorPane dashBoardContex;
     public JFXButton btnReserveRoom;
     public AnchorPane workingContex;
     public ImageView imgHome;
+    public JFXButton btnManageForm;
     boolean b=false;
 
     public void initialize() throws IOException {
         btnReserveRoom.setVisible(false);
-        r2.setVisible(false);
+        btnManageForm.setVisible(false);
         openReservePage();
 
     }
@@ -35,11 +35,11 @@ public class DashBoardFormController {
     public void hamburgerMenuOnMouseClick(MouseEvent mouseEvent) {
         if (!b){
             btnReserveRoom.setVisible(true);
-            r2.setVisible(true);
+            btnManageForm.setVisible(true);
             b=true;
         }else if (b){
             btnReserveRoom.setVisible(false);
-            r2.setVisible(false);
+            btnManageForm.setVisible(false);
             b=false;
         }
     }
@@ -66,4 +66,8 @@ public class DashBoardFormController {
         imgHome.setVisible(false);
     }
 
+    public void manageOnAction(ActionEvent actionEvent) throws IOException {
+        NavigateUtil.navigationForm(workingContex,"dashboard/ManageForm");
+        imgHome.setVisible(true);
+    }
 }

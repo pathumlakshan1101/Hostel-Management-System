@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hostel_Management_System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hostel_Management_System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/resources/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/resources/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/DashBoardForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/DashBoardForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/ManageForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/ManageForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="xpath.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -122,7 +122,7 @@
       <workItem from="1655687487583" duration="7299000" />
       <workItem from="1655703017533" duration="13105000" />
       <workItem from="1655781215774" duration="882000" />
-      <workItem from="1655816234039" duration="335000" />
+      <workItem from="1655816234039" duration="2473000" />
     </task>
     <servers />
   </component>
