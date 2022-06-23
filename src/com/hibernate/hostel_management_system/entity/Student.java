@@ -2,6 +2,10 @@ package com.hibernate.hostel_management_system.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : ALE_IS_TER
@@ -19,6 +23,21 @@ public class Student {
         private String studentContact;
         private String dateOfBirth;
         private String gender;
+        @ManyToOne
+        private User user;
+        @OneToMany(mappedBy = "student")
+        private  List<Reservation> reservationList = new ArrayList<>();
+
+    public Student(String studentID, String studentName, String studentAddress, String studentContact, String dateOfBirth, String gender, User user, List<Reservation> reservationList) {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.studentAddress = studentAddress;
+        this.studentContact = studentContact;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.user = user;
+        this.reservationList = reservationList;
+    }
 
     public Student(String studentID, String studentName, String studentAddress, String studentContact, String dateOfBirth, String gender) {
         this.studentID = studentID;
@@ -80,6 +99,22 @@ public class Student {
         this.gender = gender;
     }
 
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -89,6 +124,8 @@ public class Student {
                 ", studentContact='" + studentContact + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", gender='" + gender + '\'' +
+                ", user=" + user +
+                ", reservationList=" + reservationList +
                 '}';
     }
 }

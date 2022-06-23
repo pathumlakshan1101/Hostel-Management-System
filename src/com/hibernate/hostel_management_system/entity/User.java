@@ -2,6 +2,9 @@ package com.hibernate.hostel_management_system.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : ALE_IS_TER
@@ -16,6 +19,17 @@ public class User {
     private String contactNo;
     private String email;
     private String password;
+    @OneToMany
+    private
+    List<Student> studentList = new ArrayList<>();
+
+    public User(String userName, String contactNo, String email, String password, List<Student> studentList) {
+        this.userName = userName;
+        this.contactNo = contactNo;
+        this.email = email;
+        this.password = password;
+        this.studentList = studentList;
+    }
 
     public User(String userName, String contactNo, String email, String password) {
         this.userName = userName;
@@ -59,6 +73,14 @@ public class User {
         this.password = password;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -66,6 +88,7 @@ public class User {
                 ", contactNo='" + contactNo + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", studentList=" + studentList +
                 '}';
     }
 }

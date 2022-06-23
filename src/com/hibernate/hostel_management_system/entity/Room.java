@@ -2,6 +2,9 @@ package com.hibernate.hostel_management_system.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : ALE_IS_TER
@@ -16,6 +19,8 @@ public class Room {
     private String roomType;
     private double monthlyRental;
     private int qty;
+    @OneToMany(mappedBy = "room")
+    private List<Reservation> reservationList = new ArrayList<>();
 
     public Room() {
     }
@@ -25,6 +30,14 @@ public class Room {
         this.roomType = roomType;
         this.monthlyRental = monthlyRental;
         this.qty = qty;
+    }
+
+    public Room(String roomID, String roomType, double monthlyRental, int qty, List<Reservation> reservationList) {
+        this.roomID = roomID;
+        this.roomType = roomType;
+        this.monthlyRental = monthlyRental;
+        this.qty = qty;
+        this.reservationList = reservationList;
     }
 
     public String getRoomID() {
@@ -59,6 +72,14 @@ public class Room {
         this.qty = qty;
     }
 
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
@@ -66,6 +87,7 @@ public class Room {
                 ", roomType='" + roomType + '\'' +
                 ", monthlyRental=" + monthlyRental +
                 ", qty=" + qty +
+                ", reservationList=" + reservationList +
                 '}';
     }
 }
