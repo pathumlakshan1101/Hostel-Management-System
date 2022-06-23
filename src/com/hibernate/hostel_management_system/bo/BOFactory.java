@@ -1,5 +1,7 @@
 package com.hibernate.hostel_management_system.bo;
 
+import com.hibernate.hostel_management_system.bo.custom.impl.ForgetBOImpl;
+
 /**
  * @author : ALE_IS_TER
  * Project Name: Hostel_Management_System
@@ -14,4 +16,6 @@ public class BOFactory {
         public static BOFactory getBoFactory(){
                 return (boFactory == null) ? boFactory=new BOFactory() : boFactory;
         }
+
+
 }

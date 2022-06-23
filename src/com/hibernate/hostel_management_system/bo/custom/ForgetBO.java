@@ -1,5 +1,7 @@
 package com.hibernate.hostel_management_system.bo.custom;
 
+import com.hibernate.hostel_management_system.bo.SuperBO;
+
 /**
  * @author : ALE_IS_TER
  * Project Name: Hostel_Management_System
@@ -8,5 +10,5 @@ package com.hibernate.hostel_management_system.bo.custom;
  * @Since : 0.1.0
  */
 
-public interface ForgetBO {
+public interface ForgetBO extends SuperBO {
 }
