@@ -19,7 +19,7 @@ public class User {
     private String contactNo;
     private String email;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private
     List<Student> studentList = new ArrayList<>();
 
