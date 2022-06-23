@@ -1,5 +1,12 @@
 package com.hibernate.hostel_management_system.controller.sign;
 
+import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
+import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
+
 /**
  * @author : ALE_IS_TER
  * Project Name: Hostel_Management_System
@@ -7,4 +14,15 @@ package com.hibernate.hostel_management_system.controller.sign;
  * Time        : 4:08 PM
  */
 public class ForgetFormController {
+
+    public JFXTextField txtUserName;
+    public JFXTextField txtEmailOrContact;
+    public AnchorPane forgetContex;
+
+    public void ForgetOnAction(ActionEvent actionEvent) {
+    }
+
+    public void signInOnAction(ActionEvent actionEvent) throws IOException {
+        NavigateUtil.navigationForm(forgetContex,"sign/SignInForm");
+    }
 }

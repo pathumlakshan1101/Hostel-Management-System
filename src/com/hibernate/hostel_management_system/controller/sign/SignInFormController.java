@@ -54,4 +54,8 @@ public class SignInFormController {
         pswdfldPassword.setVisible(true);
         txtPassword.setVisible(false);
     }
+
+    public void forgetPasswordOnAction(ActionEvent actionEvent) throws IOException {
+        NavigateUtil.navigationForm(signInContex,"sign/ForgetForm");
+    }
 }
