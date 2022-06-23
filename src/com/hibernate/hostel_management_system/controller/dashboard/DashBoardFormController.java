@@ -23,11 +23,13 @@ public class DashBoardFormController {
     public AnchorPane workingContex;
     public ImageView imgHome;
     public JFXButton btnManageForm;
+    public JFXButton btnIncome;
     boolean b=false;
 
     public void initialize() throws IOException {
         btnReserveRoom.setVisible(false);
         btnManageForm.setVisible(false);
+        btnIncome.setVisible(false);
         openReservePage();
 
     }
@@ -36,10 +38,12 @@ public class DashBoardFormController {
         if (!b){
             btnReserveRoom.setVisible(true);
             btnManageForm.setVisible(true);
+            btnIncome.setVisible(true);
             b=true;
         }else if (b){
             btnReserveRoom.setVisible(false);
             btnManageForm.setVisible(false);
+            btnIncome.setVisible(false);
             b=false;
         }
     }
@@ -68,6 +72,11 @@ public class DashBoardFormController {
 
     public void manageOnAction(ActionEvent actionEvent) throws IOException {
         NavigateUtil.navigationForm(workingContex,"dashboard/ManageForm");
+        imgHome.setVisible(true);
+    }
+
+    public void incomeOnAction(ActionEvent actionEvent) throws IOException {
+        NavigateUtil.navigationForm(workingContex,"dashboard/IncomeForm");
         imgHome.setVisible(true);
     }
 }

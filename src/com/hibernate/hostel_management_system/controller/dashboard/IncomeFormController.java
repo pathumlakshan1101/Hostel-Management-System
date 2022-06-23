@@ -6,5 +6,5 @@ package com.hibernate.hostel_management_system.controller.dashboard;
  * Date        : 6/22/2022
  * Time        : 3:36 AM
  */
-public class SystemReportFormController {
+public class IncomeFormController {
 }

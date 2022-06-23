@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/IncomeForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/DashBoardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/DashBoardFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/SystemReportFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/IncomeFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/DashBoardForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/DashBoardForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/ManageForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/ManageForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/SystemReportForm.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +88,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppInitializer" />
@@ -109,6 +126,9 @@
       <workItem from="1655781215774" duration="882000" />
       <workItem from="1655816234039" duration="3443000" />
       <workItem from="1655820294745" duration="2172000" />
+      <workItem from="1655892170159" duration="4925000" />
+      <workItem from="1655906921327" duration="4177000" />
+      <workItem from="1655952513781" duration="1357000" />
     </task>
     <servers />
   </component>
@@ -126,5 +146,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
