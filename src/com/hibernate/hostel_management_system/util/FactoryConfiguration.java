@@ -3,6 +3,8 @@ package com.hibernate.hostel_management_system.util;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.hibernate.hostel_management_system.entity.Student;
+import com.hibernate.hostel_management_system.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -24,7 +26,8 @@ public class FactoryConfiguration {
         Properties properties = new Properties();
         properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("com/hibernate/hostel_management_system/resources/hibernate.properties"));
         configuration.setProperties(properties);
-        //configuration.addAnnotatedClass();
+        configuration.addAnnotatedClass(User.class)
+        .addAnnotatedClass(Student.class);
         sessionFactory=configuration.buildSessionFactory();
     }
 
