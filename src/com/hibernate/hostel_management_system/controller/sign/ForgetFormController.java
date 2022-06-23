@@ -19,7 +19,8 @@ public class ForgetFormController {
     public JFXTextField txtEmailOrContact;
     public AnchorPane forgetContex;
 
-    public void ForgetOnAction(ActionEvent actionEvent) {
+    public void ForgetOnAction(ActionEvent actionEvent) throws IOException {
+        NavigateUtil.navigationForm(forgetContex,"sign/UpdateUserForm");
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {
