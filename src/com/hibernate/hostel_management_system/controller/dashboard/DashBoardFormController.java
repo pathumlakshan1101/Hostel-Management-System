@@ -1,6 +1,6 @@
 package com.hibernate.hostel_management_system.controller.dashboard;
 
-import com.hibernate.hostel_management_system.controller.util.ControllerUtil;
+import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
@@ -53,11 +53,11 @@ public class DashBoardFormController {
     }
 
     public void logOutDashBoardOnMouseClick(MouseEvent mouseEvent) throws IOException {
-        ControllerUtil.newUi(dashBoardContex,"sign/SignForm");
+        UiNavigateUtil.newUi(dashBoardContex,"sign/SignForm");
     }
 
     public void closeDashBoardOnMouseClick(MouseEvent mouseEvent) {
-        ControllerUtil.closeForm(dashBoardContex);
+        UiNavigateUtil.closeForm(dashBoardContex);
     }
 
     public void reserveRoomOnAction(ActionEvent actionEvent) throws IOException {
@@ -66,17 +66,17 @@ public class DashBoardFormController {
     }
 
     private void openReservePage() throws IOException {
-        ControllerUtil.navigationForm(workingContex,"dashboard/ReserveRoomForm");
+        UiNavigateUtil.navigationForm(workingContex,"dashboard/ReserveRoomForm");
         imgHome.setVisible(false);
     }
 
     public void manageOnAction(ActionEvent actionEvent) throws IOException {
-        ControllerUtil.navigationForm(workingContex,"dashboard/ManageForm");
+        UiNavigateUtil.navigationForm(workingContex,"dashboard/ManageForm");
         imgHome.setVisible(true);
     }
 
     public void incomeOnAction(ActionEvent actionEvent) throws IOException {
-        ControllerUtil.navigationForm(workingContex,"dashboard/IncomeForm");
+        UiNavigateUtil.navigationForm(workingContex,"dashboard/IncomeForm");
         imgHome.setVisible(true);
     }
 }

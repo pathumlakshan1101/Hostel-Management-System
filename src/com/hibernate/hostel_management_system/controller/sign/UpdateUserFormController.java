@@ -1,6 +1,6 @@
 package com.hibernate.hostel_management_system.controller.sign;
 
-import com.hibernate.hostel_management_system.controller.util.ControllerUtil;
+import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -38,7 +38,7 @@ public class UpdateUserFormController {
     }
 
     private void navigateSignInPage() throws IOException {
-        ControllerUtil.navigationForm(updateContex,"sign/SignInForm");
+        UiNavigateUtil.navigationForm(updateContex,"sign/SignInForm");
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {

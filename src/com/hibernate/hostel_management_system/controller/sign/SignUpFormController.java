@@ -2,7 +2,8 @@ package com.hibernate.hostel_management_system.controller.sign;
 
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.SignUpBO;
-import com.hibernate.hostel_management_system.controller.util.ControllerUtil;
+import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
+import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.hibernate.hostel_management_system.dto.UserDTO;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -41,17 +42,17 @@ public class SignUpFormController {
         if (
         signUpBO.saveUser(new UserDTO(txtFullName.getText(),txtContactNo.getText(),txtEmail.getText(),pswdfldPassword.getText()))
         ){
-            ControllerUtil.notificationsConfirm("Save User Detail","SAVE!");
+            NotificationUtil.notificationsConfirm("Save User Detail","SAVE!");
         }else {
-            ControllerUtil.notificationsError("Can't Save User Detail","ERROR!");
+            NotificationUtil.notificationsError("Can't Save User Detail","ERROR!");
         }
 
-        ControllerUtil.navigationForm(signUpContex,"sign/SignInForm");
+        UiNavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {
 
-        ControllerUtil.navigationForm(signUpContex,"sign/SignInForm");
+        UiNavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
     }
 
     public void visibilityOnMouseEntered(MouseEvent mouseEvent) {

@@ -1,6 +1,6 @@
 package com.hibernate.hostel_management_system.controller.sign;
 
-import com.hibernate.hostel_management_system.controller.util.ControllerUtil;
+import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -16,10 +16,10 @@ public class SignFormController {
     public AnchorPane signPagesContex;
 
     public void initialize() throws IOException {
-        ControllerUtil.navigationForm(signPagesContex,"sign/SignInForm");
+        UiNavigateUtil.navigationForm(signPagesContex,"sign/SignInForm");
     }
 
     public void cancelOnAction(ActionEvent actionEvent) {
-        ControllerUtil.closeForm(signPagesContex);
+        UiNavigateUtil.closeForm(signPagesContex);
     }
 }
