@@ -1,6 +1,9 @@
 package com.hibernate.hostel_management_system.controller.sign;
 
-import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
+import com.hibernate.hostel_management_system.bo.BOFactory;
+import com.hibernate.hostel_management_system.bo.custom.SignUpBO;
+import com.hibernate.hostel_management_system.controller.util.ControllerUtil;
+import com.hibernate.hostel_management_system.dto.UserDTO;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -25,6 +28,7 @@ public class SignUpFormController {
     public JFXTextField txtContactNo;
     public JFXTextField txtEmail;
     public AnchorPane signUpContex;
+    private SignUpBO signUpBO = (SignUpBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SIGNUP);
 
     public void initialize(){
         imgVisibilityOff.setVisible(false);
@@ -33,12 +37,21 @@ public class SignUpFormController {
 
     public void signUpOnAction(ActionEvent actionEvent) throws IOException {
 
-        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
+
+        if (
+        signUpBO.saveUser(new UserDTO(txtFullName.getText(),txtContactNo.getText(),txtEmail.getText(),pswdfldPassword.getText()))
+        ){
+            ControllerUtil.notificationsConfirm("Save User Detail","SAVE!");
+        }else {
+            ControllerUtil.notificationsError("Can't Save User Detail","ERROR!");
+        }
+
+        ControllerUtil.navigationForm(signUpContex,"sign/SignInForm");
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {
 
-        NavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
+        ControllerUtil.navigationForm(signUpContex,"sign/SignInForm");
     }
 
     public void visibilityOnMouseEntered(MouseEvent mouseEvent) {

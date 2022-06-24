@@ -1,6 +1,6 @@
 package com.hibernate.hostel_management_system.controller.sign;
 
-import com.hibernate.hostel_management_system.controller.util.NavigateUtil;
+import com.hibernate.hostel_management_system.controller.util.ControllerUtil;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -31,12 +31,12 @@ public class SignInFormController {
     }
 
     public void SignInOnAction(ActionEvent actionEvent) throws IOException {
-        NavigateUtil.newUi(signInContex,"dashboard/DashBoardForm");
+        ControllerUtil.newUi(signInContex,"dashboard/DashBoardForm");
 
     }
 
     public void signUpOnAction(ActionEvent actionEvent) throws IOException {
-        NavigateUtil.navigationForm(signInContex,"sign/SignUpForm");
+        ControllerUtil.navigationForm(signInContex,"sign/SignUpForm");
 
     }
 
@@ -56,6 +56,6 @@ public class SignInFormController {
     }
 
     public void forgetPasswordOnAction(ActionEvent actionEvent) throws IOException {
-        NavigateUtil.navigationForm(signInContex,"sign/ForgetForm");
+        ControllerUtil.navigationForm(signInContex,"sign/ForgetForm");
     }
 }
