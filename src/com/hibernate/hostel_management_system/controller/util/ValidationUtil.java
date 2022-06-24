@@ -1,8 +1,8 @@
 package com.hibernate.hostel_management_system.controller.util;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
 import java.util.LinkedHashMap;
@@ -27,12 +27,36 @@ public class ValidationUtil {
         return true;
     }
 
+    public static Object validatePswd(LinkedHashMap<JFXPasswordField, Pattern> map, JFXButton btn) {
+        for (JFXPasswordField key : map.keySet()) {
+            Pattern pattern = map.get(key);
+            if (!pattern.matcher(key.getText()).matches()){
+                addErrorPswd(key,btn);
+                return key;
+            }
+            removeErrorPswd(key,btn);
+        }
+        return true;
+    }
+
     private static void removeError(JFXTextField txtField,JFXButton btn) {
         txtField.setFocusColor(Color.GREEN);
         btn.setDisable(false);
     }
 
     private static void addError(JFXTextField txtField,JFXButton btn) {
+        if (txtField.getText().length() > 0) {
+            txtField.setFocusColor(Color.RED);
+        }
+        btn.setDisable(true);
+    }
+
+    private static void removeErrorPswd(JFXPasswordField txtField,JFXButton btn) {
+        txtField.setFocusColor(Color.GREEN);
+        btn.setDisable(false);
+    }
+
+    private static void addErrorPswd(JFXPasswordField txtField,JFXButton btn) {
         if (txtField.getText().length() > 0) {
             txtField.setFocusColor(Color.RED);
         }
