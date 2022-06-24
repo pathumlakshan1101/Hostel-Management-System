@@ -2,9 +2,15 @@ package com.hibernate.hostel_management_system.dao.custom.impl;
 
 import com.hibernate.hostel_management_system.dao.custom.UserDAO;
 import com.hibernate.hostel_management_system.entity.User;
+import com.hibernate.hostel_management_system.util.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : ALE_IS_TER
@@ -19,8 +25,14 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean save(User dto) throws SQLException, ClassNotFoundException {
-        return false;
+    public boolean save(User dto) throws SQLException, ClassNotFoundException, IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+         session.save(dto);
+        transaction.commit();
+        session.close();
+
+        return true;
     }
 
     @Override
@@ -29,7 +41,8 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User search(String s) throws SQLException, ClassNotFoundException {
+    public User search(String s) throws SQLException, ClassNotFoundException, IOException {
+
         return null;
     }
 
@@ -37,6 +50,7 @@ public class UserDAOImpl implements UserDAO {
     public boolean exist(String s) throws SQLException, ClassNotFoundException {
         return false;
     }
+
 
     @Override
     public boolean delete(String s) throws SQLException, ClassNotFoundException {

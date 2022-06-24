@@ -10,7 +10,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -18,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
@@ -37,7 +37,7 @@ public class SignUpFormController {
     public JFXTextField txtEmail;
     public AnchorPane signUpContex;
     public JFXButton btnSignUp;
-    private SignUpBO signUpBO = (SignUpBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SIGNUP);
+    private final SignUpBO signUpBO = (SignUpBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SIGNUP);
     LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
     LinkedHashMap<JFXPasswordField, Pattern> mapPswd = new LinkedHashMap<>();
 
@@ -63,44 +63,34 @@ public class SignUpFormController {
     public void textFields_Key_Released(KeyEvent keyEvent) {
         ValidationUtil.validate(map,btnSignUp);
         ValidationUtil.validatePswd(mapPswd,btnSignUp);
-//        TextField = error
-//        boolean // validation ok
 
-        //if the enter key pressed
         if (keyEvent.getCode() == KeyCode.ENTER) {
             Object response =  ValidationUtil.validate(map,btnSignUp);
             Object responsePswd =  ValidationUtil.validatePswd(mapPswd,btnSignUp);
-            //if the response is a text field
-            //that means there is a error
             if (response instanceof JFXTextField) {
                 JFXTextField textField = (JFXTextField) response;
-                textField.requestFocus();// if there is a error just focus it
-            } else if (response instanceof Boolean) {
-                System.out.println("Work");
-
-            }
+                textField.requestFocus();
+            } else if (response instanceof Boolean) {}
             if (responsePswd instanceof JFXTextField) {
                 JFXPasswordField textField = (JFXPasswordField) response;
-                textField.requestFocus();// if there is a error just focus it
-            } else if (responsePswd instanceof Boolean) {
-                System.out.println("Work");
-
-            }
+                textField.requestFocus();
+            } else if (responsePswd instanceof Boolean) {}
         }
     }
 
-    public void signUpOnAction(ActionEvent actionEvent) throws IOException {
+    public void signUpOnAction(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
 
 
         if (
         signUpBO.saveUser(new UserDTO(txtFullName.getText(),txtContactNo.getText(),txtEmail.getText(),pswdfldPassword.getText()))
         ){
             NotificationUtil.notificationsConfirm("Save User Detail","SAVE!");
+            UiNavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
         }else {
             NotificationUtil.notificationsError("Can't Save User Detail","ERROR!");
         }
 
-        UiNavigateUtil.navigationForm(signUpContex,"sign/SignInForm");
+
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {

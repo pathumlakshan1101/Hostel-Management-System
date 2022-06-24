@@ -1,6 +1,10 @@
 package com.hibernate.hostel_management_system.bo.custom;
 
 import com.hibernate.hostel_management_system.bo.SuperBO;
+import com.hibernate.hostel_management_system.dto.UserDTO;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * @author : ALE_IS_TER
@@ -11,4 +15,6 @@ import com.hibernate.hostel_management_system.bo.SuperBO;
  */
 
 public interface SignInBO extends SuperBO {
+    UserDTO search (String userName) throws SQLException, ClassNotFoundException, IOException;
+
 }
