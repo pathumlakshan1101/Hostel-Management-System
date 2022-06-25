@@ -1,5 +1,8 @@
 package com.hibernate.hostel_management_system.controller.dashboard;
 
+import com.hibernate.hostel_management_system.bo.BOFactory;
+import com.hibernate.hostel_management_system.bo.custom.ManageBO;
+import com.hibernate.hostel_management_system.dto.StudentDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -7,6 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * @author : ALE_IS_TER
@@ -22,7 +30,7 @@ public class ManageFormController {
     public JFXRadioButton rBtnMale;
     public JFXRadioButton rBtnFemale;
     public JFXButton btnManageStudent;
-    public TableView tblStudent;
+    public TableView<StudentDTO> tblStudent;
     public TableColumn colStudentId;
     public TableColumn colStudentName;
     public TableColumn colStudentAddress;
@@ -31,7 +39,57 @@ public class ManageFormController {
     public TableColumn colStudentGender;
     public JFXTextField txtStudentId;
     public ToggleGroup gender;
+    private final ManageBO manageBO = (ManageBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGE);
+    private StudentDTO studentDTO ;
+    public void initialize() throws SQLException, IOException, ClassNotFoundException {
+
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        colStudentAddress.setCellValueFactory(new PropertyValueFactory<>("studentAddress"));
+        colStudentContact.setCellValueFactory(new PropertyValueFactory<>("studentContact"));
+        colStudentDOB.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
+        colStudentGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
+        loadAllTable();
+
+        tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                studentDTO=newValue;
+            btnManageStudent.setText(newValue != null ? "Delete Student" : "Manage Student");
+
+            txtStudentId.setText(newValue.getStudentID());
+            txtStudentName.setText(newValue.getStudentName());
+            txtStudentAddress.setText(newValue.getStudentAddress());
+            txtStudentContact.setText(newValue.getStudentContact());
+            txtStudentDOB.setText(newValue.getDateOfBirth());
+            if (newValue.getGender().equals("Male")){
+                rBtnMale.setSelected(true);
+            }else {
+                rBtnFemale.setSelected(true);
+            }
+
+        });
+    }
+
+    private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
+        loadStudentTable();
+    }
+
+    private void loadStudentTable() throws SQLException, IOException, ClassNotFoundException {
+        tblStudent.getItems().clear();
+
+        ArrayList<StudentDTO> allStudent = manageBO.getAllStudent();
+
+        for (StudentDTO student:allStudent
+             ) {
+            tblStudent.getItems().add(student);
+        }
+
+
+    }
 
     public void manageStudentOnAction(ActionEvent actionEvent) {
+
+
+
     }
 }
