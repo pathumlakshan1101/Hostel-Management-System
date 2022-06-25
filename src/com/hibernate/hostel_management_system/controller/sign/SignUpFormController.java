@@ -90,7 +90,16 @@ public class SignUpFormController {
             NotificationUtil.notificationsError("Can't Save User Detail","ERROR!");
         }
 
+        clearFields();
 
+    }
+
+    private void clearFields() {
+        txtPassword.clear();
+        txtContactNo.clear();
+        txtEmail.clear();
+        txtFullName.clear();
+        pswdfldPassword.clear();
     }
 
     public void signInOnAction(ActionEvent actionEvent) throws IOException {

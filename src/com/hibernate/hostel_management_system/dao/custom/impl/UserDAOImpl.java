@@ -7,10 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * @author : ALE_IS_TER
@@ -43,7 +45,22 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User search(String s) throws SQLException, ClassNotFoundException, IOException {
 
-        return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List list = session.createSQLQuery("select password from user where userName like '" + s + "%';").list();
+
+        transaction.commit();
+        session.close();
+
+        User user = new User();
+        if (!list.isEmpty()){
+            user.setPassword(String.valueOf(list.get(0)));
+        }
+
+
+
+        return user;
     }
 
     @Override

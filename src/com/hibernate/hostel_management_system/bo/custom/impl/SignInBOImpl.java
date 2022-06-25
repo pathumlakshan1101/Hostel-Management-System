@@ -19,6 +19,6 @@ public class SignInBOImpl implements SignInBO {
     private final UserDAO userDAO = (UserDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.USER);
     public UserDTO search (String userName) throws SQLException, ClassNotFoundException, IOException {
         User user = userDAO.search(userName);
-        return new UserDTO(user.getUserName(),user.getPassword());
+        return new UserDTO(user.getPassword());
     }
 }
