@@ -120,7 +120,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtStudentId" focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="51.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentId" editable="false" focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="51.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

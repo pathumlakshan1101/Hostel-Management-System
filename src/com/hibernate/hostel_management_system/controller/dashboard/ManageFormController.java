@@ -2,8 +2,11 @@ package com.hibernate.hostel_management_system.controller.dashboard;
 
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ManageBO;
+import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
+import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -11,12 +14,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 /**
  * @author : ALE_IS_TER
@@ -43,6 +49,7 @@ public class ManageFormController {
     public ToggleGroup gender;
     private final ManageBO manageBO = (ManageBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGE);
     private StudentDTO studentDTO ;
+    LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
 
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
@@ -54,20 +61,37 @@ public class ManageFormController {
 
         loadAllTable();
 
+
+        Pattern studentNamePattern = Pattern.compile("^[A-Z][a-z]*[ ][A-Z][a-z]*$");
+        Pattern contactPattern = Pattern.compile("^(\\+|0)(94|[1-9]{2,3})(-| |)([0-9]{7}|[0-9]{2} [0-9]{7})$");
+        Pattern addressPattern = Pattern.compile("^[A-z ]+$");
+        Pattern dobPattern = Pattern.compile("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$");
+
+        studentMap.put(txtStudentName,studentNamePattern);
+        studentMap.put(txtStudentContact,contactPattern);
+        studentMap.put(txtStudentAddress,addressPattern);
+        studentMap.put(txtStudentDOB,dobPattern);
+        btnManageStudent.setDisable(true);
+
+
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 studentDTO=newValue;
             btnManageStudent.setText(newValue != null ? "Delete Student" : "Manage Student");
 
-            txtStudentId.setText(newValue.getStudentID());
-            txtStudentName.setText(newValue.getStudentName());
-            txtStudentAddress.setText(newValue.getStudentAddress());
-            txtStudentContact.setText(newValue.getStudentContact());
-            txtStudentDOB.setText(newValue.getDateOfBirth());
-            if (newValue.getGender().equals("Male")){
-                rBtnMale.setSelected(true);
-            }else {
-                rBtnFemale.setSelected(true);
+            if (!(newValue ==null)){
+                txtStudentId.setText(newValue.getStudentID());
+                txtStudentName.setText(newValue.getStudentName());
+                txtStudentAddress.setText(newValue.getStudentAddress());
+                txtStudentContact.setText(newValue.getStudentContact());
+                txtStudentDOB.setText(newValue.getDateOfBirth());
+                if (newValue.getGender().equals("Male")){
+                    rBtnMale.setSelected(true);
+                }else {
+                    rBtnFemale.setSelected(true);
+                }
             }
+
+
 
         });
     }
@@ -89,13 +113,46 @@ public class ManageFormController {
 
     }
 
-    public void manageStudentOnAction(ActionEvent actionEvent) {
+    public void manageStudentOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
 
         if (btnManageStudent.getText().equals("Add Student")){
+            String gender = null;
+            if (rBtnFemale.isSelected()){
+                gender="FeMale";
+            }else if (rBtnMale.isSelected()){
+                gender="Male";
+            }
+
+
+            if (manageBO.save(new StudentDTO(txtStudentId.getText(),txtStudentName.getText(),txtStudentAddress.getText(),txtStudentContact.getText(),txtStudentDOB.getText(),gender))){
+                NotificationUtil.notificationsConfirm("Successful Add Customer","ADDED!");
+                clearTextFields();
+                loadStudentTable();
+            }
 
         }else if (btnManageStudent.getText().equals("Update Student")){
+            String gender = null;
+            if (rBtnFemale.isSelected()){
+                gender="FeMale";
+            }else if (rBtnMale.isSelected()){
+                gender="Male";
+            }
+
+
+            if (manageBO.updateStudent(new StudentDTO(txtStudentId.getText(),txtStudentName.getText(),txtStudentAddress.getText(),txtStudentContact.getText(),txtStudentDOB.getText(),gender))){
+                NotificationUtil.notificationsConfirm("Successful UpDate Customer","UPDATED!");
+                clearTextFields();
+                loadStudentTable();
+            }
 
         }else {
+
+
+            if (manageBO.deleteStudent(txtStudentId.getText())){
+                NotificationUtil.notificationsConfirm("Successful Delete Customer","DELETED!");
+                clearTextFields();
+                loadStudentTable();
+            }
 
         }
 
@@ -113,7 +170,17 @@ public class ManageFormController {
                 btnManageStudent.setText("Update Student");
             }
         }
+        ValidationUtil.validate(studentMap,btnManageStudent);
 
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            Object response =  ValidationUtil.validate(studentMap,btnManageStudent);
+
+            if (response instanceof JFXTextField) {
+                JFXTextField textField = (JFXTextField) response;
+                textField.requestFocus();
+            } else if (response instanceof Boolean) {}
+
+        }
 
 
     }

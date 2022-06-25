@@ -18,13 +18,13 @@ public interface CrudDAO <T,ID> extends SuperDAO{
 
     boolean save(T dto) throws SQLException, ClassNotFoundException, IOException;
 
-    boolean update(T dto) throws SQLException, ClassNotFoundException;
+    boolean update(T dto) throws SQLException, ClassNotFoundException, IOException;
 
     T search(ID id) throws SQLException, ClassNotFoundException, IOException;
 
     boolean exist(ID id) throws SQLException, ClassNotFoundException;
 
-    boolean delete(ID id) throws SQLException, ClassNotFoundException;
+    boolean delete(ID id) throws SQLException, ClassNotFoundException, IOException;
 
     int generateNewID() throws SQLException, ClassNotFoundException, IOException;
 

@@ -36,9 +36,26 @@ public class ManageBOImpl implements ManageBO {
     public String generateNewId() throws SQLException, IOException, ClassNotFoundException {
 
 
+        if (studentDAO.generateNewID()==0){
+            return "S00-001";
+        }else {
+            return  "S00-00"+studentDAO.generateNewID();
 
-        return  "S00-00"+studentDAO.generateNewID();
+        }
 
 
+
+    }
+
+    public boolean deleteStudent(String s) throws SQLException, IOException, ClassNotFoundException {
+        return studentDAO.delete(s);
+    }
+
+    public boolean updateStudent(StudentDTO studentDTO) throws SQLException, ClassNotFoundException, IOException {
+       return studentDAO.update(new Student(studentDTO.getStudentID(),studentDTO.getStudentName(),studentDTO.getStudentAddress(),studentDTO.getStudentContact(),studentDTO.getDateOfBirth(),studentDTO.getGender()));
+    }
+
+    public boolean save(StudentDTO studentDTO) throws SQLException, IOException, ClassNotFoundException {
+       return studentDAO.save(new Student(studentDTO.getStudentID(),studentDTO.getStudentName(),studentDTO.getStudentAddress(),studentDTO.getStudentContact(),studentDTO.getDateOfBirth(),studentDTO.getGender()));
     }
 }
