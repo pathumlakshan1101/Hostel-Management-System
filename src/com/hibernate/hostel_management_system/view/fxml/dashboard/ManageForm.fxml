@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -13,49 +14,52 @@
 <AnchorPane prefHeight="1019.0" prefWidth="1920.0" stylesheets="@../../asserts/styles/DarkMode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hibernate.hostel_management_system.controller.dashboard.ManageFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="433.0" layoutX="15.0" layoutY="22.0" opacity="0.49" stroke="TRANSPARENT" strokeType="INSIDE" width="828.0" />
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="157.0" prefHeight="50.0" prefWidth="383.0" promptText="Student Name" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentName" focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="157.0" prefHeight="50.0" prefWidth="383.0" promptText="Student Name" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="258.0" prefHeight="50.0" prefWidth="383.0" promptText="Address" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentAddress" focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="258.0" prefHeight="50.0" prefWidth="383.0" promptText="Address" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="437.0" layoutY="51.0" prefHeight="50.0" prefWidth="383.0" promptText="Contact" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentContact" focusColor="#00fffb" labelFloat="true" layoutX="437.0" layoutY="51.0" prefHeight="50.0" prefWidth="383.0" promptText="Contact" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="437.0" layoutY="157.0" prefHeight="50.0" prefWidth="383.0" promptText="Date Of  Birth" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentDOB" focusColor="#00fffb" labelFloat="true" layoutX="437.0" layoutY="157.0" prefHeight="50.0" prefWidth="383.0" promptText="Date Of  Birth" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXRadioButton layoutX="457.0" layoutY="283.0" style="-fx-selected-color: #00fffb;" text="Male" textFill="WHITE">
+      <JFXRadioButton fx:id="rBtnMale" layoutX="457.0" layoutY="283.0" selected="true" style="-fx-selected-color: #00fffb;" text="Male" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rBtnFemale" layoutX="640.0" layoutY="283.0" style="-fx-selected-color: #00fffb;" text="Female" textFill="WHITE" toggleGroup="$gender">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXRadioButton>
-      <JFXRadioButton layoutX="640.0" layoutY="283.0" style="-fx-selected-color: #00fffb;" text="Female" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </JFXRadioButton>
-      <JFXButton layoutX="629.0" layoutY="398.0" text="Manage Student">
+      <JFXButton fx:id="btnManageStudent" layoutX="629.0" layoutY="398.0" onAction="#manageStudentOnAction" text="Manage Student">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="15.0" layoutY="470.0" prefHeight="526.0" prefWidth="828.0">
+      <TableView fx:id="tblStudent" layoutX="15.0" layoutY="470.0" prefHeight="526.0" prefWidth="828.0">
         <columns>
-          <TableColumn prefWidth="121.0" text="Student ID" />
-          <TableColumn prefWidth="239.0" text="Student Name" />
-            <TableColumn prefWidth="167.0" text="Address" />
-            <TableColumn prefWidth="133.0" text="Contact" />
-            <TableColumn prefWidth="121.0" text="Date Of Birth" />
-            <TableColumn prefWidth="124.0" text="Gender" />
+          <TableColumn fx:id="colStudentId" prefWidth="121.0" text="Student ID" />
+          <TableColumn fx:id="colStudentName" prefWidth="204.99996948242188" text="Student Name" />
+            <TableColumn fx:id="colStudentAddress" prefWidth="146.0" text="Address" />
+            <TableColumn fx:id="colStudentContact" prefWidth="125.0" text="Contact" />
+            <TableColumn fx:id="colStudentDOB" prefWidth="119.0" text="Date Of Birth" />
+            <TableColumn fx:id="colStudentGender" prefWidth="111.0" text="Gender" />
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="489.0" layoutX="861.0" layoutY="22.0" opacity="0.49" stroke="TRANSPARENT" strokeType="INSIDE" width="445.0" />
@@ -114,7 +118,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="51.0" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentId" focusColor="#00fffb" labelFloat="true" layoutX="26.0" layoutY="51.0" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

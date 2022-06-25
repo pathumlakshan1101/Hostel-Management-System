@@ -7,4 +7,5 @@ package com.hibernate.hostel_management_system.controller.dashboard;
  * Time        : 7:32 AM
  */
 public class ReserveRoomFormController {
+
 }
