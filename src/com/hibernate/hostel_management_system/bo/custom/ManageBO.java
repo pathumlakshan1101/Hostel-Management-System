@@ -17,4 +17,5 @@ import java.util.ArrayList;
 
 public interface ManageBO extends SuperBO {
     ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException;
+    String generateNewId() throws SQLException, IOException, ClassNotFoundException;
 }

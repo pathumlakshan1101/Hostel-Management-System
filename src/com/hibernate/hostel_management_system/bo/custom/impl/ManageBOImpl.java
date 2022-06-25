@@ -18,7 +18,10 @@ import java.util.ArrayList;
  * Time        : 10:54 PM
  */
 public class ManageBOImpl implements ManageBO {
+
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
+
+
     public ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException {
         ArrayList<Student> all = studentDAO.getAll();
         ArrayList<StudentDTO> allStudent = new ArrayList<>();
@@ -28,5 +31,14 @@ public class ManageBOImpl implements ManageBO {
             allStudent.add(new StudentDTO(s.getStudentID(),s.getStudentName(),s.getStudentAddress(),s.getStudentContact(),s.getDateOfBirth(),s.getGender()));
         }
             return allStudent;
+    }
+
+    public String generateNewId() throws SQLException, IOException, ClassNotFoundException {
+
+
+
+        return  "S00-00"+studentDAO.generateNewID();
+
+
     }
 }

@@ -1,9 +1,6 @@
 package com.hibernate.hostel_management_system.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class Student {
         private String gender;
         @ManyToOne
         private User user;
-        @OneToMany(mappedBy = "student")
+        @OneToMany(mappedBy = "student" ,fetch = FetchType.EAGER)
         private  List<Reservation> reservationList = new ArrayList<>();
 
     public Student(String studentID, String studentName, String studentAddress, String studentContact, String dateOfBirth, String gender, User user, List<Reservation> reservationList) {

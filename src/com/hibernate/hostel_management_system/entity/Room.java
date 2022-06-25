@@ -1,6 +1,7 @@
 package com.hibernate.hostel_management_system.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Room {
     private String roomType;
     private double monthlyRental;
     private int qty;
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room" , fetch = FetchType.EAGER)
     private List<Reservation> reservationList = new ArrayList<>();
 
     public Room() {

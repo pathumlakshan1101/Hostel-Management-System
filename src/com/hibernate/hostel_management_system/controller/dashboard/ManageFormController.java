@@ -11,6 +11,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -91,5 +93,48 @@ public class ManageFormController {
 
 
 
+    }
+
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+
+        if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
+            &&txtStudentContact.getText().equals(studentDTO.getStudentContact()) &&txtStudentDOB.getText().equals(studentDTO.getDateOfBirth())
+        ){
+            btnManageStudent.setText("Delete Student");
+        }else {
+            btnManageStudent.setText("Update Student");
+        }
+
+    }
+
+    public void radiobuttonOnMouseClick(MouseEvent mouseEvent) {
+        String gender = null;
+        if (rBtnFemale.isSelected()){
+            gender="FeMale";
+        }else if (rBtnMale.isSelected()){
+            gender="Male";
+        }
+
+        if (gender.equals(studentDTO.getGender())){
+            btnManageStudent.setText("Delete Student");
+        }else {
+            btnManageStudent.setText("Update Student");
+        }
+
+    }
+
+    public void addStudentOnMouseClick(MouseEvent mouseEvent) throws SQLException, IOException, ClassNotFoundException {
+        clearTextFields();
+        btnManageStudent.setText("Add Student");
+        txtStudentId.setText(manageBO.generateNewId());
+    }
+
+    private void clearTextFields() {
+        txtStudentName.clear();
+        txtStudentAddress.clear();
+        txtStudentContact.clear();
+        txtStudentDOB.clear();
+        txtStudentId.clear();
+        rBtnMale.setSelected(true);
     }
 }

@@ -44,7 +44,7 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     @Override
-    public String generateNewID() throws SQLException, ClassNotFoundException {
-        return null;
+    public int generateNewID() throws SQLException, ClassNotFoundException {
+        return 0;
     }
 }
