@@ -91,35 +91,51 @@ public class ManageFormController {
 
     public void manageStudentOnAction(ActionEvent actionEvent) {
 
+        if (btnManageStudent.getText().equals("Add Student")){
+
+        }else if (btnManageStudent.getText().equals("Update Student")){
+
+        }else {
+
+        }
 
 
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
 
-        if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
-            &&txtStudentContact.getText().equals(studentDTO.getStudentContact()) &&txtStudentDOB.getText().equals(studentDTO.getDateOfBirth())
-        ){
-            btnManageStudent.setText("Delete Student");
-        }else {
-            btnManageStudent.setText("Update Student");
+        if (!(studentDTO ==null)){
+            if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
+                    &&txtStudentContact.getText().equals(studentDTO.getStudentContact()) &&txtStudentDOB.getText().equals(studentDTO.getDateOfBirth())
+            ){
+                btnManageStudent.setText("Delete Student");
+            }else {
+                btnManageStudent.setText("Update Student");
+            }
         }
+
+
 
     }
 
     public void radiobuttonOnMouseClick(MouseEvent mouseEvent) {
-        String gender = null;
-        if (rBtnFemale.isSelected()){
-            gender="FeMale";
-        }else if (rBtnMale.isSelected()){
-            gender="Male";
+
+        if (!(studentDTO ==null)){
+
+            String gender = null;
+            if (rBtnFemale.isSelected()){
+                gender="FeMale";
+            }else if (rBtnMale.isSelected()){
+                gender="Male";
+            }
+
+            if (gender.equals(studentDTO.getGender())){
+                btnManageStudent.setText("Delete Student");
+            }else {
+                btnManageStudent.setText("Update Student");
+            }
         }
 
-        if (gender.equals(studentDTO.getGender())){
-            btnManageStudent.setText("Delete Student");
-        }else {
-            btnManageStudent.setText("Update Student");
-        }
 
     }
 
@@ -127,6 +143,7 @@ public class ManageFormController {
         clearTextFields();
         btnManageStudent.setText("Add Student");
         txtStudentId.setText(manageBO.generateNewId());
+        studentDTO=null;
     }
 
     private void clearTextFields() {
