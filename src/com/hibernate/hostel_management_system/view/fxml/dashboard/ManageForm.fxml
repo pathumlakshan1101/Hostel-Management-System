@@ -65,32 +65,32 @@
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="489.0" layoutX="861.0" layoutY="22.0" opacity="0.49" stroke="TRANSPARENT" strokeType="INSIDE" width="445.0" />
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="155.0" prefHeight="50.0" prefWidth="383.0" promptText="Room Type" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtRoomType" focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="155.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Room Type" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="261.0" prefHeight="50.0" prefWidth="383.0" promptText="Monthly Rental" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtMonthlyRental" focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="261.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Monthly Rental" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="367.0" prefHeight="50.0" prefWidth="383.0" promptText="Room Qty" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtRoomQty" focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="367.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Room Qty" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1097.0" layoutY="455.0" text="Manage Room">
+      <JFXButton fx:id="btnManageRoom" layoutX="1097.0" layoutY="455.0" onAction="#manageRoomOnAction" text="Manage Room">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="861.0" layoutY="530.0" prefHeight="467.0" prefWidth="445.0">
+      <TableView fx:id="tblRoom" layoutX="861.0" layoutY="530.0" prefHeight="467.0" prefWidth="445.0">
         <columns>
-          <TableColumn prefWidth="71.0" text="Room ID" />
-          <TableColumn prefWidth="152.0" text="Room Type" />
-            <TableColumn prefWidth="120.0" text="Monthly Rental" />
-            <TableColumn prefWidth="101.0" text="Room Qty" />
+          <TableColumn fx:id="colRoomID" prefWidth="71.0" text="Room ID" />
+          <TableColumn fx:id="colRoomType" prefWidth="152.0" text="Room Type" />
+            <TableColumn fx:id="colRoomMonthlyRental" prefWidth="120.0" text="Monthly Rental" />
+            <TableColumn fx:id="colRoomQty" prefWidth="101.0" text="Room Qty" />
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="589.0" layoutX="1327.0" layoutY="22.0" opacity="0.49" stroke="TRANSPARENT" strokeType="INSIDE" width="577.0" />
@@ -130,7 +130,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="49.0" prefHeight="50.0" prefWidth="383.0" promptText="Room ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtRoomId" focusColor="#00fffb" labelFloat="true" layoutX="905.0" layoutY="49.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Room ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

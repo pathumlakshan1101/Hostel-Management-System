@@ -6,7 +6,6 @@ import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -48,6 +47,16 @@ public class ManageFormController {
     public JFXTextField txtStudentId;
     public ToggleGroup gender;
     private final ManageBO manageBO = (ManageBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MANAGE);
+    public JFXTextField txtRoomType;
+    public JFXTextField txtMonthlyRental;
+    public JFXTextField txtRoomQty;
+    public JFXButton btnManageRoom;
+    public TableView tblRoom;
+    public TableColumn colRoomID;
+    public TableColumn colRoomType;
+    public TableColumn colRoomMonthlyRental;
+    public TableColumn colRoomQty;
+    public JFXTextField txtRoomId;
     private StudentDTO studentDTO ;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
@@ -98,6 +107,13 @@ public class ManageFormController {
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
         loadStudentTable();
+        loadRoomTable();
+
+
+    }
+
+    private void loadRoomTable() {
+        tblRoom.getItems().clear();
     }
 
     private void loadStudentTable() throws SQLException, IOException, ClassNotFoundException {
@@ -160,16 +176,6 @@ public class ManageFormController {
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
-
-        if (!(studentDTO ==null)){
-            if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
-                    &&txtStudentContact.getText().equals(studentDTO.getStudentContact()) &&txtStudentDOB.getText().equals(studentDTO.getDateOfBirth())
-            ){
-                btnManageStudent.setText("Delete Student");
-            }else {
-                btnManageStudent.setText("Update Student");
-            }
-        }
         ValidationUtil.validate(studentMap,btnManageStudent);
 
         if (keyEvent.getCode() == KeyCode.ENTER) {
@@ -181,6 +187,16 @@ public class ManageFormController {
             } else if (response instanceof Boolean) {}
 
         }
+        if (!(studentDTO ==null)){
+            if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
+                    &&txtStudentContact.getText().equals(studentDTO.getStudentContact()) &&txtStudentDOB.getText().equals(studentDTO.getDateOfBirth())
+            ){
+                btnManageStudent.setText("Delete Student");
+            }else {
+                btnManageStudent.setText("Update Student");
+            }
+        }
+
 
 
     }
@@ -220,5 +236,8 @@ public class ManageFormController {
         txtStudentDOB.clear();
         txtStudentId.clear();
         rBtnMale.setSelected(true);
+    }
+
+    public void manageRoomOnAction(ActionEvent actionEvent) {
     }
 }
