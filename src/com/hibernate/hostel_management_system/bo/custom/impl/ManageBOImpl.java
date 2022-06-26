@@ -2,9 +2,12 @@ package com.hibernate.hostel_management_system.bo.custom.impl;
 
 import com.hibernate.hostel_management_system.bo.custom.ManageBO;
 import com.hibernate.hostel_management_system.dao.DAOFactory;
+import com.hibernate.hostel_management_system.dao.custom.RoomDAO;
 import com.hibernate.hostel_management_system.dao.custom.StudentDAO;
 import com.hibernate.hostel_management_system.dao.custom.UserDAO;
+import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
+import com.hibernate.hostel_management_system.entity.Room;
 import com.hibernate.hostel_management_system.entity.Student;
 
 import java.io.IOException;
@@ -20,6 +23,18 @@ import java.util.ArrayList;
 public class ManageBOImpl implements ManageBO {
 
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
+    private final RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
+
+    public ArrayList<RoomDTO> getAllRoom() throws SQLException, IOException, ClassNotFoundException {
+        ArrayList<Room> all = roomDAO.getAll();
+        ArrayList<RoomDTO> allRoom = new ArrayList<>();
+
+        for (Room room:all
+             ) {
+            allRoom.add(new RoomDTO(room.getRoomID(),room.getRoomType(),room.getMonthlyRental(),room.getQty()));
+        }
+        return allRoom;
+    }
 
 
     public ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException {

@@ -2,9 +2,15 @@ package com.hibernate.hostel_management_system.dao.custom.impl;
 
 import com.hibernate.hostel_management_system.dao.custom.RoomDAO;
 import com.hibernate.hostel_management_system.entity.Room;
+import com.hibernate.hostel_management_system.entity.Student;
+import com.hibernate.hostel_management_system.util.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : ALE_IS_TER
@@ -14,8 +20,15 @@ import java.util.ArrayList;
  */
 public class RoomDAOImpl implements RoomDAO {
     @Override
-    public ArrayList<Room> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+    public ArrayList<Room> getAll() throws SQLException, ClassNotFoundException, IOException {
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Room> student = session.createQuery("FROM Room ").list();
+        transaction.commit();
+        session.close();
+        return (ArrayList<Room>) student;
     }
 
     @Override

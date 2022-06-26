@@ -4,6 +4,7 @@ import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ManageBO;
 import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
+import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -68,6 +69,12 @@ public class ManageFormController {
         colStudentDOB.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
         colStudentGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
+
+        colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
+        colRoomMonthlyRental.setCellValueFactory(new PropertyValueFactory<>("monthlyRental"));
+        colRoomQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+
         loadAllTable();
 
 
@@ -112,8 +119,14 @@ public class ManageFormController {
 
     }
 
-    private void loadRoomTable() {
+    private void loadRoomTable() throws SQLException, IOException, ClassNotFoundException {
         tblRoom.getItems().clear();
+        ArrayList<RoomDTO> allRoom = manageBO.getAllRoom();
+
+        for (RoomDTO room:allRoom
+             ) {
+            tblRoom.getItems().add(room);
+        }
     }
 
     private void loadStudentTable() throws SQLException, IOException, ClassNotFoundException {
