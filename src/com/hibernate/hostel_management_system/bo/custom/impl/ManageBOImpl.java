@@ -61,13 +61,18 @@ public class ManageBOImpl implements ManageBO {
 
 
     }
-
+public boolean deleteRoom(String s) throws SQLException, IOException, ClassNotFoundException {
+        return roomDAO.delete(s);
+}
     public boolean deleteStudent(String s) throws SQLException, IOException, ClassNotFoundException {
         return studentDAO.delete(s);
     }
 
     public boolean updateStudent(StudentDTO studentDTO) throws SQLException, ClassNotFoundException, IOException {
        return studentDAO.update(new Student(studentDTO.getStudentID(),studentDTO.getStudentName(),studentDTO.getStudentAddress(),studentDTO.getStudentContact(),studentDTO.getDateOfBirth(),studentDTO.getGender()));
+    }
+    public boolean updateRoom(RoomDTO roomDTO) throws SQLException, IOException, ClassNotFoundException {
+       return roomDAO.update(new Room(roomDTO.getRoomID(), roomDTO.getRoomType(),roomDTO.getMonthlyRental(), roomDTO.getQty()));
     }
 
     public boolean save(StudentDTO studentDTO) throws SQLException, IOException, ClassNotFoundException {

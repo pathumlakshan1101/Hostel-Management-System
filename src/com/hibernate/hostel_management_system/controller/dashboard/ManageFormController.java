@@ -3,6 +3,7 @@ package com.hibernate.hostel_management_system.controller.dashboard;
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ManageBO;
 import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
+import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
@@ -17,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -58,7 +60,9 @@ public class ManageFormController {
     public TableColumn colRoomMonthlyRental;
     public TableColumn colRoomQty;
     public JFXTextField txtRoomId;
+    public AnchorPane manageContex;
     private StudentDTO studentDTO ;
+    private RoomDTO roomDTO;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
 
@@ -115,6 +119,7 @@ public class ManageFormController {
 
         tblRoom.getSelectionModel().selectedItemProperty().addListener((observable1, oldValue1, tblRoomNewValue) -> {
             btnManageRoom.setText(tblRoomNewValue!=null ? "Delete Room" : "Manage Room" );
+            roomDTO=tblRoomNewValue;
             if (!(tblRoomNewValue == null)){
                 txtRoomId.setText(tblRoomNewValue.getRoomID());
                 txtRoomType.setText(tblRoomNewValue.getRoomType());
@@ -122,6 +127,7 @@ public class ManageFormController {
                 txtRoomQty.setText(String.valueOf(tblRoomNewValue.getQty()));
             }
         });
+        btnManageRoom.setDisable(true);
     }
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
@@ -222,6 +228,15 @@ public class ManageFormController {
             }
         }
 
+        if (!(roomDTO==null)){
+            if ( txtRoomType.getText().equals(roomDTO.getRoomType()) && roomDTO.getMonthlyRental()== Double.parseDouble(txtMonthlyRental.getText()) && roomDTO.getQty()==Integer.parseInt(txtRoomQty.getText())
+            ){
+                btnManageRoom.setText("Delete Room");
+            }else {
+                btnManageRoom.setText("Update Room");
+            }
+        }
+
 
 
     }
@@ -261,8 +276,44 @@ public class ManageFormController {
         txtStudentDOB.clear();
         txtStudentId.clear();
         rBtnMale.setSelected(true);
+        txtRoomId.clear();
+        txtRoomType.clear();
+        txtMonthlyRental.clear();
+        txtRoomQty.clear();
     }
 
-    public void manageRoomOnAction(ActionEvent actionEvent) {
+    public void manageRoomOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        if (btnManageRoom.getText().equals("Update Room")){
+
+
+            if (manageBO.updateRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())))){
+                NotificationUtil.notificationsConfirm("Room UpDate Successful","UPDATED!");
+                loadRoomTable();
+                clearTextFields();
+            }
+        }else {
+
+
+            if (manageBO.updateRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())-1))){
+                NotificationUtil.notificationsConfirm("Room Deleted Successful","DELETED!");
+                loadRoomTable();
+                clearTextFields();
+            }
+
+        }
+    }
+
+    public void refreshOnMouseClick(MouseEvent mouseEvent) throws IOException {
+        UiNavigateUtil.navigationForm(manageContex,"dashboard/ManageForm");
+    }
+
+    public void addRoomOnMouseClick(MouseEvent mouseEvent) throws SQLException, IOException, ClassNotFoundException {
+
+
+        if (manageBO.updateRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())+1))){
+            NotificationUtil.notificationsConfirm("Room Add Successful","ADDED!");
+            loadRoomTable();
+            clearTextFields();
+        }
     }
 }
