@@ -52,7 +52,7 @@ public class ManageFormController {
     public JFXTextField txtMonthlyRental;
     public JFXTextField txtRoomQty;
     public JFXButton btnManageRoom;
-    public TableView tblRoom;
+    public TableView<RoomDTO> tblRoom;
     public TableColumn colRoomID;
     public TableColumn colRoomType;
     public TableColumn colRoomMonthlyRental;
@@ -108,7 +108,19 @@ public class ManageFormController {
             }
 
 
+        });
 
+
+
+
+        tblRoom.getSelectionModel().selectedItemProperty().addListener((observable1, oldValue1, tblRoomNewValue) -> {
+            btnManageRoom.setText(tblRoomNewValue!=null ? "Delete Room" : "Manage Room" );
+            if (!(tblRoomNewValue == null)){
+                txtRoomId.setText(tblRoomNewValue.getRoomID());
+                txtRoomType.setText(tblRoomNewValue.getRoomType());
+                txtMonthlyRental.setText(String.valueOf(tblRoomNewValue.getMonthlyRental()));
+                txtRoomQty.setText(String.valueOf(tblRoomNewValue.getQty()));
+            }
         });
     }
 
