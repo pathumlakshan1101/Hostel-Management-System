@@ -50,17 +50,30 @@ public class ManageBOImpl implements ManageBO {
 
     public String generateNewId() throws SQLException, IOException, ClassNotFoundException {
 
+        int id = studentDAO.generateNewID();
 
-        if (studentDAO.generateNewID()==0){
+        if (id==0){
             return "S00-001";
         }else {
-            return  "S00-00"+studentDAO.generateNewID();
+            return  "S00-00"+id;
 
         }
 
-
-
     }
+
+    public boolean saveRoom (RoomDTO roomDTO) throws SQLException, IOException, ClassNotFoundException {
+        return roomDAO.save(new Room(roomDTO.getRoomID(),roomDTO.getRoomType(),roomDTO.getMonthlyRental(),roomDTO.getQty()));
+    }
+
+    public String generateNewRoomId() throws SQLException, IOException, ClassNotFoundException {
+        int id = roomDAO.generateNewID();
+        if (id==0){
+            return "R00-001";
+        }else {
+            return "R00-00"+id;
+        }
+    }
+
 public boolean deleteRoom(String s) throws SQLException, IOException, ClassNotFoundException {
         return roomDAO.delete(s);
 }

@@ -64,7 +64,11 @@ public class ManageFormController {
     private StudentDTO studentDTO ;
     private RoomDTO roomDTO;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
+    LinkedHashMap<JFXTextField, Pattern> roomMap = new LinkedHashMap<>();
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
+
+        btnManageRoom.setDisable(true);
+        btnManageStudent.setDisable(true);
 
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
@@ -91,10 +95,18 @@ public class ManageFormController {
         studentMap.put(txtStudentContact,contactPattern);
         studentMap.put(txtStudentAddress,addressPattern);
         studentMap.put(txtStudentDOB,dobPattern);
-        btnManageStudent.setDisable(true);
 
+
+        Pattern roomType = Pattern.compile("^[A-z /,.-]+$");
+        Pattern roomMonthlyRental = Pattern.compile("^([0-9]{0,5})(.00)|(.0)$");
+        Pattern roomQty = Pattern.compile("^[0-9]{0,5}$");
+
+        roomMap.put(txtRoomType,roomType);
+        roomMap.put(txtMonthlyRental,roomMonthlyRental);
+        roomMap.put(txtRoomQty,roomQty);
 
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            btnManageStudent.setDisable(false);
                 studentDTO=newValue;
             btnManageStudent.setText(newValue != null ? "Delete Student" : "Manage Student");
 
@@ -119,15 +131,23 @@ public class ManageFormController {
 
         tblRoom.getSelectionModel().selectedItemProperty().addListener((observable1, oldValue1, tblRoomNewValue) -> {
             btnManageRoom.setText(tblRoomNewValue!=null ? "Delete Room" : "Manage Room" );
+            btnManageRoom.setDisable(false);
             roomDTO=tblRoomNewValue;
             if (!(tblRoomNewValue == null)){
                 txtRoomId.setText(tblRoomNewValue.getRoomID());
                 txtRoomType.setText(tblRoomNewValue.getRoomType());
-                txtMonthlyRental.setText(String.valueOf(tblRoomNewValue.getMonthlyRental()));
+
+                String rent = String.valueOf(tblRoomNewValue.getMonthlyRental());
+
+                int i = rent.indexOf(".");
+
+                String rentals = rent.substring(0,i);
+
+                txtMonthlyRental.setText(rentals);
                 txtRoomQty.setText(String.valueOf(tblRoomNewValue.getQty()));
             }
         });
-        btnManageRoom.setDisable(true);
+
     }
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
@@ -208,16 +228,8 @@ public class ManageFormController {
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
         ValidationUtil.validate(studentMap,btnManageStudent);
+        ValidationUtil.validate(roomMap,btnManageRoom);
 
-        if (keyEvent.getCode() == KeyCode.ENTER) {
-            Object response =  ValidationUtil.validate(studentMap,btnManageStudent);
-
-            if (response instanceof JFXTextField) {
-                JFXTextField textField = (JFXTextField) response;
-                textField.requestFocus();
-            } else if (response instanceof Boolean) {}
-
-        }
         if (!(studentDTO ==null)){
             if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
                     &&txtStudentContact.getText().equals(studentDTO.getStudentContact()) &&txtStudentDOB.getText().equals(studentDTO.getDateOfBirth())
@@ -267,6 +279,7 @@ public class ManageFormController {
         btnManageStudent.setText("Add Student");
         txtStudentId.setText(manageBO.generateNewId());
         studentDTO=null;
+        btnManageStudent.setDisable(false);
     }
 
     private void clearTextFields() {
@@ -291,10 +304,17 @@ public class ManageFormController {
                 loadRoomTable();
                 clearTextFields();
             }
-        }else {
+        }else if (btnManageRoom.getText().equals("Add Room")){
+            if (manageBO.saveRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())))){
+                NotificationUtil.notificationsConfirm("Room Add Successful","ADDED!");
+                loadRoomTable();
+                clearTextFields();
+            }
+        }
+        else {
 
 
-            if (manageBO.updateRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())-1))){
+            if (manageBO.deleteRoom(txtRoomId.getText())){
                 NotificationUtil.notificationsConfirm("Room Deleted Successful","DELETED!");
                 loadRoomTable();
                 clearTextFields();
@@ -308,12 +328,10 @@ public class ManageFormController {
     }
 
     public void addRoomOnMouseClick(MouseEvent mouseEvent) throws SQLException, IOException, ClassNotFoundException {
-
-
-        if (manageBO.updateRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())+1))){
-            NotificationUtil.notificationsConfirm("Room Add Successful","ADDED!");
-            loadRoomTable();
-            clearTextFields();
-        }
+        clearTextFields();
+        txtRoomId.setText(manageBO.generateNewRoomId());
+        roomDTO=null;
+        btnManageRoom.setText("Add Room");
+        btnManageRoom.setDisable(false);
     }
 }

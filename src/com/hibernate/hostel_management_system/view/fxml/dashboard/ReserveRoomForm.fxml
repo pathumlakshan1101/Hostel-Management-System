@@ -32,7 +32,7 @@
             <HBox alignment="CENTER" prefHeight="22.0" prefWidth="250.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="41.0" prefWidth="247.0">
                <children>
-                  <Label alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-1324      Non-AC" textFill="WHITE">
+                  <Label fx:id="lblRoomTypeAndID1" alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-1324      Non-AC" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -41,7 +41,7 @@
             </HBox>
             <HBox alignment="CENTER" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
+                  <Label fx:id="lblMonthlyRental1" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -50,7 +50,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="147.0" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="lblAvailable1" alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -74,7 +74,7 @@
             <HBox alignment="CENTER" prefHeight="22.0" prefWidth="250.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="41.0" prefWidth="247.0">
                <children>
-                  <Label alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-5467      Non-AC/Food" textFill="WHITE">
+                  <Label fx:id="lblRoomTypeAndID2" alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-5467      Non-AC/Food" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -83,7 +83,7 @@
             </HBox>
             <HBox alignment="CENTER" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
+                  <Label fx:id="lblMonthlyRental2" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -92,7 +92,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="147.0" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="lblAvailable2" alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -116,7 +116,7 @@
             <HBox alignment="CENTER" prefHeight="22.0" prefWidth="250.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="41.0" prefWidth="247.0">
                <children>
-                  <Label alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-7896      AC" textFill="WHITE">
+                  <Label fx:id="lblRoomTypeAndID3" alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-7896      AC" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -125,7 +125,7 @@
             </HBox>
             <HBox alignment="CENTER" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
+                  <Label fx:id="lblMonthlyRental3" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -134,7 +134,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="147.0" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="lblAvailable3" alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -158,7 +158,7 @@
             <HBox alignment="CENTER" prefHeight="22.0" prefWidth="250.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="41.0" prefWidth="247.0">
                <children>
-                  <Label alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-0093      AC/Food" textFill="WHITE">
+                  <Label fx:id="lblRoomTypeAndID4" alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="RM-0093      AC/Food" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -167,7 +167,7 @@
             </HBox>
             <HBox alignment="CENTER" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
+                  <Label fx:id="lblMonthlyRental4" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="05" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -176,7 +176,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="147.0" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textFill="WHITE">
+                  <Label fx:id="lblAvailable4" alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="Available" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -200,7 +200,7 @@
             <HBox alignment="CENTER" prefHeight="22.0" prefWidth="250.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="41.0" prefWidth="247.0">
                <children>
-                  <Label alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="UnAvailable" textFill="WHITE">
+                  <Label fx:id="lblRoomTypeAndID5" alignment="CENTER" opacity="0.85" prefHeight="34.0" prefWidth="266.0" text="UnAvailable" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -209,7 +209,7 @@
             </HBox>
             <HBox alignment="CENTER" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="UnAvailable" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="lblMonthlyRental5" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="247.0" text="UnAvailable" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -218,7 +218,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="147.0" opacity="0.78" prefHeight="33.0" prefWidth="237.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="UnAvailable" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="lblAvailable5" alignment="CENTER" prefHeight="34.0" prefWidth="266.0" text="UnAvailable" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

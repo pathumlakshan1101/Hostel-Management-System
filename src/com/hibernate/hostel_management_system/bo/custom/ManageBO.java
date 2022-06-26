@@ -25,4 +25,6 @@ public interface ManageBO extends SuperBO {
     ArrayList<RoomDTO> getAllRoom() throws SQLException, IOException, ClassNotFoundException;
     boolean updateRoom(RoomDTO roomDTO) throws SQLException, IOException, ClassNotFoundException;
     boolean deleteRoom(String s) throws SQLException, IOException, ClassNotFoundException;
+    String generateNewRoomId() throws SQLException, IOException, ClassNotFoundException;
+    boolean saveRoom (RoomDTO roomDTO) throws SQLException, IOException, ClassNotFoundException;
 }
