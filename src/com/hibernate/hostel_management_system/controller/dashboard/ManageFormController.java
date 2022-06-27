@@ -5,6 +5,7 @@ import com.hibernate.hostel_management_system.bo.custom.ManageBO;
 import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
+import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
 import com.jfoenix.controls.JFXButton;
@@ -64,7 +65,7 @@ public class ManageFormController {
     public AnchorPane manageContex;
     public JFXTextField txtTimeDuration;
     public JFXButton btnManageReservation;
-    public TableView tblReserve;
+    public TableView<ReservationDTO> tblReserve;
     public TableColumn colReserveId;
     public TableColumn colReserveStudentId;
     public TableColumn colReserveTimeDuration;
@@ -95,6 +96,13 @@ public class ManageFormController {
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colRoomMonthlyRental.setCellValueFactory(new PropertyValueFactory<>("monthlyRental"));
         colRoomQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+
+
+        colReserveId.setCellValueFactory(new PropertyValueFactory<>("reserveID"));
+        colReserveStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colReserveTimeDuration.setCellValueFactory(new PropertyValueFactory<>("timeDuration"));
+        colReserveRoomId.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        colReserveStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         loadAllTable();
 
@@ -161,13 +169,27 @@ public class ManageFormController {
             }
         });
 
+
+
     }
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
         loadStudentTable();
         loadRoomTable();
+        loadReserveTable();
 
 
+    }
+
+    private void loadReserveTable() throws SQLException, IOException, ClassNotFoundException {
+        tblReserve.getItems().clear();
+
+        ArrayList<ReservationDTO> allReservation = manageBO.getAllReservation();
+
+        for (ReservationDTO reservationDTO:allReservation
+             ) {
+            tblReserve.getItems().add(reservationDTO);
+        }
     }
 
     private void loadRoomTable() throws SQLException, IOException, ClassNotFoundException {

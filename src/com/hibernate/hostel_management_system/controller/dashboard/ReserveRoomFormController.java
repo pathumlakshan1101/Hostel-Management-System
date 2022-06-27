@@ -101,6 +101,7 @@ public class ReserveRoomFormController {
         reserveMap.put(txtKeyMoneyStatus,statusPattern);
 
         cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            ValidationUtil.validate(reserveMap,btnReserveRoom);
             try {
                 txtReserveId.setText(reserveRoomBO.generateNewReservationId());
             } catch (SQLException throwables) {
@@ -113,6 +114,7 @@ public class ReserveRoomFormController {
         });
 
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            ValidationUtil.validate(reserveMap,btnReserveRoom);
             if (newValue!=null){
                 if (newValue.equals("   ")){
                     try {
@@ -201,7 +203,7 @@ public class ReserveRoomFormController {
         tblReserve.getItems().clear();
         for (ReservationDTO r :allReservation
              ) {
-            System.out.println(r.getReserveDate());
+
             tblReserve.getItems().add(r);
         }
 
@@ -235,18 +237,20 @@ public class ReserveRoomFormController {
     }
 
     public void reserveRoomOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        String x = cmbRoomId.getValue();
+        int i = x.indexOf(" ");
+        String substring = x.substring(0, i);
         if (btnReserveRoom.getText().equals("Reserve Room")){
 
-            String x = cmbRoomId.getValue();
-            int i = x.indexOf(" ");
-            String substring = x.substring(0, i);
-            System.out.println(substring);
+
+
 
             if (reserveRoomBO.saveReserve(new ReservationDTO(txtReserveId.getText(), (String) cmbStudentId.getValue(),substring,txtTimeDuration.getText(),txtKeyMoneyStatus.getText(), LocalDate.now()))){
 
                 loadAllData();
                 NotificationUtil.notificationsConfirm("SuccessFull Reserve Room","RESERVED!");
                 clearAll();
+                reserveRoomBO.updateRoom(substring);
             }else {
                 loadAllData();
                 NotificationUtil.notificationsConfirm("UnSuccessFull Reserve Room","ERROR!");
@@ -264,16 +268,14 @@ public class ReserveRoomFormController {
                 NotificationUtil.notificationsConfirm("SuccessFull Add Student","ADDED!");
             }
 
-            String x = cmbRoomId.getValue();
-            int i = x.indexOf(" ");
-            String substring = x.substring(0, i);
-            System.out.println(substring);
+
 
             if (reserveRoomBO.saveReserve(new ReservationDTO(txtReserveId.getText(), (String) cmbStudentId.getValue(),substring,txtTimeDuration.getText(),txtKeyMoneyStatus.getText(), LocalDate.now()))){
 
                 loadAllData();
                 NotificationUtil.notificationsConfirm("SuccessFull Reserve Room","RESERVED!");
                 clearAll();
+                reserveRoomBO.updateRoom(substring);
             }else {
                 loadAllData();
                 NotificationUtil.notificationsConfirm("UnSuccessFull Reserve Room","ERROR!");

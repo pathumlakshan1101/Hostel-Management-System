@@ -1,6 +1,7 @@
 package com.hibernate.hostel_management_system.bo.custom;
 
 import com.hibernate.hostel_management_system.bo.SuperBO;
+import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
 
@@ -27,4 +28,5 @@ public interface ManageBO extends SuperBO {
     boolean deleteRoom(String s) throws SQLException, IOException, ClassNotFoundException;
     String generateNewRoomId() throws SQLException, IOException, ClassNotFoundException;
     boolean saveRoom (RoomDTO roomDTO) throws SQLException, IOException, ClassNotFoundException;
+    ArrayList<ReservationDTO> getAllReservation() throws SQLException, IOException, ClassNotFoundException;
 }

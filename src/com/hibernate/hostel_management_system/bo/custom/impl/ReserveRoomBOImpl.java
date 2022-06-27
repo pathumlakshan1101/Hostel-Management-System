@@ -99,6 +99,15 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         }
         return allStudent;
     }
+
+    public boolean updateRoom(String id) throws SQLException, IOException, ClassNotFoundException {
+        Room roomDTO = roomDAO.search(id);
+
+        roomDTO.setQty(roomDTO.getQty()-1);
+
+        return roomDAO.update(new Room(roomDTO.getRoomID(), roomDTO.getRoomType(),roomDTO.getMonthlyRental(), roomDTO.getQty()));
+    }
+
     public boolean saveStudent(StudentDTO studentDTO) throws SQLException, IOException, ClassNotFoundException {
         return studentDAO.save(new Student(studentDTO.getStudentID(),studentDTO.getStudentName(),studentDTO.getStudentAddress(),studentDTO.getStudentContact(),studentDTO.getDateOfBirth(),studentDTO.getGender()));
     }
