@@ -25,6 +25,10 @@ public class Student {
         @OneToMany(mappedBy = "student" ,fetch = FetchType.EAGER)
         private  List<Reservation> reservationList = new ArrayList<>();
 
+    public Student(String studentID) {
+        this.studentID = studentID;
+    }
+
     public Student(String studentID, String studentName, String studentAddress, String studentContact, String dateOfBirth, String gender, User user, List<Reservation> reservationList) {
         this.studentID = studentID;
         this.studentName = studentName;

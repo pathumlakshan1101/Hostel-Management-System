@@ -6,6 +6,7 @@ import com.hibernate.hostel_management_system.entity.Room;
 import com.hibernate.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -28,6 +29,8 @@ public class ReservationDAOImpl implements ReservationDAO {
         List<Reservation> student = session.createQuery("FROM Reservation ").list();
         transaction.commit();
         session.close();
+
+
         return (ArrayList<Reservation>) student;
     }
 
@@ -35,6 +38,7 @@ public class ReservationDAOImpl implements ReservationDAO {
     public boolean save(Reservation dto) throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
+        session.save(dto);
 
         transaction.commit();
         session.close();

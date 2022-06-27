@@ -3,6 +3,8 @@ package com.hibernate.hostel_management_system.controller.dashboard;
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ReserveRoomBO;
 import com.hibernate.hostel_management_system.controller.util.LabelUtil;
+import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
+import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
@@ -21,6 +23,7 @@ import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
@@ -76,6 +79,12 @@ public class ReserveRoomFormController {
         allRoom=reserveRoomBO.getAllRoom();
         btnReserveRoom.setDisable(true);
         loadAllData();
+        colReserveId.setCellValueFactory(new PropertyValueFactory<>("reserveID"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        ColTimeDuration.setCellValueFactory(new PropertyValueFactory<>("timeDuration"));
 
         Pattern studentNamePattern = Pattern.compile("^[A-Z][a-z]*[ ][A-Z][a-z]*$");
         Pattern contactPattern = Pattern.compile("^(\\+|0)(94|[1-9]{2,3})(-| |)([0-9]{7}|[0-9]{2} [0-9]{7})$");
@@ -128,15 +137,18 @@ public class ReserveRoomFormController {
 
                             StudentDTO studentDTO = reserveRoomBO.searchStudent((String) newValue);
 
-                            txtStudentName.setText(studentDTO.getStudentName());
-                            txtStudentAddress.setText(studentDTO.getStudentAddress());
-                            txtStudentContact.setText(studentDTO.getStudentContact());
-                            txtStudentDOB.setText(studentDTO.getDateOfBirth());
-                            if (studentDTO.getGender()=="Male"){
-                                rBtnMale.setSelected(true);
+                            if (studentDTO!=null){
+                                txtStudentName.setText(studentDTO.getStudentName());
+                                txtStudentAddress.setText(studentDTO.getStudentAddress());
+                                txtStudentContact.setText(studentDTO.getStudentContact());
+                                txtStudentDOB.setText(studentDTO.getDateOfBirth());
+                                if (studentDTO.getGender()=="Male"){
+                                    rBtnMale.setSelected(true);
 
-                            }else {rBtnFeMale.setSelected(true);}
+                                }else {rBtnFeMale.setSelected(true);}
 
+
+                            }
 
 
                     } catch (SQLException throwables) {
@@ -164,7 +176,7 @@ public class ReserveRoomFormController {
         for (RoomDTO roomDTO:allRoom
              ) {
 
-            if (roomDTO.getQty()>0){cmbRoomId.getItems().add(roomDTO.getRoomType()+"  "+roomDTO.getRoomID());}
+            if (roomDTO.getQty()>0){cmbRoomId.getItems().add(roomDTO.getRoomID()+"  "+roomDTO.getRoomType());}
 
 
         }
@@ -179,20 +191,17 @@ public class ReserveRoomFormController {
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
 
-        colReserveId.setCellValueFactory(new PropertyValueFactory<>("reserveID"));
-        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
-        colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-        ColTimeDuration.setCellValueFactory(new PropertyValueFactory<>("timeDuration"));
 
 
         tblReserve.getItems().clear();
 
         ArrayList<ReservationDTO> allReservation = reserveRoomBO.getAllReservation();
+
+
         tblReserve.getItems().clear();
         for (ReservationDTO r :allReservation
              ) {
+            System.out.println(r.getReserveDate());
             tblReserve.getItems().add(r);
         }
 
@@ -225,9 +234,37 @@ public class ReserveRoomFormController {
         ValidationUtil.validate(reserveMap,btnReserveRoom);
     }
 
-    public void reserveRoomOnAction(ActionEvent actionEvent) {
+    public void reserveRoomOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
         if (btnReserveRoom.getText().equals("Reserve Room")){
 
+            String x = cmbRoomId.getValue();
+            int i = x.indexOf(" ");
+            String substring = x.substring(0, i);
+            System.out.println(substring);
+
+            if (reserveRoomBO.saveReserve(new ReservationDTO(txtReserveId.getText(), (String) cmbStudentId.getValue(),substring,txtTimeDuration.getText(),txtKeyMoneyStatus.getText(), LocalDate.now()))){
+
+                loadAllData();
+                NotificationUtil.notificationsConfirm("SuccessFull Reserve Room","RESERVED!");
+                clearAll();
+            }else {
+                loadAllData();
+                NotificationUtil.notificationsConfirm("UnSuccessFull Reserve Room","ERROR!");
+                clearAll();
+            }
+
         }else {}
+    }
+
+    private void clearAll() {
+        cmbRoomId.setValue(null);
+        cmbStudentId.setValue(null);
+        txtReserveId.clear();
+        txtTimeDuration.clear();
+        txtKeyMoneyStatus.clear();
+        txtStudentName.clear();
+        txtStudentAddress.clear();
+        txtStudentContact.clear();
+        txtStudentDOB.clear();
     }
 }

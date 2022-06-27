@@ -26,6 +26,10 @@ public class Room {
     public Room() {
     }
 
+    public Room(String roomID) {
+        this.roomID = roomID;
+    }
+
     public Room(String roomID, String roomType, double monthlyRental, int qty) {
         this.roomID = roomID;
         this.roomType = roomType;

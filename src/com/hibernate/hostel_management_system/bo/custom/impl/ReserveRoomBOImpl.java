@@ -14,6 +14,7 @@ import com.hibernate.hostel_management_system.entity.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -47,6 +48,14 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
             return  "RS0-00"+id;
 
         }
+    }
+
+    public boolean  saveReserve(ReservationDTO reservationDTO) throws SQLException, IOException, ClassNotFoundException {
+
+        Room room = roomDAO.search(reservationDTO.getRoomID());
+        Student student = studentDAO.search(reservationDTO.getStudentID());
+
+        return   reservationDAO.save(new Reservation(reservationDTO.getReserveID(),student,room,reservationDTO.getTimeDuration(),reservationDTO.getStatus(), LocalDate.now()));
     }
     public ArrayList<ReservationDTO> getAllReservation() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Reservation> all = reservationDAO.getAll();

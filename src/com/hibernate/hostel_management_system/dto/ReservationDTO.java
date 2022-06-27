@@ -31,4 +31,13 @@ public class ReservationDTO {
     private String status;
     private
     LocalDate reserveDate;
+
+    public ReservationDTO(String reserveID, String studentID, String roomID, String timeDuration, String status, LocalDate reserveDate) {
+        this.reserveID = reserveID;
+        this.studentID = studentID;
+        this.roomID = roomID;
+        this.timeDuration = timeDuration;
+        this.status = status;
+        this.reserveDate = reserveDate;
+    }
 }
