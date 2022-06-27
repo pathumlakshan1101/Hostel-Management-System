@@ -54,6 +54,9 @@ public class StudentDTO {
         this.reservationList = reservationList;
     }
 
+    public StudentDTO() {
+    }
+
     public String getStudentID() {
         return studentID;
     }

@@ -49,7 +49,7 @@ public class ReserveRoomFormController {
     public Label lblMonthlyRental5;
     public Label lblAvailable5;
     private final ReserveRoomBO reserveRoomBO = (ReserveRoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVE);
-    public JFXComboBox cmbRoomId;
+    public JFXComboBox<String> cmbRoomId;
     public JFXComboBox cmbStudentId;
     public JFXTextField txtStudentName;
     public JFXTextField txtStudentAddress;
@@ -61,7 +61,7 @@ public class ReserveRoomFormController {
     public JFXButton btnReserveRoom;
     public JFXTextField txtKeyMoneyStatus;
     public JFXTextField txtTimeDuration;
-    public TableView tblReserve;
+    public TableView<ReservationDTO> tblReserve;
     public TableColumn colReserveId;
     public TableColumn colDate;
     public TableColumn colStudentId;
@@ -91,12 +91,53 @@ public class ReserveRoomFormController {
         reserveMap.put(txtTimeDuration,timeDuration);
         reserveMap.put(txtKeyMoneyStatus,statusPattern);
 
+        cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                txtReserveId.setText(reserveRoomBO.generateNewReservationId());
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
 
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue!=null){
                 if (newValue.equals("   ")){
                     try {
                         cmbStudentId.setValue(reserveRoomBO.generateNewStudentId());
+
+                        btnReserveRoom.setText("Reserve Room And Save Student");
+                        txtStudentName.clear();
+                        txtStudentAddress.clear();
+                        txtStudentContact.clear();
+                        txtStudentDOB.clear();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    btnReserveRoom.setText("Reserve Room");
+                    try {
+
+
+                            StudentDTO studentDTO = reserveRoomBO.searchStudent((String) newValue);
+
+                            txtStudentName.setText(studentDTO.getStudentName());
+                            txtStudentAddress.setText(studentDTO.getStudentAddress());
+                            txtStudentContact.setText(studentDTO.getStudentContact());
+                            txtStudentDOB.setText(studentDTO.getDateOfBirth());
+                            if (studentDTO.getGender()=="Male"){
+                                rBtnMale.setSelected(true);
+
+                            }else {rBtnFeMale.setSelected(true);}
+
+
 
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
@@ -185,5 +226,8 @@ public class ReserveRoomFormController {
     }
 
     public void reserveRoomOnAction(ActionEvent actionEvent) {
+        if (btnReserveRoom.getText().equals("Reserve Room")){
+
+        }else {}
     }
 }

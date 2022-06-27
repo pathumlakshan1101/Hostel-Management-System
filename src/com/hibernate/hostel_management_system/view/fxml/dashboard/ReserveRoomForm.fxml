@@ -269,7 +269,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="btnReserveRoom" layoutX="795.0" layoutY="865.0" onAction="#reserveRoomOnAction" text="Reserve Room">
+      <JFXButton fx:id="btnReserveRoom" layoutX="636.0" layoutY="868.0" onAction="#reserveRoomOnAction" text="Reserve Room">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>

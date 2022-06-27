@@ -20,6 +20,8 @@ import java.util.ArrayList;
 public interface ReserveRoomBO extends SuperBO {
     ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException;
     String generateNewStudentId() throws SQLException, IOException, ClassNotFoundException;
+    StudentDTO searchStudent(String id) throws SQLException, IOException, ClassNotFoundException;
+    String generateNewReservationId() throws SQLException, IOException, ClassNotFoundException;
     ArrayList<RoomDTO> getAllRoom() throws SQLException, IOException, ClassNotFoundException;
     ArrayList<ReservationDTO> getAllReservation() throws SQLException, IOException, ClassNotFoundException;
 }

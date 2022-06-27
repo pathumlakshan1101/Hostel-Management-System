@@ -56,8 +56,13 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student search(String s) throws SQLException, ClassNotFoundException {
-        return null;
+    public Student search(String s) throws SQLException, ClassNotFoundException, IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Student load = session.get(Student.class, s);
+        transaction.commit();
+        session.close();
+        return load;
     }
 
     @Override

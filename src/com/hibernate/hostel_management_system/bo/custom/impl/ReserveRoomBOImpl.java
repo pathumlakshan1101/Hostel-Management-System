@@ -38,6 +38,16 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         return allRoom;
     }
 
+    public String generateNewReservationId() throws SQLException, IOException, ClassNotFoundException {
+        int id = reservationDAO.generateNewID();
+
+        if (id==0){
+            return "RS0-001";
+        }else {
+            return  "RS0-00"+id;
+
+        }
+    }
     public ArrayList<ReservationDTO> getAllReservation() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Reservation> all = reservationDAO.getAll();
         ArrayList<ReservationDTO> allReserve = new ArrayList<>();
@@ -59,6 +69,16 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
 
         }
 
+    }
+
+    public StudentDTO searchStudent(String id) throws SQLException, IOException, ClassNotFoundException {
+        Student search = studentDAO.search(id);
+        if (search==null){
+            return new StudentDTO();
+        }else {        return new StudentDTO(search.getStudentID(),search.getStudentName(),search.getStudentAddress(),search.getStudentContact(),search.getDateOfBirth(),search.getGender());
+
+
+        }
     }
     public ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException {
         ArrayList<Student> all = studentDAO.getAll();

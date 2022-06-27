@@ -33,7 +33,12 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean save(Reservation dto) throws SQLException, ClassNotFoundException, IOException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -58,6 +63,33 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public int generateNewID() throws SQLException, ClassNotFoundException, IOException {
-        return 0;
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List max = session.createSQLQuery("SELECT CONCAT(MAX(0+SUBSTRING(reserveID,5))) FROM reservation").list();
+        List min = session.createSQLQuery("SELECT CONCAT(MIN(0+SUBSTRING(reserveID,5))) FROM reservation").list();
+
+        transaction.commit();
+        session.close();
+
+        if (min.get(0)==null || max.get(0)==null){
+            return 0;
+        }else {
+            if (min.get(0).equals("1")){
+
+
+
+                return Integer.parseInt(String.valueOf(max.get(0)))+1;
+
+
+
+            }else {
+
+                return Integer.parseInt(String.valueOf(min.get(0)))-1;
+            }
+        }
+
+
     }
 }
