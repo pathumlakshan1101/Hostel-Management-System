@@ -77,6 +77,7 @@ public class ManageFormController {
     public JFXTextField txtReserveId;
     private StudentDTO studentDTO ;
     private RoomDTO roomDTO;
+    private ReservationDTO reservationDTO;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
     LinkedHashMap<JFXTextField, Pattern> roomMap = new LinkedHashMap<>();
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
@@ -166,6 +167,19 @@ public class ManageFormController {
 
                 txtMonthlyRental.setText(rentals);
                 txtRoomQty.setText(String.valueOf(tblRoomNewValue.getQty()));
+            }
+        });
+btnManageReservation.setDisable(true);
+        tblReserve.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            btnManageReservation.setText(newValue!=null ? "Delete Reserve" : "Manage reserve");
+            btnManageReservation.setDisable(false);
+             reservationDTO = newValue;
+            if (!(newValue ==null)){
+                txtReserveId.setText(newValue.getReserveID());
+                cmbStudentId.setValue(newValue.getStudentID());
+                cmbRoomId.setValue(newValue.getRoomID());
+                txtTimeDuration.setText(newValue.getTimeDuration());
+                txtStatus.setText(newValue.getStatus());
             }
         });
 
