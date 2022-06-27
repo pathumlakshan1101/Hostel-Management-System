@@ -191,6 +191,28 @@ btnManageReservation.setDisable(true);
         });
 
 
+        cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (reservationDTO!=null){
+                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
+                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
+                    btnManageReservation.setText("Delete Reserve");
+                }else {
+                    btnManageReservation.setText("Update Reserve");
+                }
+            }
+        });
+
+        cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (reservationDTO!=null){
+                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
+                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
+                    btnManageReservation.setText("Delete Reserve");
+                }else {
+                    btnManageReservation.setText("Update Reserve");
+                }
+            }
+        });
+
     }
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
@@ -300,11 +322,22 @@ btnManageReservation.setDisable(true);
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
+        btnManageReservation.setDisable(true);
+        btnManageStudent.setDisable(true);
+        btnManageRoom.setDisable(true);
         ValidationUtil.validate(studentMap,btnManageStudent);
         ValidationUtil.validate(roomMap,btnManageRoom);
-        ValidationUtil.validate(reserveMap,btnManageRoom);
+        ValidationUtil.validate(reserveMap,btnManageReservation);
 
 
+        if (reservationDTO!=null){
+            if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
+            && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
+                btnManageReservation.setText("Delete Reserve");
+            }else {
+                btnManageReservation.setText("Update Reserve");
+            }
+        }
 
         if (!(studentDTO ==null)){
             if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
@@ -412,5 +445,7 @@ btnManageReservation.setDisable(true);
     }
 
     public void manageReservationOnAction(ActionEvent actionEvent) {
+
+
     }
 }
