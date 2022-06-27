@@ -8,6 +8,7 @@ import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -61,6 +62,18 @@ public class ManageFormController {
     public TableColumn colRoomQty;
     public JFXTextField txtRoomId;
     public AnchorPane manageContex;
+    public JFXTextField txtTimeDuration;
+    public JFXButton btnManageReservation;
+    public TableView tblReserve;
+    public TableColumn colReserveId;
+    public TableColumn colReserveStudentId;
+    public TableColumn colReserveTimeDuration;
+    public TableColumn colReserveRoomId;
+    public TableColumn colReserveStatus;
+    public JFXComboBox cmbStudentId;
+    public JFXComboBox cmbRoomId;
+    public JFXTextField txtStatus;
+    public JFXTextField txtReserveId;
     private StudentDTO studentDTO ;
     private RoomDTO roomDTO;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
@@ -333,5 +346,8 @@ public class ManageFormController {
         roomDTO=null;
         btnManageRoom.setText("Add Room");
         btnManageRoom.setDisable(false);
+    }
+
+    public void manageReservationOnAction(ActionEvent actionEvent) {
     }
 }

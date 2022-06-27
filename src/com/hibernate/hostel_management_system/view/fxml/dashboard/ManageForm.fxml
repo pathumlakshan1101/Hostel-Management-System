@@ -94,28 +94,28 @@
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="589.0" layoutX="1327.0" layoutY="22.0" opacity="0.49" stroke="TRANSPARENT" strokeType="INSIDE" width="473.0" />
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="367.0" prefHeight="50.0" prefWidth="383.0" promptText="Time Duration" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtTimeDuration" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="367.0" prefHeight="50.0" prefWidth="383.0" promptText="Time Duration" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1540.0" layoutY="559.0" text="Manage Reservation">
+      <JFXButton fx:id="btnManageReservation" layoutX="1540.0" layoutY="559.0" onAction="#manageReservationOnAction" text="Manage Reservation">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="1327.0" layoutY="632.0" prefHeight="364.0" prefWidth="577.0">
+      <TableView fx:id="tblReserve" layoutX="1327.0" layoutY="632.0" prefHeight="364.0" prefWidth="577.0">
          <columns>
-            <TableColumn prefWidth="87.0" text="Reserve ID" />
-            <TableColumn prefWidth="121.0" text="Student ID" />
-            <TableColumn prefWidth="114.0" text="Room ID" />
-            <TableColumn prefWidth="138.0" text="Time Duration" />
-            <TableColumn prefWidth="116.0" text="Status" />
+            <TableColumn fx:id="colReserveId" prefWidth="87.0" text="Reserve ID" />
+            <TableColumn fx:id="colReserveStudentId" prefWidth="121.0" text="Student ID" />
+            <TableColumn fx:id="colReserveRoomId" prefWidth="114.0" text="Room ID" />
+            <TableColumn fx:id="colReserveTimeDuration" prefWidth="138.0" text="Time Duration" />
+            <TableColumn fx:id="colReserveStatus" prefWidth="116.0" text="Status" />
          </columns>
       </TableView>
-      <JFXComboBox focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="155.0" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="-fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;" styleClass="root" unFocusColor="#04a5a3" />
-      <JFXComboBox focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="261.0" prefHeight="50.0" prefWidth="383.0" promptText="Room ID" style="-fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;" styleClass="root" unFocusColor="#04a5a3" />
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="470.0" prefHeight="50.0" prefWidth="383.0" promptText="Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXComboBox fx:id="cmbStudentId" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="155.0" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="-fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;" styleClass="root" unFocusColor="#04a5a3" />
+      <JFXComboBox fx:id="cmbRoomId" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="261.0" prefHeight="50.0" prefWidth="383.0" promptText="Room ID" style="-fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;" styleClass="root" unFocusColor="#04a5a3" />
+      <JFXTextField fx:id="txtStatus" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="470.0" prefHeight="50.0" prefWidth="383.0" promptText="Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -125,7 +125,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField editable="false" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="49.0" prefHeight="50.0" prefWidth="383.0" promptText="Reserve ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtReserveId" editable="false" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="49.0" prefHeight="50.0" prefWidth="383.0" promptText="Reserve ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
