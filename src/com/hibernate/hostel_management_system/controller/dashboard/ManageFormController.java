@@ -170,15 +170,32 @@ public class ManageFormController {
         });
 
 
-
     }
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
         loadStudentTable();
         loadRoomTable();
         loadReserveTable();
+        loadAllComboBox();
 
 
+    }
+
+    private void loadAllComboBox() throws SQLException, IOException, ClassNotFoundException {
+        ArrayList<RoomDTO> allRoom = manageBO.getAllRoom();
+        ArrayList<StudentDTO> allStudent = manageBO.getAllStudent();
+        cmbRoomId.getItems().clear();
+        cmbStudentId.getItems().clear();
+
+        for (RoomDTO roomDTO:allRoom
+             ) {
+            cmbRoomId.getItems().add(roomDTO.getRoomID());
+        }
+
+        for (StudentDTO studentDTO:allStudent
+             ) {
+            cmbStudentId.getItems().add(studentDTO.getStudentID());
+        }
     }
 
     private void loadReserveTable() throws SQLException, IOException, ClassNotFoundException {
