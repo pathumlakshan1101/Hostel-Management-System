@@ -1,6 +1,7 @@
 package com.hibernate.hostel_management_system.dao.custom;
 
 import com.hibernate.hostel_management_system.dao.CrudDAO;
+import com.hibernate.hostel_management_system.entity.Reservation;
 
 /**
  * @author : ALE_IS_TER
@@ -10,5 +11,5 @@ import com.hibernate.hostel_management_system.dao.CrudDAO;
  * @Since : 0.1.0
  */
 
-public interface ReservationDAO extends CrudDAO<ReservationDAO,String> {
+public interface ReservationDAO extends CrudDAO<Reservation,String> {
 }

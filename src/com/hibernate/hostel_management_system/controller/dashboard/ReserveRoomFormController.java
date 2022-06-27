@@ -3,6 +3,7 @@ package com.hibernate.hostel_management_system.controller.dashboard;
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ReserveRoomBO;
 import com.hibernate.hostel_management_system.controller.util.LabelUtil;
+import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -73,7 +74,8 @@ public class ReserveRoomFormController {
         loadAllTable();
     }
 
-    private void loadAllTable() {
+    private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
+        ArrayList<ReservationDTO> allReservation = reserveRoomBO.getAllReservation();
 
     }
 

@@ -1,9 +1,16 @@
 package com.hibernate.hostel_management_system.dao.custom.impl;
 
 import com.hibernate.hostel_management_system.dao.custom.ReservationDAO;
+import com.hibernate.hostel_management_system.entity.Reservation;
+import com.hibernate.hostel_management_system.entity.Room;
+import com.hibernate.hostel_management_system.util.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : ALE_IS_TER
@@ -12,23 +19,30 @@ import java.util.ArrayList;
  * Time        : 2:40 PM
  */
 public class ReservationDAOImpl implements ReservationDAO {
+
     @Override
-    public ArrayList<ReservationDAO> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+    public ArrayList<Reservation> getAll() throws SQLException, ClassNotFoundException, IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Reservation> student = session.createQuery("FROM Reservation ").list();
+        transaction.commit();
+        session.close();
+        return (ArrayList<Reservation>) student;
     }
 
     @Override
-    public boolean save(ReservationDAO dto) throws SQLException, ClassNotFoundException {
+    public boolean save(Reservation dto) throws SQLException, ClassNotFoundException, IOException {
         return false;
     }
 
     @Override
-    public boolean update(ReservationDAO dto) throws SQLException, ClassNotFoundException {
+    public boolean update(Reservation dto) throws SQLException, ClassNotFoundException, IOException {
         return false;
     }
 
     @Override
-    public ReservationDAO search(String s) throws SQLException, ClassNotFoundException {
+    public Reservation search(String s) throws SQLException, ClassNotFoundException, IOException {
         return null;
     }
 
@@ -38,12 +52,12 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException {
+    public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
         return false;
     }
 
     @Override
-    public int generateNewID() throws SQLException, ClassNotFoundException {
+    public int generateNewID() throws SQLException, ClassNotFoundException, IOException {
         return 0;
     }
 }

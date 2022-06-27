@@ -1,6 +1,7 @@
 package com.hibernate.hostel_management_system.bo.custom;
 
 import com.hibernate.hostel_management_system.bo.SuperBO;
+import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 
 import java.io.IOException;
@@ -16,5 +17,6 @@ import java.util.ArrayList;
  */
 
 public interface ReserveRoomBO extends SuperBO {
-    public ArrayList<RoomDTO> getAllRoom() throws SQLException, IOException, ClassNotFoundException;
+     ArrayList<RoomDTO> getAllRoom() throws SQLException, IOException, ClassNotFoundException;
+    ArrayList<ReservationDTO> getAllReservation() throws SQLException, IOException, ClassNotFoundException;
 }
