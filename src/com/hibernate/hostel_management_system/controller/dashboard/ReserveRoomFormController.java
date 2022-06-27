@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
@@ -57,11 +58,11 @@ public class ReserveRoomFormController {
     public JFXTextField txtTimeDuration;
     public TableView tblReserve;
     public TableColumn colReserveId;
-    public TableColumn Date;
     public TableColumn colStudentId;
-    public TableColumn colRoomType;
     public TableColumn colRoomId;
     public TableColumn colStatus;
+    public TableColumn colDate;
+    public TableColumn ColTimeDuration;
 
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
 
@@ -75,7 +76,22 @@ public class ReserveRoomFormController {
     }
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
+
+        colReserveId.setCellValueFactory(new PropertyValueFactory<>("reserveID"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colRoomId.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        ColTimeDuration.setCellValueFactory(new PropertyValueFactory<>("timeDuration"));
+
+
+
         ArrayList<ReservationDTO> allReservation = reserveRoomBO.getAllReservation();
+        tblReserve.getItems().clear();
+        for (ReservationDTO r :allReservation
+             ) {
+            tblReserve.getItems().add(r);
+        }
 
     }
 
