@@ -253,7 +253,33 @@ public class ReserveRoomFormController {
                 clearAll();
             }
 
-        }else {}
+        }else {
+            String gender = null;
+            if (rBtnFeMale.isSelected()){
+                gender="FeMale";
+            }else if (rBtnMale.isSelected()){
+                gender="Male";
+            }
+            if (reserveRoomBO.saveStudent(new StudentDTO((String) cmbStudentId.getValue(),txtStudentName.getText(),txtStudentAddress.getText(),txtStudentContact.getText(),txtStudentDOB.getText(),gender))){
+                NotificationUtil.notificationsConfirm("SuccessFull Add Student","ADDED!");
+            }
+
+            String x = cmbRoomId.getValue();
+            int i = x.indexOf(" ");
+            String substring = x.substring(0, i);
+            System.out.println(substring);
+
+            if (reserveRoomBO.saveReserve(new ReservationDTO(txtReserveId.getText(), (String) cmbStudentId.getValue(),substring,txtTimeDuration.getText(),txtKeyMoneyStatus.getText(), LocalDate.now()))){
+
+                loadAllData();
+                NotificationUtil.notificationsConfirm("SuccessFull Reserve Room","RESERVED!");
+                clearAll();
+            }else {
+                loadAllData();
+                NotificationUtil.notificationsConfirm("UnSuccessFull Reserve Room","ERROR!");
+                clearAll();
+            }
+        }
     }
 
     private void clearAll() {

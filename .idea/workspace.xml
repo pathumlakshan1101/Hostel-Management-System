@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/ReserveRoomBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/ReserveRoomBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/impl/ReserveRoomBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/impl/ReserveRoomBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/ReserveRoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/ReserveRoomFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dao/custom/impl/ReservationDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dao/custom/impl/ReservationDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dao/custom/impl/RoomDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dao/custom/impl/RoomDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dto/ReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dto/ReservationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/entity/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/entity/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +143,7 @@
       <workItem from="1656132063401" duration="28073000" />
       <workItem from="1656209154690" duration="20860000" />
       <workItem from="1656298738689" duration="3056000" />
-      <workItem from="1656303826607" duration="11918000" />
+      <workItem from="1656303826607" duration="12901000" />
     </task>
     <servers />
   </component>

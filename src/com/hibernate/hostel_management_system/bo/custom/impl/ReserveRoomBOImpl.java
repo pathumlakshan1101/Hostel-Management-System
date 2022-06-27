@@ -99,4 +99,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         }
         return allStudent;
     }
+    public boolean saveStudent(StudentDTO studentDTO) throws SQLException, IOException, ClassNotFoundException {
+        return studentDAO.save(new Student(studentDTO.getStudentID(),studentDTO.getStudentName(),studentDTO.getStudentAddress(),studentDTO.getStudentContact(),studentDTO.getDateOfBirth(),studentDTO.getGender()));
+    }
 }
