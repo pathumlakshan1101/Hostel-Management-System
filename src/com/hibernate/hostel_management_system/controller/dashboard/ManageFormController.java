@@ -80,6 +80,7 @@ public class ManageFormController {
     private ReservationDTO reservationDTO;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
     LinkedHashMap<JFXTextField, Pattern> roomMap = new LinkedHashMap<>();
+    LinkedHashMap<JFXTextField, Pattern> reserveMap = new LinkedHashMap<>();
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
 
         btnManageRoom.setDisable(true);
@@ -126,6 +127,12 @@ public class ManageFormController {
         roomMap.put(txtRoomType,roomType);
         roomMap.put(txtMonthlyRental,roomMonthlyRental);
         roomMap.put(txtRoomQty,roomQty);
+
+        Pattern timeDuration = Pattern.compile("^[0-9]{1,3}[ ]((month)|(Month))$");
+        Pattern statusPattern = Pattern.compile("^((pay)|(non pay))|((Pay)|(Non Pay))$");
+
+        reserveMap.put(txtTimeDuration,timeDuration);
+        reserveMap.put(txtStatus,statusPattern);
 
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnManageStudent.setDisable(false);
@@ -295,6 +302,9 @@ btnManageReservation.setDisable(true);
     public void textFields_Key_Released(KeyEvent keyEvent) {
         ValidationUtil.validate(studentMap,btnManageStudent);
         ValidationUtil.validate(roomMap,btnManageRoom);
+        ValidationUtil.validate(reserveMap,btnManageRoom);
+
+
 
         if (!(studentDTO ==null)){
             if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())

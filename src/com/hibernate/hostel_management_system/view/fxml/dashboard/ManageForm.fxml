@@ -94,7 +94,7 @@
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="589.0" layoutX="1327.0" layoutY="22.0" opacity="0.49" stroke="TRANSPARENT" strokeType="INSIDE" width="473.0" />
-      <JFXTextField fx:id="txtTimeDuration" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="367.0" prefHeight="50.0" prefWidth="383.0" promptText="Time Duration" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtTimeDuration" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="367.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Time Duration" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -115,7 +115,7 @@
       </TableView>
       <JFXComboBox fx:id="cmbStudentId" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="155.0" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="-fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;" styleClass="root" unFocusColor="#04a5a3" />
       <JFXComboBox fx:id="cmbRoomId" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="261.0" prefHeight="50.0" prefWidth="383.0" promptText="Room ID" style="-fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;" styleClass="root" unFocusColor="#04a5a3" />
-      <JFXTextField fx:id="txtStatus" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="470.0" prefHeight="50.0" prefWidth="383.0" promptText="Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStatus" focusColor="#00fffb" labelFloat="true" layoutX="1387.0" layoutY="470.0" onKeyReleased="#textFields_Key_Released" prefHeight="50.0" prefWidth="383.0" promptText="Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
