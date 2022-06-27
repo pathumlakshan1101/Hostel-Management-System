@@ -3,6 +3,7 @@ package com.hibernate.hostel_management_system.bo.custom;
 import com.hibernate.hostel_management_system.bo.SuperBO;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
+import com.hibernate.hostel_management_system.dto.StudentDTO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
  */
 
 public interface ReserveRoomBO extends SuperBO {
-     ArrayList<RoomDTO> getAllRoom() throws SQLException, IOException, ClassNotFoundException;
+    ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException;
+    String generateNewStudentId() throws SQLException, IOException, ClassNotFoundException;
+    ArrayList<RoomDTO> getAllRoom() throws SQLException, IOException, ClassNotFoundException;
     ArrayList<ReservationDTO> getAllReservation() throws SQLException, IOException, ClassNotFoundException;
 }

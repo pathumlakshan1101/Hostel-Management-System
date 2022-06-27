@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -250,12 +251,15 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXRadioButton fx:id="rBtnMale" layoutX="623.0" layoutY="750.0" style="-fx-selected-color: #00fffb;" text="Male" textFill="WHITE">
+      <JFXRadioButton fx:id="rBtnMale" layoutX="623.0" layoutY="750.0" selected="true" style="-fx-selected-color: #00fffb;" text="Male" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="rBtnFeMale" layoutX="806.0" layoutY="750.0" style="-fx-selected-color: #00fffb;" text="Female" textFill="WHITE">
+      <JFXRadioButton fx:id="rBtnFeMale" layoutX="806.0" layoutY="750.0" style="-fx-selected-color: #00fffb;" text="Female" textFill="WHITE" toggleGroup="$gender">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

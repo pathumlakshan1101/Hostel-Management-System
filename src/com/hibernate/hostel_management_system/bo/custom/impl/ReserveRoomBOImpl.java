@@ -7,8 +7,10 @@ import com.hibernate.hostel_management_system.dao.custom.RoomDAO;
 import com.hibernate.hostel_management_system.dao.custom.StudentDAO;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
+import com.hibernate.hostel_management_system.dto.StudentDTO;
 import com.hibernate.hostel_management_system.entity.Reservation;
 import com.hibernate.hostel_management_system.entity.Room;
+import com.hibernate.hostel_management_system.entity.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -45,5 +47,27 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
             allReserve.add(new ReservationDTO(reservation.getReserveID(),reservation.getStudent().getStudentID(),reservation.getRoom().getRoomID(),reservation.getRoom().getRoomType(),reservation.getTimeDuration(),reservation.getStatus(),reservation.getReserveDate()));
         }
         return allReserve;
+    }
+    public String generateNewStudentId() throws SQLException, IOException, ClassNotFoundException {
+
+        int id = studentDAO.generateNewID();
+
+        if (id==0){
+            return "S00-001";
+        }else {
+            return  "S00-00"+id;
+
+        }
+
+    }
+    public ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException {
+        ArrayList<Student> all = studentDAO.getAll();
+        ArrayList<StudentDTO> allStudent = new ArrayList<>();
+
+        for (Student s:all
+        ) {
+            allStudent.add(new StudentDTO(s.getStudentID(),s.getStudentName(),s.getStudentAddress(),s.getStudentContact(),s.getDateOfBirth(),s.getGender()));
+        }
+        return allStudent;
     }
 }
