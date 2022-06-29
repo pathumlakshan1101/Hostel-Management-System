@@ -1,6 +1,11 @@
 package com.hibernate.hostel_management_system.bo.custom;
 
 import com.hibernate.hostel_management_system.bo.SuperBO;
+import com.hibernate.hostel_management_system.dto.StatusDTO;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * @author : ALE_IS_TER
@@ -11,4 +16,5 @@ import com.hibernate.hostel_management_system.bo.SuperBO;
  */
 
 public interface IncomeBO extends SuperBO {
+    ArrayList<StatusDTO> getAllKeyMoneyStatus() throws SQLException, IOException, ClassNotFoundException;
 }

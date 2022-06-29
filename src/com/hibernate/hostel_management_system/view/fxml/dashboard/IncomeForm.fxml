@@ -36,35 +36,35 @@
             <NumberAxis side="LEFT" />
          </yAxis>
       </LineChart>
-      <TableView layoutX="1422.0" layoutY="519.0" prefHeight="486.0" prefWidth="465.0">
+      <TableView fx:id="tblStatus" layoutX="1422.0" layoutY="519.0" prefHeight="486.0" prefWidth="465.0">
         <columns>
-          <TableColumn prefWidth="124.0" text="Student ID" />
-          <TableColumn prefWidth="151.0" text="Student Name" />
-            <TableColumn prefWidth="81.0" text="Room ID" />
-            <TableColumn prefWidth="108.0" text="Key Money Status " />
+          <TableColumn fx:id="colStudentId" prefWidth="124.0" text="Student ID" />
+          <TableColumn fx:id="colStudentName" prefWidth="151.0" text="Student Name" />
+            <TableColumn fx:id="ColRoomId" prefWidth="81.0" text="Room ID" />
+            <TableColumn fx:id="colStatus" prefWidth="108.0" text="Key Money Status " />
         </columns>
       </TableView>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="719.0" prefHeight="50.0" prefWidth="383.0" promptText="Room ID " style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtRoomId" editable="false" focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="719.0" prefHeight="50.0" prefWidth="383.0" promptText="Room ID " style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="619.0" prefHeight="50.0" prefWidth="383.0" promptText="Student Name" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentName" editable="false" focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="619.0" prefHeight="50.0" prefWidth="383.0" promptText="Student Name" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="519.0" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtStudentId" editable="false" focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="519.0" prefHeight="50.0" prefWidth="383.0" promptText="Student ID" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="819.0" prefHeight="50.0" prefWidth="383.0" promptText="Key Money Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtKeyMoneyStatus" focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="819.0" prefHeight="50.0" prefWidth="383.0" promptText="Key Money Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1181.0" layoutY="912.0" text="Update Status">
+      <JFXButton fx:id="btnUpdateStatus" layoutX="1181.0" layoutY="912.0" onAction="#updateStatusOnAction" text="Update Status">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>

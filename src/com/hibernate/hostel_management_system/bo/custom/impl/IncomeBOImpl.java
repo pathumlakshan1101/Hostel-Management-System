@@ -1,6 +1,16 @@
 package com.hibernate.hostel_management_system.bo.custom.impl;
 
 import com.hibernate.hostel_management_system.bo.custom.IncomeBO;
+import com.hibernate.hostel_management_system.dao.DAOFactory;
+import com.hibernate.hostel_management_system.dao.custom.ReservationDAO;
+import com.hibernate.hostel_management_system.dao.custom.RoomDAO;
+import com.hibernate.hostel_management_system.dao.custom.StudentDAO;
+import com.hibernate.hostel_management_system.dto.StatusDTO;
+import com.hibernate.hostel_management_system.entity.Reservation;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * @author : ALE_IS_TER
@@ -9,4 +19,21 @@ import com.hibernate.hostel_management_system.bo.custom.IncomeBO;
  * Time        : 10:54 PM
  */
 public class IncomeBOImpl implements IncomeBO {
+    private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
+    private final RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
+    private final ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RESERVATION);
+
+    public ArrayList<StatusDTO> getAllKeyMoneyStatus() throws SQLException, IOException, ClassNotFoundException {
+
+        ArrayList<Reservation> all = reservationDAO.getAll();
+        ArrayList<StatusDTO> allKeyMoneyStatus = new ArrayList<>();
+
+
+
+        for (Reservation reservation:all
+             ) {
+            allKeyMoneyStatus.add(new StatusDTO(reservation.getStudent().getStudentID(),reservation.getStudent().getStudentName(),reservation.getRoom().getRoomID(),reservation.getStatus()));
+        }
+        return allKeyMoneyStatus;
+    }
 }
