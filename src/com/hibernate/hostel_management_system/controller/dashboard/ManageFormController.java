@@ -267,7 +267,7 @@ public class ManageFormController {
             if (manageBO.save(new StudentDTO(txtStudentId.getText(),txtStudentName.getText(),txtStudentAddress.getText(),txtStudentContact.getText(),txtStudentDOB.getText(),gender))){
                 NotificationUtil.notificationsConfirm("Successful Add Customer","ADDED!");
                 clearTextFields();
-                loadStudentTable();
+                loadAllTable();
             }
 
         }else if (btnManageStudent.getText().equals("Update Student")){
@@ -282,7 +282,7 @@ public class ManageFormController {
             if (manageBO.updateStudent(new StudentDTO(txtStudentId.getText(),txtStudentName.getText(),txtStudentAddress.getText(),txtStudentContact.getText(),txtStudentDOB.getText(),gender))){
                 NotificationUtil.notificationsConfirm("Successful UpDate Customer","UPDATED!");
                 clearTextFields();
-                loadStudentTable();
+                loadAllTable();
             }
 
         }else {
@@ -291,7 +291,7 @@ public class ManageFormController {
             if (manageBO.deleteStudent(txtStudentId.getText())){
                 NotificationUtil.notificationsConfirm("Successful Delete Customer","DELETED!");
                 clearTextFields();
-                loadStudentTable();
+                loadAllTable();
             }
 
         }
@@ -382,6 +382,11 @@ public class ManageFormController {
         txtRoomType.clear();
         txtMonthlyRental.clear();
         txtRoomQty.clear();
+        txtReserveId.clear();
+        cmbRoomId.setValue(null);
+        cmbStudentId.setValue(null);
+        txtTimeDuration.clear();
+        txtStatus.clear();
     }
 
     public void manageRoomOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
@@ -390,13 +395,13 @@ public class ManageFormController {
 
             if (manageBO.updateRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())))){
                 NotificationUtil.notificationsConfirm("Room UpDate Successful","UPDATED!");
-                loadRoomTable();
+                loadAllTable();
                 clearTextFields();
             }
         }else if (btnManageRoom.getText().equals("Add Room")){
             if (manageBO.saveRoom(new RoomDTO(txtRoomId.getText(),txtRoomType.getText(),Double.parseDouble(txtMonthlyRental.getText()),Integer.parseInt(txtRoomQty.getText())))){
                 NotificationUtil.notificationsConfirm("Room Add Successful","ADDED!");
-                loadRoomTable();
+                loadAllTable();
                 clearTextFields();
             }
         }
@@ -405,7 +410,7 @@ public class ManageFormController {
 
             if (manageBO.deleteRoom(txtRoomId.getText())){
                 NotificationUtil.notificationsConfirm("Room Deleted Successful","DELETED!");
-                loadRoomTable();
+                loadAllTable();
                 clearTextFields();
             }
 
@@ -424,13 +429,28 @@ public class ManageFormController {
         btnManageRoom.setDisable(false);
     }
 
-    public void manageReservationOnAction(ActionEvent actionEvent) {
+    public void manageReservationOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
 
         if (btnManageReservation.getText().equals("Update Reserve")){
+
+            if (manageBO.updateReserve(new ReservationDTO(
+                    txtReserveId.getText(),(String) cmbStudentId.getValue(),(String) cmbRoomId.getValue(),reservationDTO.getRoomID(),txtTimeDuration.getText(),
+                    txtStatus.getText(),reservationDTO.getReserveDate()
+            ))){
+                NotificationUtil.notificationsConfirm("Reservation UpDate Successful","UPDATED!");
+                loadAllTable();
+                clearTextFields();
+            }
 
 
 
         }else {
+
+            if (manageBO.deleteReservation(txtReserveId.getText(),(String) cmbRoomId.getValue())){
+                NotificationUtil.notificationsConfirm("Reservation UpDate Successful","UPDATED!");
+                loadAllTable();
+                clearTextFields();
+            }
 
         }
     }

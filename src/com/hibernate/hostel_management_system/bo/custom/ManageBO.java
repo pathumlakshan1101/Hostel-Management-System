@@ -29,4 +29,7 @@ public interface ManageBO extends SuperBO {
     String generateNewRoomId() throws SQLException, IOException, ClassNotFoundException;
     boolean saveRoom (RoomDTO roomDTO) throws SQLException, IOException, ClassNotFoundException;
     ArrayList<ReservationDTO> getAllReservation() throws SQLException, IOException, ClassNotFoundException;
+    boolean updateReserve(ReservationDTO reservationDTO) throws SQLException, IOException, ClassNotFoundException;
+
+    boolean deleteReservation(String id,String roomId) throws SQLException, IOException, ClassNotFoundException;
 }

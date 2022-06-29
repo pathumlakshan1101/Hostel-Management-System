@@ -2,9 +2,8 @@ package com.hibernate.hostel_management_system.controller.dashboard;
 
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ReserveRoomBO;
-import com.hibernate.hostel_management_system.controller.util.LabelUtil;
+import com.hibernate.hostel_management_system.controller.util.LabelRoom;
 import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
-import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
@@ -125,6 +124,7 @@ public class ReserveRoomFormController {
                         txtStudentAddress.clear();
                         txtStudentContact.clear();
                         txtStudentDOB.clear();
+                        rBtnMale.setSelected(true);
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
                     } catch (IOException e) {
@@ -144,10 +144,15 @@ public class ReserveRoomFormController {
                                 txtStudentAddress.setText(studentDTO.getStudentAddress());
                                 txtStudentContact.setText(studentDTO.getStudentContact());
                                 txtStudentDOB.setText(studentDTO.getDateOfBirth());
-                                if (studentDTO.getGender()=="Male"){
-                                    rBtnMale.setSelected(true);
 
-                                }else {rBtnFeMale.setSelected(true);}
+                                if (studentDTO.getGender()!=null){
+                                    if (studentDTO.getGender().equals("Male")){
+                                        rBtnMale.setSelected(true);
+                                    }else {
+                                        rBtnFeMale.setSelected(true);
+                                    }
+                                }
+
 
 
                             }
@@ -211,12 +216,12 @@ public class ReserveRoomFormController {
 
     private void loadAllLabel() throws SQLException, IOException, ClassNotFoundException {
 
-        ArrayList<LabelUtil> allLabel = new ArrayList<>();
-        allLabel.add(new LabelUtil(lblRoomTypeAndID1, lblMonthlyRental1, lblAvailable1));
-        allLabel.add(new LabelUtil(lblRoomTypeAndID2, lblMonthlyRental2, lblAvailable2));
-        allLabel.add(new LabelUtil(lblRoomTypeAndID3, lblMonthlyRental3, lblAvailable3));
-        allLabel.add(new LabelUtil(lblRoomTypeAndID4, lblMonthlyRental4, lblAvailable4));
-        allLabel.add(new LabelUtil(lblRoomTypeAndID5, lblMonthlyRental5, lblAvailable5));
+        ArrayList<LabelRoom> allLabel = new ArrayList<>();
+        allLabel.add(new LabelRoom(lblRoomTypeAndID1, lblMonthlyRental1, lblAvailable1));
+        allLabel.add(new LabelRoom(lblRoomTypeAndID2, lblMonthlyRental2, lblAvailable2));
+        allLabel.add(new LabelRoom(lblRoomTypeAndID3, lblMonthlyRental3, lblAvailable3));
+        allLabel.add(new LabelRoom(lblRoomTypeAndID4, lblMonthlyRental4, lblAvailable4));
+        allLabel.add(new LabelRoom(lblRoomTypeAndID5, lblMonthlyRental5, lblAvailable5));
 
         for (int i = 0; i < allLabel.size(); i++) {
             if (i< allRoom.size()){

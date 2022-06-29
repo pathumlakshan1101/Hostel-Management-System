@@ -15,6 +15,7 @@ import com.hibernate.hostel_management_system.entity.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -100,6 +101,30 @@ public boolean deleteRoom(String s) throws SQLException, IOException, ClassNotFo
     public boolean updateRoom(RoomDTO roomDTO) throws SQLException, IOException, ClassNotFoundException {
        return roomDAO.update(new Room(roomDTO.getRoomID(), roomDTO.getRoomType(),roomDTO.getMonthlyRental(), roomDTO.getQty()));
     }
+
+    public boolean updateReserve(ReservationDTO reservationDTO) throws SQLException, IOException, ClassNotFoundException {
+        Room room = roomDAO.search(reservationDTO.getRoomID());
+        Student student = studentDAO.search(reservationDTO.getStudentID());
+
+        Room search = roomDAO.search(reservationDTO.getOldRoomId());
+        search.setQty(search.getQty()+1);
+        roomDAO.update(search);
+
+        Room search1 = roomDAO.search(reservationDTO.getRoomID());
+        search1.setQty(search1.getQty()-1);
+        roomDAO.update(search1);
+
+        return  reservationDAO.update(new Reservation(reservationDTO.getReserveID(),student,room,reservationDTO.getTimeDuration(),reservationDTO.getStatus(), LocalDate.now()));
+    }
+    public boolean deleteReservation(String id,String roomId) throws SQLException, IOException, ClassNotFoundException {
+
+        Room search = roomDAO.search(roomId);
+        search.setQty(search.getQty()+1);
+        roomDAO.update(search);
+
+       return reservationDAO.delete(id);
+    }
+
 
     public boolean save(StudentDTO studentDTO) throws SQLException, IOException, ClassNotFoundException {
        return studentDAO.save(new Student(studentDTO.getStudentID(),studentDTO.getStudentName(),studentDTO.getStudentAddress(),studentDTO.getStudentContact(),studentDTO.getDateOfBirth(),studentDTO.getGender()));

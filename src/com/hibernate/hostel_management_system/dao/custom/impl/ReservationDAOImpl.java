@@ -47,7 +47,13 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean update(Reservation dto) throws SQLException, ClassNotFoundException, IOException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(dto);
+
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -62,7 +68,12 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(session.load(Reservation.class,s));
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
