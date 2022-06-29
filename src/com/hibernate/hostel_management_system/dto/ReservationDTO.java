@@ -26,7 +26,7 @@ public class ReservationDTO {
     private String studentID;
 
     private String roomID;
-    private String roomType;
+    private String oldRoomId;
     private String timeDuration;
     private String status;
     private

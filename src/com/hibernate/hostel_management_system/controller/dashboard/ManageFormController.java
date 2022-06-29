@@ -179,6 +179,7 @@ public class ManageFormController {
 btnManageReservation.setDisable(true);
         tblReserve.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnManageReservation.setText(newValue!=null ? "Delete Reserve" : "Manage reserve");
+
             btnManageReservation.setDisable(false);
              reservationDTO = newValue;
             if (!(newValue ==null)){
@@ -188,31 +189,8 @@ btnManageReservation.setDisable(true);
                 txtTimeDuration.setText(newValue.getTimeDuration());
                 txtStatus.setText(newValue.getStatus());
             }
+
         });
-
-
-        cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (reservationDTO!=null){
-                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
-                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
-                    btnManageReservation.setText("Delete Reserve");
-                }else {
-                    btnManageReservation.setText("Update Reserve");
-                }
-            }
-        });
-
-        cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (reservationDTO!=null){
-                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
-                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
-                    btnManageReservation.setText("Delete Reserve");
-                }else {
-                    btnManageReservation.setText("Update Reserve");
-                }
-            }
-        });
-
     }
 
     private void loadAllTable() throws SQLException, IOException, ClassNotFoundException {
@@ -446,6 +424,14 @@ btnManageReservation.setDisable(true);
 
     public void manageReservationOnAction(ActionEvent actionEvent) {
 
+        if (btnManageReservation.getText().equals("Update Reserve")){
 
+
+
+        }else {
+
+        }
     }
+
+
 }
