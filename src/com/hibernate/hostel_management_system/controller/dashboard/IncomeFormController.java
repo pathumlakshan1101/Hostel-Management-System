@@ -32,6 +32,32 @@ public class IncomeFormController {
     public JFXTextField txtKeyMoneyStatus;
     public JFXButton btnUpdateStatus;
 
+    private final IncomeBO incomeBO = (IncomeBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.INCOME);
+
+    public void initialize() throws SQLException, IOException, ClassNotFoundException {
+
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        ColRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("keyMoneyStatus"));
+
+        loadAllData();
+    }
+
+    private void loadAllData() throws SQLException, IOException, ClassNotFoundException {
+        loadModifyStatusTable();
+    }
+
+    private void loadModifyStatusTable() throws SQLException, IOException, ClassNotFoundException {
+        ArrayList<StatusDTO> allKeyMoneyStatus = incomeBO.getAllKeyMoneyStatus();
+        tblStatus.getItems().clear();
+
+        for (StatusDTO statusDTO:allKeyMoneyStatus
+        ) {
+            tblStatus.getItems().add(statusDTO);
+        }
+    }
+
 
     public void updateStatusOnAction(ActionEvent actionEvent) {
 
