@@ -176,7 +176,7 @@ public class ManageFormController {
                 txtRoomQty.setText(String.valueOf(tblRoomNewValue.getQty()));
             }
         });
-btnManageReservation.setDisable(true);
+            btnManageReservation.setDisable(true);
         tblReserve.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnManageReservation.setText(newValue!=null ? "Delete Reserve" : "Manage reserve");
 
@@ -307,14 +307,16 @@ btnManageReservation.setDisable(true);
         ValidationUtil.validate(roomMap,btnManageRoom);
         ValidationUtil.validate(reserveMap,btnManageReservation);
 
-
-        if (reservationDTO!=null){
-            if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
-            && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
-                btnManageReservation.setText("Delete Reserve");
-            }else {
-                btnManageReservation.setText("Update Reserve");
+        if (cmbStudentId.getValue()!=null && cmbRoomId.getValue()!=null){
+            if (reservationDTO!=null){
+                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
+                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
+                    btnManageReservation.setText("Delete Reserve");
+                }else {
+                    btnManageReservation.setText("Update Reserve");
+                }
             }
+
         }
 
         if (!(studentDTO ==null)){
@@ -434,4 +436,16 @@ btnManageReservation.setDisable(true);
     }
 
 
+    public void cmbOnMouseClicked(MouseEvent mouseEvent) {
+        if (cmbStudentId.getValue()!=null && cmbRoomId.getValue()!=null){
+            if (reservationDTO!=null){
+                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
+                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
+                    btnManageReservation.setText("Delete Reserve");
+                }else {
+                    btnManageReservation.setText("Update Reserve");
+                }
+            }
+        }
+    }
 }
