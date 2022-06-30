@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/impl/IncomeBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/impl/IncomeBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/IncomeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/IncomeFormController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,13 +91,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,7 +150,8 @@
       <workItem from="1656485786202" duration="431000" />
       <workItem from="1656496395961" duration="8523000" />
       <workItem from="1656524863173" duration="4518000" />
-      <workItem from="1656554071423" duration="693000" />
+      <workItem from="1656554071423" duration="2052000" />
+      <workItem from="1656573075869" duration="1117000" />
     </task>
     <servers />
   </component>

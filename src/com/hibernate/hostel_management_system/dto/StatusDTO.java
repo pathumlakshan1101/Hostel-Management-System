@@ -20,4 +20,9 @@ public class StatusDTO {
     private String studentName;
     private String roomId;
     private String keyMoneyStatus;
+
+    public StatusDTO(String roomId, String keyMoneyStatus) {
+        this.roomId = roomId;
+        this.keyMoneyStatus = keyMoneyStatus;
+    }
 }

@@ -32,8 +32,20 @@ public class IncomeBOImpl implements IncomeBO {
 
         for (Reservation reservation:all
              ) {
-            allKeyMoneyStatus.add(new StatusDTO(reservation.getStudent().getStudentID(),reservation.getStudent().getStudentName(),reservation.getRoom().getRoomID(),reservation.getStatus()));
+
+
+            allKeyMoneyStatus.add(new StatusDTO(reservation.getStudent().getStudentID(),reservation.getStudent().getStudentName(),reservation.getReserveID(),reservation.getStatus()));
         }
         return allKeyMoneyStatus;
+    }
+
+
+    public boolean updateKeyMoneyStatus(StatusDTO statusDTO) throws SQLException, IOException, ClassNotFoundException {
+
+        Reservation search = reservationDAO.search(statusDTO.getRoomId());
+
+        search.setStatus(statusDTO.getKeyMoneyStatus());
+
+      return   reservationDAO.update(search);
     }
 }

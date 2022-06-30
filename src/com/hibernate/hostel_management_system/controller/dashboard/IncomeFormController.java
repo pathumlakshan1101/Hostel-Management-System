@@ -2,6 +2,8 @@ package com.hibernate.hostel_management_system.controller.dashboard;
 
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.IncomeBO;
+import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
+import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.StatusDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -37,6 +39,9 @@ public class IncomeFormController {
 
     StatusDTO statusDTO;
 
+    LinkedHashMap<JFXTextField, Pattern> statusMap = new LinkedHashMap<>();
+
+
 
     private final IncomeBO incomeBO = (IncomeBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.INCOME);
 
@@ -48,6 +53,11 @@ public class IncomeFormController {
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         ColRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("keyMoneyStatus"));
+
+
+        Pattern statusPattern = Pattern.compile("^((pay)|(non pay))|((Pay)|(Non Pay))$");
+
+        statusMap.put(txtKeyMoneyStatus,statusPattern);
 
         loadAllData();
 
@@ -81,13 +91,29 @@ public class IncomeFormController {
     }
 
 
-    public void updateStatusOnAction(ActionEvent actionEvent) {
+    public void updateStatusOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        if(txtKeyMoneyStatus.getText().equals(statusDTO.getKeyMoneyStatus())){
+            clearTextFields();
+        }else {
+           if( incomeBO.updateKeyMoneyStatus(new StatusDTO(txtRoomId.getText(),txtKeyMoneyStatus.getText()))){
+               NotificationUtil.notificationsConfirm("Successful Update Key Money Status","UPDATED!");
+               clearTextFields();
+               loadAllData();
+           }
+        }
+    }
 
-
-
+    private void clearTextFields() {
+        txtStudentName.clear();
+        txtStudentId.clear();
+        txtRoomId.clear();
+        txtKeyMoneyStatus.clear();
     }
 
     public void textFieldsKeyRelease(KeyEvent keyEvent) {
+
+        ValidationUtil.validate(statusMap,btnUpdateStatus);
+
 
     }
 }

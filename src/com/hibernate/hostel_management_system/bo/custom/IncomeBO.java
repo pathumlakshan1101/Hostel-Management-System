@@ -17,4 +17,5 @@ import java.util.ArrayList;
 
 public interface IncomeBO extends SuperBO {
     ArrayList<StatusDTO> getAllKeyMoneyStatus() throws SQLException, IOException, ClassNotFoundException;
+    boolean updateKeyMoneyStatus(StatusDTO statusDTO) throws SQLException, IOException, ClassNotFoundException;
 }
