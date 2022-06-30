@@ -1,6 +1,7 @@
 package com.hibernate.hostel_management_system.controller.sign;
 
 import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
@@ -15,11 +16,14 @@ import java.io.IOException;
  */
 public class ForgetFormController {
 
-    public JFXTextField txtUserName;
     public JFXTextField txtEmailOrContact;
     public AnchorPane forgetContex;
+    public JFXTextField txtFullName;
+    public JFXButton btnForget;
 
     public void ForgetOnAction(ActionEvent actionEvent) throws IOException {
+
+
         UiNavigateUtil.navigationForm(forgetContex,"sign/UpdateUserForm");
     }
 

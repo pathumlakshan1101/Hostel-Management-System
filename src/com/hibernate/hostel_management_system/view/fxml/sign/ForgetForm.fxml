@@ -9,12 +9,12 @@
 
 <AnchorPane fx:id="forgetContex" prefHeight="480.0" prefWidth="533.0" stylesheets="@../../asserts/styles/button.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hibernate.hostel_management_system.controller.sign.ForgetFormController">
     <children>
-        <JFXTextField fx:id="txtUserName" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="113.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Full Name" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
+        <JFXTextField fx:id="txtFullName" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="113.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Full Name" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>
         </JFXTextField>
-        <JFXButton layoutX="335.0" layoutY="304.0" onAction="#ForgetOnAction" prefHeight="33.0" prefWidth="156.0" styleClass="menuItem2" text="Forget" textFill="#04a5a3">
+        <JFXButton fx:id="btnForget" layoutX="335.0" layoutY="304.0" onAction="#ForgetOnAction" prefHeight="33.0" prefWidth="156.0" styleClass="menuItem2" text="Forget" textFill="#04a5a3">
             <font>
                 <Font name="System Bold" size="26.0" />
             </font>

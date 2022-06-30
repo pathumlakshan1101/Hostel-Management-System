@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/IncomeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/IncomeFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dto/StatusDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dto/StatusDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/AppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/IncomeForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/fxml/dashboard/IncomeForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,15 +91,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,7 +149,7 @@
       <workItem from="1656496395961" duration="8523000" />
       <workItem from="1656524863173" duration="4518000" />
       <workItem from="1656554071423" duration="2052000" />
-      <workItem from="1656573075869" duration="2574000" />
+      <workItem from="1656573075869" duration="4227000" />
     </task>
     <servers />
   </component>

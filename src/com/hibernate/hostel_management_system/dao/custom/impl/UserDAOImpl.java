@@ -1,6 +1,7 @@
 package com.hibernate.hostel_management_system.dao.custom.impl;
 
 import com.hibernate.hostel_management_system.dao.custom.UserDAO;
+import com.hibernate.hostel_management_system.entity.Student;
 import com.hibernate.hostel_management_system.entity.User;
 import com.hibernate.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
@@ -40,6 +41,15 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean update(User dto) throws SQLException, ClassNotFoundException {
         return false;
+    }
+
+    public User searchUser(String fullName) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.get(User.class, fullName);
+        transaction.commit();
+        session.close();
+        return user;
     }
 
     @Override
