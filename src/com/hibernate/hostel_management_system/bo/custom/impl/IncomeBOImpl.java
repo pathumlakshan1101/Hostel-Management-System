@@ -43,7 +43,7 @@ public class IncomeBOImpl implements IncomeBO {
 
     public boolean updateKeyMoneyStatus(StatusDTO statusDTO) throws SQLException, IOException, ClassNotFoundException {
 
-        Reservation search = reservationDAO.search(statusDTO.getRoomId());
+        Reservation search = reservationDAO.search(statusDTO.getReserveId());
 
         search.setStatus(statusDTO.getKeyMoneyStatus());
 

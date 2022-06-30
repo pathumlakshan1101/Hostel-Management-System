@@ -18,11 +18,7 @@ import lombok.*;
 public class StatusDTO {
    private String studentId;
     private String studentName;
-    private String roomId;
+    private String reserveId;
     private String keyMoneyStatus;
 
-    public StatusDTO(String roomId, String keyMoneyStatus) {
-        this.roomId = roomId;
-        this.keyMoneyStatus = keyMoneyStatus;
-    }
 }

@@ -3,6 +3,7 @@ package com.hibernate.hostel_management_system.dao.custom.impl;
 import com.hibernate.hostel_management_system.dao.custom.ReservationDAO;
 import com.hibernate.hostel_management_system.entity.Reservation;
 import com.hibernate.hostel_management_system.entity.Room;
+import com.hibernate.hostel_management_system.entity.Student;
 import com.hibernate.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -58,7 +59,12 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public Reservation search(String s) throws SQLException, ClassNotFoundException, IOException {
-        return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Reservation reservation = session.get(Reservation.class, s);
+        transaction.commit();
+        session.close();
+        return reservation;
     }
 
     @Override

@@ -51,7 +51,7 @@ public class IncomeFormController {
 
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
-        ColRoomId.setCellValueFactory(new PropertyValueFactory<>("roomId"));
+        ColRoomId.setCellValueFactory(new PropertyValueFactory<>("reserveId"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("keyMoneyStatus"));
 
 
@@ -69,7 +69,7 @@ public class IncomeFormController {
            if (newValue!=null){
                txtStudentId.setText(newValue.getStudentId());
                txtStudentName.setText(newValue.getStudentName());
-               txtRoomId.setText(newValue.getRoomId());
+               txtRoomId.setText(newValue.getReserveId());
                txtKeyMoneyStatus.setText(newValue.getKeyMoneyStatus());
            }
 
@@ -95,7 +95,7 @@ public class IncomeFormController {
         if(txtKeyMoneyStatus.getText().equals(statusDTO.getKeyMoneyStatus())){
             clearTextFields();
         }else {
-           if( incomeBO.updateKeyMoneyStatus(new StatusDTO(txtRoomId.getText(),txtKeyMoneyStatus.getText()))){
+           if( incomeBO.updateKeyMoneyStatus(new StatusDTO(txtStudentId.getText(),txtStudentName.getText(),txtRoomId.getText(),txtKeyMoneyStatus.getText()))){
                NotificationUtil.notificationsConfirm("Successful Update Key Money Status","UPDATED!");
                clearTextFields();
                loadAllData();
