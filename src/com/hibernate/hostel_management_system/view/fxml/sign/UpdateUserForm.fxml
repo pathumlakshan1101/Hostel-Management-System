@@ -20,7 +20,7 @@
                 <Font name="System Bold Italic" size="20.0" />
             </font>
         </JFXPasswordField>
-        <JFXButton layoutX="324.0" layoutY="387.0" onAction="#updateOnAction" prefHeight="33.0" prefWidth="156.0" styleClass="menuItem2" text="Update" textFill="#04a5a3">
+        <JFXButton fx:id="btnUpdate" layoutX="324.0" layoutY="387.0" onAction="#updateOnAction" prefHeight="33.0" prefWidth="156.0" styleClass="menuItem2" text="Update" textFill="#04a5a3">
             <font>
                 <Font name="System Bold" size="26.0" />
             </font>

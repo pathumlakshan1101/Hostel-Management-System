@@ -45,9 +45,6 @@ public class SignInFormController {
         Pattern passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,12}$");
         map.put(txtUserName,fullNamePattern);
         mapPswd.put(pswdfldPassword,passwordPattern);
-
-
-
         imgVisibilityOff.setVisible(false);
         txtPassword.setVisible(false);
     }
