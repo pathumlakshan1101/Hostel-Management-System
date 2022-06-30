@@ -4,6 +4,7 @@ import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.UpdateUserBO;
 import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
+import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dao.DAOFactory;
 import com.hibernate.hostel_management_system.dao.custom.UserDAO;
 import com.hibernate.hostel_management_system.dto.UserDTO;
@@ -12,6 +13,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -45,10 +48,34 @@ public class UpdateUserFormController {
         imgVisibilityOff.setVisible(false);
         txtPassword.setVisible(false);
 
+        Pattern fullNamePattern = Pattern.compile("^[A-Z][a-z]*[ ][A-Z][a-z]*$");
+        Pattern contactPattern = Pattern.compile("^(\\+|0)(94|[1-9]{2,3})(-| |)([0-9]{7}|[0-9]{2} [0-9]{7})$");
+        Pattern emailPattern = Pattern.compile("^([a-z\\d.]{3,})@(gmail|yahoo|Outlook|Inbox|iCloud|Mail|AOL|Zoho)(.com|.co.uk)$");
+        Pattern passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,12}$");
 
+        map.put(txtFullName,fullNamePattern);
+        map.put(txtContactNo,contactPattern);
+        map.put(txtEmail,emailPattern);
+        mapPswd.put(pswdfldPassword,passwordPattern);
     }
 
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+        ValidationUtil.validate(map,btnUpdate);
+        ValidationUtil.validatePswd(mapPswd,btnUpdate);
 
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            Object response =  ValidationUtil.validate(map,btnUpdate);
+            Object responsePswd =  ValidationUtil.validatePswd(mapPswd,btnUpdate);
+            if (response instanceof JFXTextField) {
+                JFXTextField textField = (JFXTextField) response;
+                textField.requestFocus();
+            } else if (response instanceof Boolean) {}
+            if (responsePswd instanceof JFXTextField) {
+                JFXPasswordField textField = (JFXPasswordField) response;
+                textField.requestFocus();
+            } else if (responsePswd instanceof Boolean) {}
+        }
+    }
     public void updateOnAction(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
 
         if (updateUserBO.updateUser(new UserDTO(txtFullName.getText(),txtContactNo.getText(),txtEmail.getText(),pswdfldPassword.getText()))){

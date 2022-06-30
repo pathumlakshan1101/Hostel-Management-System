@@ -10,12 +10,12 @@
 
 <AnchorPane fx:id="updateContex" prefHeight="480.0" prefWidth="533.0" stylesheets="@../../asserts/styles/button.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hibernate.hostel_management_system.controller.sign.UpdateUserFormController">
     <children>
-        <JFXTextField fx:id="txtFullName" editable="false" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="50.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Full Name" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
+        <JFXTextField fx:id="txtFullName" editable="false" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="50.0" onKeyReleased="#textFields_Key_Released" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Full Name" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>
         </JFXTextField>
-        <JFXPasswordField fx:id="pswdfldPassword" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="311.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Password" style="-fx-prompt-text-fill: #04A5A3; -fx-text-fill: white;" unFocusColor="#038eab">
+        <JFXPasswordField fx:id="pswdfldPassword" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="311.0" onKeyReleased="#textFields_Key_Released" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Password" style="-fx-prompt-text-fill: #04A5A3; -fx-text-fill: white;" unFocusColor="#038eab">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>
@@ -56,12 +56,12 @@
             </image>
         </ImageView>
         <JFXButton layoutX="440.0" layoutY="311.0" onMouseEntered="#visibilityOnMouseEntered" onMouseExited="#visibilityOnMouseExited" prefHeight="44.0" prefWidth="44.0" ripplerFill="#05a3a1b7" text=" " textFill="#05a3a1d0" />
-        <JFXTextField fx:id="txtContactNo" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="137.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Contact No." style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
+        <JFXTextField fx:id="txtContactNo" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="137.0" onKeyReleased="#textFields_Key_Released" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="Contact No." style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>
         </JFXTextField>
-        <JFXTextField fx:id="txtEmail" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="224.0" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="E-Mail" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
+        <JFXTextField fx:id="txtEmail" focusColor="#04a5a3" labelFloat="true" layoutX="70.0" layoutY="224.0" onKeyReleased="#textFields_Key_Released" opacity="0.91" prefHeight="44.0" prefWidth="410.0" promptText="E-Mail" style="-fx-prompt-text-fill: #04a5a3; -fx-text-fill: white;" unFocusColor="#038eab">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>
