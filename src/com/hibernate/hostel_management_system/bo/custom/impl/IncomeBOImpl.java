@@ -19,8 +19,6 @@ import java.util.ArrayList;
  * Time        : 10:54 PM
  */
 public class IncomeBOImpl implements IncomeBO {
-    private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
-    private final RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
     private final ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RESERVATION);
 
     public ArrayList<StatusDTO> getAllKeyMoneyStatus() throws SQLException, IOException, ClassNotFoundException {
@@ -33,8 +31,11 @@ public class IncomeBOImpl implements IncomeBO {
         for (Reservation reservation:all
              ) {
 
+            if (reservation.getStatus().equals("non payed") || reservation.getStatus().equals("Non Payed")){
+                allKeyMoneyStatus.add(new StatusDTO(reservation.getStudent().getStudentID(),reservation.getStudent().getStudentName(),reservation.getReserveID(),reservation.getStatus()));
 
-            allKeyMoneyStatus.add(new StatusDTO(reservation.getStudent().getStudentID(),reservation.getStudent().getStudentName(),reservation.getReserveID(),reservation.getStatus()));
+            }
+
         }
         return allKeyMoneyStatus;
     }
