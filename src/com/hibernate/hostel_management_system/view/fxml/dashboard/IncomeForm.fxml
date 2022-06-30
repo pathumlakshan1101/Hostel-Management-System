@@ -59,7 +59,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtKeyMoneyStatus" focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="819.0" prefHeight="50.0" prefWidth="383.0" promptText="Key Money Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
+      <JFXTextField fx:id="txtKeyMoneyStatus" focusColor="#00fffb" labelFloat="true" layoutX="913.0" layoutY="819.0" onKeyReleased="#textFieldsKeyRelease" prefHeight="50.0" prefWidth="383.0" promptText="Key Money Status" style="fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#04a5a3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

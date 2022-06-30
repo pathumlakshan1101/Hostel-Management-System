@@ -9,10 +9,13 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 /**
  * @author : ALE_IS_TER
@@ -32,9 +35,14 @@ public class IncomeFormController {
     public JFXTextField txtKeyMoneyStatus;
     public JFXButton btnUpdateStatus;
 
+    StatusDTO statusDTO;
+
+
     private final IncomeBO incomeBO = (IncomeBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.INCOME);
 
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
+
+
 
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
@@ -42,6 +50,20 @@ public class IncomeFormController {
         colStatus.setCellValueFactory(new PropertyValueFactory<>("keyMoneyStatus"));
 
         loadAllData();
+
+        btnUpdateStatus.setDisable(true);
+
+        tblStatus.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+           statusDTO = newValue;
+
+           if (newValue!=null){
+               txtStudentId.setText(newValue.getStudentId());
+               txtStudentName.setText(newValue.getStudentName());
+               txtRoomId.setText(newValue.getRoomId());
+               txtKeyMoneyStatus.setText(newValue.getKeyMoneyStatus());
+           }
+
+        });
     }
 
     private void loadAllData() throws SQLException, IOException, ClassNotFoundException {
@@ -62,6 +84,10 @@ public class IncomeFormController {
     public void updateStatusOnAction(ActionEvent actionEvent) {
 
 
+
+    }
+
+    public void textFieldsKeyRelease(KeyEvent keyEvent) {
 
     }
 }
