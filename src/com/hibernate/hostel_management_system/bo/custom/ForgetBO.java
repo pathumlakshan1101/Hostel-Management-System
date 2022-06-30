@@ -1,6 +1,9 @@
 package com.hibernate.hostel_management_system.bo.custom;
 
 import com.hibernate.hostel_management_system.bo.SuperBO;
+import com.hibernate.hostel_management_system.dto.UserDTO;
+
+import java.io.IOException;
 
 /**
  * @author : ALE_IS_TER
@@ -11,4 +14,5 @@ import com.hibernate.hostel_management_system.bo.SuperBO;
  */
 
 public interface ForgetBO extends SuperBO {
+     UserDTO searchUser(String id) throws IOException;
 }
