@@ -90,7 +90,7 @@ public class ReserveRoomFormController {
         Pattern addressPattern = Pattern.compile("^[A-z ]+$");
         Pattern dobPattern = Pattern.compile("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$");
         Pattern timeDuration = Pattern.compile("^[0-9]{1,3}[ ]((month)|(Month))$");
-        Pattern statusPattern = Pattern.compile("^((pay)|(non pay))|((Pay)|(Non Pay))$");
+        Pattern statusPattern = Pattern.compile("^((payed)|(non payed))|((Payed)|(Non Payed))$");
 
         reserveMap.put(txtStudentName,studentNamePattern);
         reserveMap.put(txtStudentContact,contactPattern);

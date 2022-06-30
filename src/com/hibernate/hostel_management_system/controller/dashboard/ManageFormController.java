@@ -129,7 +129,7 @@ public class ManageFormController {
         roomMap.put(txtRoomQty,roomQty);
 
         Pattern timeDuration = Pattern.compile("^[0-9]{1,3}[ ]((month)|(Month))$");
-        Pattern statusPattern = Pattern.compile("^((pay)|(non pay))|((Pay)|(Non Pay))$");
+        Pattern statusPattern = Pattern.compile("^((payed)|(non payed))|((Payed)|(Non Payed))$");
 
         reserveMap.put(txtTimeDuration,timeDuration);
         reserveMap.put(txtStatus,statusPattern);

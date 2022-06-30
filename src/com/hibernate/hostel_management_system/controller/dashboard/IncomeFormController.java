@@ -55,7 +55,7 @@ public class IncomeFormController {
         colStatus.setCellValueFactory(new PropertyValueFactory<>("keyMoneyStatus"));
 
 
-        Pattern statusPattern = Pattern.compile("^((pay)|(non pay))|((Pay)|(Non Pay))$");
+        Pattern statusPattern = Pattern.compile("^((payed)|(non payed))|((Payed)|(Non Payed))$");
 
         statusMap.put(txtKeyMoneyStatus,statusPattern);
 
