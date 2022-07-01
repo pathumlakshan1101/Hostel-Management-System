@@ -50,6 +50,7 @@ public class ForgetFormController {
         UserDTO userDTO = forgetBO.searchUser(txtFullName.getText());
 
         if (txtEmailOrContact.getText().equals(userDTO.getEmail()) || txtEmailOrContact.getText().equals(userDTO.getContactNo())){
+
             UiNavigateUtil.navigationForm(forgetContex,"sign/UpdateUserForm");
         }
 
