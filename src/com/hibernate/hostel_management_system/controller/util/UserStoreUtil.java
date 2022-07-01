@@ -1,5 +1,7 @@
 package com.hibernate.hostel_management_system.controller.util;
 
+import com.hibernate.hostel_management_system.dto.UserDTO;
+
 /**
  * @author : ALE_IS_TER
  * Project Name: Hostel_Management_System
@@ -7,5 +9,5 @@ package com.hibernate.hostel_management_system.controller.util;
  * Time        : 9:47 PM
  */
 public class UserStoreUtil {
-    public static String fullUserName;
+    public static UserDTO userDTO ;
 }

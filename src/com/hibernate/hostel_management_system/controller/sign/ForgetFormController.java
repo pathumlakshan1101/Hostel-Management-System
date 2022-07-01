@@ -3,6 +3,7 @@ package com.hibernate.hostel_management_system.controller.sign;
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ForgetBO;
 import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
+import com.hibernate.hostel_management_system.controller.util.UserStoreUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.UserDTO;
 import com.jfoenix.controls.JFXButton;
@@ -50,7 +51,7 @@ public class ForgetFormController {
         UserDTO userDTO = forgetBO.searchUser(txtFullName.getText());
 
         if (txtEmailOrContact.getText().equals(userDTO.getEmail()) || txtEmailOrContact.getText().equals(userDTO.getContactNo())){
-
+            UserStoreUtil.userDTO=userDTO;
             UiNavigateUtil.navigationForm(forgetContex,"sign/UpdateUserForm");
         }
 

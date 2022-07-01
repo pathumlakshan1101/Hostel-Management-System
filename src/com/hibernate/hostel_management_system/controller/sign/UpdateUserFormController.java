@@ -4,6 +4,7 @@ import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.UpdateUserBO;
 import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
+import com.hibernate.hostel_management_system.controller.util.UserStoreUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dao.DAOFactory;
 import com.hibernate.hostel_management_system.dao.custom.UserDAO;
@@ -39,11 +40,14 @@ public class UpdateUserFormController {
     public JFXTextField txtEmail;
     public JFXTextField txtContactNo;
     public JFXButton btnUpdate;
+    UserDTO userDTO = UserStoreUtil.userDTO;
     LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
     LinkedHashMap<JFXPasswordField, Pattern> mapPswd = new LinkedHashMap<>();
     private final UpdateUserBO updateUserBO = (UpdateUserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.UPDATEUSER);
 
     public void initialize() {
+
+         loadDataForTextFields();
 
         imgVisibilityOff.setVisible(false);
         txtPassword.setVisible(false);
@@ -59,31 +63,38 @@ public class UpdateUserFormController {
         mapPswd.put(pswdfldPassword,passwordPattern);
     }
 
+    private void loadDataForTextFields() {
+
+        txtFullName.setText(userDTO.getUserName());
+        txtEmail.setText(userDTO.getEmail());
+        txtContactNo.setText(userDTO.getContactNo());
+        pswdfldPassword.setText(userDTO.getPassword());
+    }
+
     public void textFields_Key_Released(KeyEvent keyEvent) {
         ValidationUtil.validate(map,btnUpdate);
         ValidationUtil.validatePswd(mapPswd,btnUpdate);
 
-        if (keyEvent.getCode() == KeyCode.ENTER) {
-            Object response =  ValidationUtil.validate(map,btnUpdate);
-            Object responsePswd =  ValidationUtil.validatePswd(mapPswd,btnUpdate);
-            if (response instanceof JFXTextField) {
-                JFXTextField textField = (JFXTextField) response;
-                textField.requestFocus();
-            } else if (response instanceof Boolean) {}
-            if (responsePswd instanceof JFXTextField) {
-                JFXPasswordField textField = (JFXPasswordField) response;
-                textField.requestFocus();
-            } else if (responsePswd instanceof Boolean) {}
+        if (txtContactNo.getText().equals(userDTO.getContactNo())  &&  txtEmail.getText().equals(userDTO.getEmail()) && pswdfldPassword.getText().equals(userDTO.getPassword())){
+            btnUpdate.setText("Update");
+        }else {
+            btnUpdate.setText("Delete");
         }
+
     }
     public void updateOnAction(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
 
-        if (updateUserBO.updateUser(new UserDTO(txtFullName.getText(),txtContactNo.getText(),txtEmail.getText(),pswdfldPassword.getText()))){
-            clearFields();
-            NotificationUtil.notificationsConfirm("Update User Successful","UPDATED!");
-            navigateSignInPage();
-        }
+        if (btnUpdate.getText().equals("Delete")){
 
+        }
+        else {
+
+            if (updateUserBO.updateUser(new UserDTO(txtFullName.getText(), txtContactNo.getText(), txtEmail.getText(), pswdfldPassword.getText()))) {
+                clearFields();
+                NotificationUtil.notificationsConfirm("Update User Successful", "UPDATED!");
+                navigateSignInPage();
+            }
+        }
 
 
     }

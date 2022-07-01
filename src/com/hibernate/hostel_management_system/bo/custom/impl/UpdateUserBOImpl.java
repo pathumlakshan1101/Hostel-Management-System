@@ -21,5 +21,9 @@ public class UpdateUserBOImpl implements UpdateUserBO {
     public  boolean updateUser(UserDTO userDTO) throws SQLException, IOException, ClassNotFoundException {
        return userDAO.update(new User(userDTO.getUserName(), userDTO.getContactNo(), userDTO.getEmail(), userDTO.getPassword()));
     }
+    public UserDTO searchUser(String id) throws IOException {
+        User user = userDAO.searchUser(id);
+        return new UserDTO(user.getUserName(), user.getContactNo(), user.getEmail(), user.getPassword());
+    }
 
 }
