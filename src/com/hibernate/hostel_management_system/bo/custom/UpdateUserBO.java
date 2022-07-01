@@ -16,5 +16,5 @@ import java.sql.SQLException;
 
 public interface UpdateUserBO extends SuperBO {
     boolean updateUser(UserDTO userDTO) throws SQLException, IOException, ClassNotFoundException;
-    UserDTO searchUser(String id) throws IOException;
+    boolean deleteUser(String id) throws IOException, SQLException, ClassNotFoundException;
 }

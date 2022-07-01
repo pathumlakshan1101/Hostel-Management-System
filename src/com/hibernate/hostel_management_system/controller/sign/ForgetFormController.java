@@ -2,6 +2,7 @@ package com.hibernate.hostel_management_system.controller.sign;
 
 import com.hibernate.hostel_management_system.bo.BOFactory;
 import com.hibernate.hostel_management_system.bo.custom.ForgetBO;
+import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.hibernate.hostel_management_system.controller.util.UserStoreUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
@@ -53,6 +54,10 @@ public class ForgetFormController {
         if (txtEmailOrContact.getText().equals(userDTO.getEmail()) || txtEmailOrContact.getText().equals(userDTO.getContactNo())){
             UserStoreUtil.userDTO=userDTO;
             UiNavigateUtil.navigationForm(forgetContex,"sign/UpdateUserForm");
+        }else {
+            txtFullName.clear();
+            txtEmailOrContact.clear();
+            NotificationUtil.notificationsConfirm("Check Again Full Name And email Or Password","ERROR!");
         }
 
 

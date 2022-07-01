@@ -5,9 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/UpdateUserBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/UpdateUserBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/impl/UpdateUserBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/bo/custom/impl/UpdateUserBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/ForgetFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/ForgetFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/UpdateUserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/UpdateUserFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/util/UserStoreUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/util/UserStoreUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dao/custom/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/dao/custom/impl/UserDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +154,7 @@
       <workItem from="1656573075869" duration="4227000" />
       <workItem from="1656590293834" duration="2091000" />
       <workItem from="1656599438605" duration="8302000" />
-      <workItem from="1656692134744" duration="1544000" />
+      <workItem from="1656692134744" duration="2911000" />
     </task>
     <servers />
   </component>

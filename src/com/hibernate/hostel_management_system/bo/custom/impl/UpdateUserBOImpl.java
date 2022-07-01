@@ -18,12 +18,16 @@ import java.sql.SQLException;
 public class UpdateUserBOImpl implements UpdateUserBO {
     private final UserDAO userDAO = (UserDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.USER);
 
-    public  boolean updateUser(UserDTO userDTO) throws SQLException, IOException, ClassNotFoundException {
+    public boolean updateUser(UserDTO userDTO) throws SQLException, IOException, ClassNotFoundException {
        return userDAO.update(new User(userDTO.getUserName(), userDTO.getContactNo(), userDTO.getEmail(), userDTO.getPassword()));
     }
-    public UserDTO searchUser(String id) throws IOException {
-        User user = userDAO.searchUser(id);
-        return new UserDTO(user.getUserName(), user.getContactNo(), user.getEmail(), user.getPassword());
+
+    @Override
+    public boolean deleteUser(String id) throws IOException, SQLException, ClassNotFoundException {
+
+        return  userDAO.delete(id);
+
     }
+
 
 }

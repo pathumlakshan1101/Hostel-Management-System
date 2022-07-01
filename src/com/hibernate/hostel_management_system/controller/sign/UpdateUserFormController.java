@@ -6,15 +6,12 @@ import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.UiNavigateUtil;
 import com.hibernate.hostel_management_system.controller.util.UserStoreUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
-import com.hibernate.hostel_management_system.dao.DAOFactory;
-import com.hibernate.hostel_management_system.dao.custom.UserDAO;
 import com.hibernate.hostel_management_system.dto.UserDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -76,9 +73,9 @@ public class UpdateUserFormController {
         ValidationUtil.validatePswd(mapPswd,btnUpdate);
 
         if (txtContactNo.getText().equals(userDTO.getContactNo())  &&  txtEmail.getText().equals(userDTO.getEmail()) && pswdfldPassword.getText().equals(userDTO.getPassword())){
-            btnUpdate.setText("Update");
-        }else {
             btnUpdate.setText("Delete");
+        }else {
+            btnUpdate.setText("Update");
         }
 
     }
@@ -86,6 +83,11 @@ public class UpdateUserFormController {
 
         if (btnUpdate.getText().equals("Delete")){
 
+          if(  updateUserBO.deleteUser(txtFullName.getText())){
+              clearFields();
+              NotificationUtil.notificationsConfirm("Delete User Successful", "DELETED!");
+              navigateSignInPage();
+          }
         }
         else {
 
