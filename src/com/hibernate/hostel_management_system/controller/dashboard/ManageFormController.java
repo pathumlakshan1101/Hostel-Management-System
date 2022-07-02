@@ -8,6 +8,7 @@ import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
+import com.hibernate.hostel_management_system.view.tdm.ReservationTM;
 import com.hibernate.hostel_management_system.view.tdm.RoomTM;
 import com.hibernate.hostel_management_system.view.tdm.StudentTM;
 import com.jfoenix.controls.JFXButton;
@@ -67,7 +68,7 @@ public class ManageFormController {
     public AnchorPane manageContex;
     public JFXTextField txtTimeDuration;
     public JFXButton btnManageReservation;
-    public TableView<ReservationDTO> tblReserve;
+    public TableView<ReservationTM> tblReserve;
     public TableColumn colReserveId;
     public TableColumn colReserveStudentId;
     public TableColumn colReserveTimeDuration;
@@ -79,7 +80,7 @@ public class ManageFormController {
     public JFXTextField txtReserveId;
     private StudentTM studentTM ;
     private RoomTM roomTM;
-    private ReservationDTO reservationDTO;
+    private ReservationTM reservationTM;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
     LinkedHashMap<JFXTextField, Pattern> roomMap = new LinkedHashMap<>();
     LinkedHashMap<JFXTextField, Pattern> reserveMap = new LinkedHashMap<>();
@@ -183,7 +184,7 @@ public class ManageFormController {
             btnManageReservation.setText(newValue!=null ? "Delete Reserve" : "Manage reserve");
 
             btnManageReservation.setDisable(false);
-             reservationDTO = newValue;
+            reservationTM = newValue;
             if (!(newValue ==null)){
                 txtReserveId.setText(newValue.getReserveID());
                 cmbStudentId.setValue(newValue.getStudentID());
@@ -228,7 +229,7 @@ public class ManageFormController {
 
         for (ReservationDTO reservationDTO:allReservation
              ) {
-            tblReserve.getItems().add(reservationDTO);
+            tblReserve.getItems().add(new ReservationTM(reservationDTO.getReserveID(),reservationDTO.getStudentID(),reservationDTO.getRoomID(),reservationDTO.getTimeDuration(),reservationDTO.getStatus(),reservationDTO.getReserveDate()));
         }
     }
 
@@ -310,9 +311,9 @@ btnManageStudent.setDisable(true);
         ValidationUtil.validate(reserveMap,btnManageReservation);
 
         if (cmbStudentId.getValue()!=null && cmbRoomId.getValue()!=null){
-            if (reservationDTO!=null){
-                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
-                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
+            if (reservationTM!=null){
+                if (txtStatus.getText().equals(reservationTM.getStatus()) && txtTimeDuration.getText().equals(reservationTM.getTimeDuration()) && cmbStudentId.getValue().equals(reservationTM.getStudentID() )
+                        && cmbRoomId.getValue().equals(reservationTM.getRoomID())){
                     btnManageReservation.setText("Delete Reserve");
                 }else {
                     btnManageReservation.setText("Update Reserve");
@@ -437,8 +438,8 @@ btnManageStudent.setDisable(true);
         if (btnManageReservation.getText().equals("Update Reserve")){
 
             if (manageBO.updateReserve(new ReservationDTO(
-                    txtReserveId.getText(),(String) cmbStudentId.getValue(),(String) cmbRoomId.getValue(),reservationDTO.getRoomID(),txtTimeDuration.getText(),
-                    txtStatus.getText(),reservationDTO.getReserveDate()
+                    txtReserveId.getText(),(String) cmbStudentId.getValue(),(String) cmbRoomId.getValue(),reservationTM.getRoomID(),txtTimeDuration.getText(),
+                    txtStatus.getText(),reservationTM.getReserveDate()
             ))){
                 NotificationUtil.notificationsConfirm("Reservation UpDate Successful","UPDATED!");
                 loadAllTable();
@@ -462,9 +463,9 @@ btnManageStudent.setDisable(true);
 
     public void cmbOnMouseClicked(MouseEvent mouseEvent) {
         if (cmbStudentId.getValue()!=null && cmbRoomId.getValue()!=null){
-            if (reservationDTO!=null){
-                if (txtStatus.getText().equals(reservationDTO.getStatus()) && txtTimeDuration.getText().equals(reservationDTO.getTimeDuration()) && cmbStudentId.getValue().equals(reservationDTO.getStudentID() )
-                        && cmbRoomId.getValue().equals(reservationDTO.getRoomID())){
+            if (reservationTM!=null){
+                if (txtStatus.getText().equals(reservationTM.getStatus()) && txtTimeDuration.getText().equals(reservationTM.getTimeDuration()) && cmbStudentId.getValue().equals(reservationTM.getStudentID() )
+                        && cmbRoomId.getValue().equals(reservationTM.getRoomID())){
                     btnManageReservation.setText("Delete Reserve");
                 }else {
                     btnManageReservation.setText("Update Reserve");
