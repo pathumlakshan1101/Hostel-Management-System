@@ -8,6 +8,7 @@ import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
+import com.hibernate.hostel_management_system.view.tdm.StudentTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -42,7 +43,7 @@ public class ManageFormController {
     public JFXRadioButton rBtnMale;
     public JFXRadioButton rBtnFemale;
     public JFXButton btnManageStudent;
-    public TableView<StudentDTO> tblStudent;
+    public TableView<StudentTM> tblStudent;
     public TableColumn colStudentId;
     public TableColumn colStudentName;
     public TableColumn colStudentAddress;
@@ -75,7 +76,7 @@ public class ManageFormController {
     public JFXComboBox cmbRoomId;
     public JFXTextField txtStatus;
     public JFXTextField txtReserveId;
-    private StudentDTO studentDTO ;
+    private StudentTM studentTM ;
     private RoomDTO roomDTO;
     private ReservationDTO reservationDTO;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
@@ -136,7 +137,7 @@ public class ManageFormController {
 
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnManageStudent.setDisable(false);
-                studentDTO=newValue;
+            studentTM=newValue;
             btnManageStudent.setText(newValue != null ? "Delete Student" : "Manage Student");
 
             if (!(newValue ==null)){
@@ -247,7 +248,7 @@ public class ManageFormController {
 
         for (StudentDTO student:allStudent
              ) {
-            tblStudent.getItems().add(student);
+            tblStudent.getItems().add(new StudentTM(student.getStudentID(),student.getStudentName(),student.getStudentAddress(),student.getStudentContact(),student.getDateOfBirth(),student.getGender()));
         }
 
 
@@ -295,7 +296,7 @@ public class ManageFormController {
             }
 
         }
-
+btnManageStudent.setDisable(true);
 
     }
 
@@ -319,9 +320,9 @@ public class ManageFormController {
 
         }
 
-        if (!(studentDTO ==null)){
-            if (txtStudentName.getText().equals(studentDTO.getStudentName())&&txtStudentAddress.getText().equals(studentDTO.getStudentAddress())
-                    &&txtStudentContact.getText().equals(studentDTO.getStudentContact()) &&txtStudentDOB.getText().equals(studentDTO.getDateOfBirth())
+        if (!(studentTM ==null)){
+            if (txtStudentName.getText().equals(studentTM.getStudentName())&&txtStudentAddress.getText().equals(studentTM.getStudentAddress())
+                    &&txtStudentContact.getText().equals(studentTM.getStudentContact()) &&txtStudentDOB.getText().equals(studentTM.getDateOfBirth())
             ){
                 btnManageStudent.setText("Delete Student");
             }else {
@@ -344,7 +345,7 @@ public class ManageFormController {
 
     public void radiobuttonOnMouseClick(MouseEvent mouseEvent) {
 
-        if (!(studentDTO ==null)){
+        if (!(studentTM ==null)){
 
             String gender = null;
             if (rBtnFemale.isSelected()){
@@ -353,7 +354,7 @@ public class ManageFormController {
                 gender="Male";
             }
 
-            if (gender.equals(studentDTO.getGender())){
+            if (gender.equals(studentTM.getGender())){
                 btnManageStudent.setText("Delete Student");
             }else {
                 btnManageStudent.setText("Update Student");
@@ -367,7 +368,7 @@ public class ManageFormController {
         clearTextFields();
         btnManageStudent.setText("Add Student");
         txtStudentId.setText(manageBO.generateNewId());
-        studentDTO=null;
+        studentTM=null;
         btnManageStudent.setDisable(false);
     }
 
