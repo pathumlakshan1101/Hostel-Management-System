@@ -8,6 +8,7 @@ import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
+import com.hibernate.hostel_management_system.view.tdm.RoomTM;
 import com.hibernate.hostel_management_system.view.tdm.StudentTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -57,7 +58,7 @@ public class ManageFormController {
     public JFXTextField txtMonthlyRental;
     public JFXTextField txtRoomQty;
     public JFXButton btnManageRoom;
-    public TableView<RoomDTO> tblRoom;
+    public TableView<RoomTM> tblRoom;
     public TableColumn colRoomID;
     public TableColumn colRoomType;
     public TableColumn colRoomMonthlyRental;
@@ -77,7 +78,7 @@ public class ManageFormController {
     public JFXTextField txtStatus;
     public JFXTextField txtReserveId;
     private StudentTM studentTM ;
-    private RoomDTO roomDTO;
+    private RoomTM roomTM;
     private ReservationDTO reservationDTO;
     LinkedHashMap<JFXTextField, Pattern> studentMap = new LinkedHashMap<>();
     LinkedHashMap<JFXTextField, Pattern> roomMap = new LinkedHashMap<>();
@@ -162,7 +163,7 @@ public class ManageFormController {
         tblRoom.getSelectionModel().selectedItemProperty().addListener((observable1, oldValue1, tblRoomNewValue) -> {
             btnManageRoom.setText(tblRoomNewValue!=null ? "Delete Room" : "Manage Room" );
             btnManageRoom.setDisable(false);
-            roomDTO=tblRoomNewValue;
+            roomTM=tblRoomNewValue;
             if (!(tblRoomNewValue == null)){
                 txtRoomId.setText(tblRoomNewValue.getRoomID());
                 txtRoomType.setText(tblRoomNewValue.getRoomType());
@@ -237,7 +238,7 @@ public class ManageFormController {
 
         for (RoomDTO room:allRoom
              ) {
-            tblRoom.getItems().add(room);
+            tblRoom.getItems().add(new RoomTM(room.getRoomID(),room.getRoomType(),room.getMonthlyRental(),room.getQty()));
         }
     }
 
@@ -330,8 +331,8 @@ btnManageStudent.setDisable(true);
             }
         }
 
-        if (!(roomDTO==null)){
-            if ( txtRoomType.getText().equals(roomDTO.getRoomType()) && roomDTO.getMonthlyRental()== Double.parseDouble(txtMonthlyRental.getText()) && roomDTO.getQty()==Integer.parseInt(txtRoomQty.getText())
+        if (!(roomTM==null)){
+            if ( txtRoomType.getText().equals(roomTM.getRoomType()) && roomTM.getMonthlyRental()== Double.parseDouble(txtMonthlyRental.getText()) && roomTM.getQty()==Integer.parseInt(txtRoomQty.getText())
             ){
                 btnManageRoom.setText("Delete Room");
             }else {
@@ -426,7 +427,7 @@ btnManageStudent.setDisable(true);
     public void addRoomOnMouseClick(MouseEvent mouseEvent) throws SQLException, IOException, ClassNotFoundException {
         clearTextFields();
         txtRoomId.setText(manageBO.generateNewRoomId());
-        roomDTO=null;
+        roomTM=null;
         btnManageRoom.setText("Add Room");
         btnManageRoom.setDisable(false);
     }
