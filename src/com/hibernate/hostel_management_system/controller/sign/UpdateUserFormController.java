@@ -66,19 +66,25 @@ public class UpdateUserFormController {
         txtEmail.setText(userDTO.getEmail());
         txtContactNo.setText(userDTO.getContactNo());
         pswdfldPassword.setText(userDTO.getPassword());
+        checkEqual();
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
         ValidationUtil.validate(map,btnUpdate);
         ValidationUtil.validatePswd(mapPswd,btnUpdate);
 
+        checkEqual();
+    }
+
+    private void checkEqual() {
+
         if (txtContactNo.getText().equals(userDTO.getContactNo())  &&  txtEmail.getText().equals(userDTO.getEmail()) && pswdfldPassword.getText().equals(userDTO.getPassword())){
             btnUpdate.setText("Delete");
         }else {
             btnUpdate.setText("Update");
         }
-
     }
+
     public void updateOnAction(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
 
         if (btnUpdate.getText().equals("Delete")){

@@ -40,7 +40,7 @@ public class SignInFormController {
     LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
     LinkedHashMap<JFXPasswordField, Pattern> mapPswd = new LinkedHashMap<>();
     public void initialize() throws SQLException, IOException, ClassNotFoundException {
-
+        btnSignIn.setDisable(true);
         Pattern fullNamePattern = Pattern.compile("^[A-Z][a-z]*");
         Pattern passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,12}$");
         map.put(txtUserName,fullNamePattern);
@@ -55,6 +55,7 @@ public class SignInFormController {
             UiNavigateUtil.newUi(signInContex,"dashboard/DashBoardForm");
         }else {
             NotificationUtil.notificationsError("Wrong Password Or UserName","ERROR");
+            btnSignIn.setDisable(true);
         }
         txtUserName.clear();
         pswdfldPassword.clear();

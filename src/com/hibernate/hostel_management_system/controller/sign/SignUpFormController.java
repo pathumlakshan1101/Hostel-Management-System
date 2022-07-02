@@ -44,7 +44,7 @@ public class SignUpFormController {
     public void initialize(){
         imgVisibilityOff.setVisible(false);
         txtPassword.setVisible(false);
-
+        btnSignUp.setDisable(true);
 
 
         Pattern fullNamePattern = Pattern.compile("^[A-Z][a-z]*[ ][A-Z][a-z]*$");
