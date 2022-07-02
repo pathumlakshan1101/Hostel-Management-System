@@ -415,6 +415,7 @@ public class ManageFormController {
             }
 
         }
+        btnManageRoom.setDisable(true);
     }
 
     public void refreshOnMouseClick(MouseEvent mouseEvent) throws IOException {
@@ -453,6 +454,7 @@ public class ManageFormController {
             }
 
         }
+        btnManageReservation.setDisable(true);
     }
 
 
