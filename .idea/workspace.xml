@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0afb92-3517-4dae-ae90-411b8c90e8c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/view/tdm/ReservationTM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/SignInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/SignInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/SignUpFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/SignUpFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/UpdateUserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/sign/UpdateUserFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/ReserveRoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hibernate/hostel_management_system/controller/dashboard/ReserveRoomFormController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +91,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppInitializer" />
@@ -143,7 +153,8 @@
       <workItem from="1656590293834" duration="2091000" />
       <workItem from="1656599438605" duration="8302000" />
       <workItem from="1656692134744" duration="3134000" />
-      <workItem from="1656732717510" duration="1048000" />
+      <workItem from="1656732717510" duration="1654000" />
+      <workItem from="1656746455671" duration="1186000" />
     </task>
     <servers />
   </component>

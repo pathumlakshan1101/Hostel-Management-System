@@ -8,6 +8,7 @@ import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.ReservationDTO;
 import com.hibernate.hostel_management_system.dto.RoomDTO;
 import com.hibernate.hostel_management_system.dto.StudentDTO;
+import com.hibernate.hostel_management_system.view.tdm.ReservationTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -63,7 +64,7 @@ public class ReserveRoomFormController {
     public JFXButton btnReserveRoom;
     public JFXTextField txtKeyMoneyStatus;
     public JFXTextField txtTimeDuration;
-    public TableView<ReservationDTO> tblReserve;
+    public TableView<ReservationTM> tblReserve;
     public TableColumn colReserveId;
     public TableColumn colDate;
     public TableColumn colStudentId;
@@ -209,7 +210,7 @@ public class ReserveRoomFormController {
         for (ReservationDTO r :allReservation
              ) {
 
-            tblReserve.getItems().add(r);
+            tblReserve.getItems().add(new ReservationTM(r.getReserveID(),r.getStudentID(),r.getRoomID(),r.getTimeDuration(),r.getStatus(),r.getReserveDate()));
         }
 
     }
