@@ -40,4 +40,6 @@ public class ReservationDTO {
         this.status = status;
         this.reserveDate = reserveDate;
     }
+
+
 }

@@ -5,6 +5,7 @@ import com.hibernate.hostel_management_system.bo.custom.IncomeBO;
 import com.hibernate.hostel_management_system.controller.util.NotificationUtil;
 import com.hibernate.hostel_management_system.controller.util.ValidationUtil;
 import com.hibernate.hostel_management_system.dto.StatusDTO;
+import com.hibernate.hostel_management_system.view.tdm.StatusTM;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ import java.util.regex.Pattern;
  * Time        : 3:36 AM
  */
 public class IncomeFormController {
-    public TableView<StatusDTO> tblStatus;
+    public TableView<StatusTM> tblStatus;
     public TableColumn colStudentId;
     public TableColumn colStudentName;
     public TableColumn ColRoomId;
@@ -37,7 +38,7 @@ public class IncomeFormController {
     public JFXTextField txtKeyMoneyStatus;
     public JFXButton btnUpdateStatus;
 
-    StatusDTO statusDTO;
+    StatusTM statusTM;
 
     LinkedHashMap<JFXTextField, Pattern> statusMap = new LinkedHashMap<>();
 
@@ -64,7 +65,7 @@ public class IncomeFormController {
         btnUpdateStatus.setDisable(true);
 
         tblStatus.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-           statusDTO = newValue;
+            statusTM = newValue;
 
            if (newValue!=null){
                txtStudentId.setText(newValue.getStudentId());
@@ -86,13 +87,13 @@ public class IncomeFormController {
 
         for (StatusDTO statusDTO:allKeyMoneyStatus
         ) {
-            tblStatus.getItems().add(statusDTO);
+            tblStatus.getItems().add(new StatusTM(statusDTO.getStudentId(),statusDTO.getStudentName(),statusDTO.getReserveId(),statusDTO.getKeyMoneyStatus()));
         }
     }
 
 
     public void updateStatusOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
-        if(txtKeyMoneyStatus.getText().equals(statusDTO.getKeyMoneyStatus())){
+        if(txtKeyMoneyStatus.getText().equals(statusTM.getKeyMoneyStatus())){
             clearTextFields();
         }else {
            if( incomeBO.updateKeyMoneyStatus(new StatusDTO(txtStudentId.getText(),txtStudentName.getText(),txtRoomId.getText(),txtKeyMoneyStatus.getText()))){
