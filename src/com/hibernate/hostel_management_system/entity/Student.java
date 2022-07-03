@@ -31,7 +31,7 @@ public class Student {
         private String gender;
         @ManyToOne
         private User user;
-        @OneToMany(mappedBy = "student" ,fetch = FetchType.EAGER ,orphanRemoval = true)
+        @OneToMany(mappedBy = "student" ,fetch = FetchType.EAGER ,orphanRemoval = true,cascade = CascadeType.ALL)
         private  List<Reservation> reservationList = new ArrayList<>();
 
     public Student(String studentID) {

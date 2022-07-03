@@ -2,10 +2,7 @@ package com.hibernate.hostel_management_system.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +25,7 @@ public class Room {
     private String roomType;
     private double monthlyRental;
     private int qty;
-    @OneToMany(mappedBy = "room" , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "room" , fetch = FetchType.EAGER,orphanRemoval = true,cascade = CascadeType.ALL)
     private List<Reservation> reservationList = new ArrayList<>();
 
     public Room(String roomID) {

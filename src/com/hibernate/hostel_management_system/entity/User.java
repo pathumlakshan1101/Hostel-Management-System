@@ -2,10 +2,7 @@ package com.hibernate.hostel_management_system.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +27,7 @@ public class User {
     private String contactNo;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "user" , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user" , fetch = FetchType.EAGER,orphanRemoval = true,cascade = CascadeType.ALL)
     private
     List<Student> studentList = new ArrayList<>();
 
