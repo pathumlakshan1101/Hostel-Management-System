@@ -25,7 +25,7 @@ public class Room {
     private String roomType;
     private double monthlyRental;
     private int qty;
-    @OneToMany(mappedBy = "room" , fetch = FetchType.EAGER,orphanRemoval = true,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "room" , fetch = FetchType.LAZY,orphanRemoval = true,cascade = CascadeType.ALL)
     private List<Reservation> reservationList = new ArrayList<>();
 
     public Room(String roomID) {

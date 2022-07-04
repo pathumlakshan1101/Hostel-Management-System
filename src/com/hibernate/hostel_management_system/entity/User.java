@@ -27,7 +27,7 @@ public class User {
     private String contactNo;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "user" , fetch = FetchType.EAGER,orphanRemoval = true,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY,orphanRemoval = true,cascade = CascadeType.ALL)
     private
     List<Student> studentList = new ArrayList<>();
 
